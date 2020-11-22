@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 14:48:52
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-08 23:43:44
+ * @LastEditTime: 2020-11-08 23:57:18
  * @Description: 资源管理器
  */
 using System.Collections;
@@ -26,7 +26,6 @@ namespace Framework.Resource
 
         // 保存读取的资源信息
         private AssetInfoManager mAssetInfoManager = null;
-        private Dictionary<string, string> mResources = new Dictionary<string, string>();
         // 已加载的资源
         private Dictionary<string, ResourceUnit> mLoadedResourceUnit = new Dictionary<string, ResourceUnit>();
 
@@ -296,7 +295,7 @@ namespace Framework.Resource
         }
 
         // 加载单个资源
-        ResourceUnit _LoadImmediate(string fileName, ResourceType resourceType)
+        private ResourceUnit _LoadImmediate(string fileName, ResourceType resourceType)
         {
             if (!mLoadedResourceUnit.ContainsKey(fileName))
             {

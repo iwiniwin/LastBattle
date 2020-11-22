@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 17:47:07
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-08 19:58:09
+ * @LastEditTime: 2020-11-11 23:03:07
  * @Description: 文件操作工具类
  */
 using System.Collections;
@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Framework.Utils
 {
-    public class FileUtil
+    public static class FileUtil
     {
         public static byte[] GetAssetBundleFileBytes(string path, ref int size)
         {
