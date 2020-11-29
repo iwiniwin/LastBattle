@@ -6,11 +6,11 @@ namespace Game
 {
     public interface IGameState
     {
-        GameStateType Type{get; set;}
+        EGameStateType Type{get; set;}
 
-        void SetStateTo(GameStateType type);
+        void SetStateTo(EGameStateType type);
         void Enter();
-        GameStateType Update(float deltaTime);
+        EGameStateType Update(float deltaTime);
         void FixedUpdate(float fixedDeltaTime);
         void Exit();
     }

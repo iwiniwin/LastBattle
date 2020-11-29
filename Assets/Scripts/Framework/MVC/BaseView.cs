@@ -2,13 +2,13 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:48:48
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-11 23:46:56
+ * @LastEditTime: 2020-11-29 23:43:21
  * @Description: 视图基类
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UDK.Utils;
+using UDK.Debug;
 using UDK.UI;
 
 namespace UDK.View
@@ -17,7 +17,7 @@ namespace UDK.View
     {
         protected Transform mRoot;  // 根节点
 
-        protected SceneType mSceneType;  // 场景类型
+        protected ESceneType mSceneType;  // 场景类型
         protected string mResName;  // 资源名称
         protected bool mResident;  // 是否常驻
         protected bool mVisible;  // 是否可见
@@ -55,7 +55,7 @@ namespace UDK.View
             }
         }
 
-        public SceneType SceneType
+        public ESceneType SceneType
         {
             get
             {

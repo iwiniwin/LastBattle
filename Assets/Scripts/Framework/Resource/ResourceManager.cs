@@ -2,13 +2,14 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 14:48:52
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-08 23:57:18
+ * @LastEditTime: 2020-11-29 23:44:57
  * @Description: 资源管理器
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UDK.Utils;
+using UDK.Debug;
 using System.IO;
 using UnityEngine.SceneManagement;
 
@@ -62,6 +63,7 @@ namespace UDK.Resource
             }
         }
 
+        // 处理一次请求
         private void HandleRequest()
         {
             mCurrentRequest = mAllRequests.Dequeue();
@@ -70,12 +72,12 @@ namespace UDK.Resource
             {
                 switch (mCurrentRequest.mRequestType)
                 {
-                    case RequestType.LOAD:
+                    case ERequestType.LOAD:
                         {
                             switch (mCurrentRequest.mResourceType)
                             {
-                                case ResourceType.ASSET:
-                                case ResourceType.PREFAB:
+                                case EResourceType.ASSET:
+                                case EResourceType.PREFAB:
                                     {
                                         if (mLoadedResourceUnit.ContainsKey(fileName))  // 资源已加载
                                         {
@@ -93,16 +95,16 @@ namespace UDK.Resource
                                         }
                                     }
                                     break;
-                                case ResourceType.LEVEL_ASSET:
+                                case EResourceType.LEVEL_ASSET:
                                     DebugEx.LogError("unknow");
                                     break;
-                                case ResourceType.LEVEL:
+                                case EResourceType.LEVEL:
                                     DebugEx.LogError("unknow");
                                     break;
                             }
                         }
                         break;
-                    case RequestType.UNLOAD:
+                    case ERequestType.UNLOAD:
                         {
                             if (!mLoadedResourceUnit.ContainsKey(fileName))
                                 DebugEx.LogError("can not find " + fileName);
@@ -113,12 +115,12 @@ namespace UDK.Resource
                             HandleResponse();
                         }
                         break;
-                    case RequestType.LOAD_LEVEL:
+                    case ERequestType.LOAD_LEVEL:
                         {
-                            StartCoroutine(_LoadLevel(fileName, mCurrentRequest.mHandleLevel, ResourceType.LEVEL, mCurrentRequest.mResourceAsyncOperation));
+                            StartCoroutine(_LoadLevel(fileName, mCurrentRequest.mHandleLevel, EResourceType.LEVEL, mCurrentRequest.mResourceAsyncOperation));
                         }
                         break;
-                    case RequestType.UNLOAD_LEVEL:
+                    case ERequestType.UNLOAD_LEVEL:
                         {
                             if (!mLoadedResourceUnit.ContainsKey(fileName))
                                 DebugEx.LogError("can not find levle " + fileName);
@@ -137,21 +139,21 @@ namespace UDK.Resource
             {
                 switch (mCurrentRequest.mRequestType)
                 {
-                    case RequestType.LOAD:
+                    case ERequestType.LOAD:
                         {
                             switch(mCurrentRequest.mResourceType){
-                                case ResourceType.ASSET:
-                                case ResourceType.PREFAB:
+                                case EResourceType.ASSET:
+                                case EResourceType.PREFAB:
                                     {
                                         DebugEx.LogError("unknow");
                                     }
                                     break;
-                                case ResourceType.LEVEL_ASSET:
+                                case EResourceType.LEVEL_ASSET:
                                     {
                                         DebugEx.LogError("unknow");
                                     }
                                     break;
-                                case ResourceType.LEVEL:
+                                case EResourceType.LEVEL:
                                     {
                                         DebugEx.LogError("this is impossible !!!");
                                     }
@@ -160,17 +162,17 @@ namespace UDK.Resource
                             
                         }
                         break;
-                    case RequestType.UNLOAD:
+                    case ERequestType.UNLOAD:
                         {
                             HandleResponse();
                         }
                         break;
-                    case RequestType.LOAD_LEVEL:
+                    case ERequestType.LOAD_LEVEL:
                         {
-                            StartCoroutine(_LoadLevel(fileName, mCurrentRequest.mHandleLevel, ResourceType.LEVEL, mCurrentRequest.mResourceAsyncOperation));
+                            StartCoroutine(_LoadLevel(fileName, mCurrentRequest.mHandleLevel, EResourceType.LEVEL, mCurrentRequest.mResourceAsyncOperation));
                         }
                         break;
-                    case RequestType.UNLOAD_LEVEL:
+                    case ERequestType.UNLOAD_LEVEL:
                         {
                             if (null != mCurrentRequest.mHandleUnloadLevel)
                                 mCurrentRequest.mHandleUnloadLevel();
@@ -186,7 +188,7 @@ namespace UDK.Resource
             mCurrentRequest = null;
         }
 
-        public ResourceUnit LoadImmediate(string filePath, ResourceType resourceType, string archiveName = "Resources")
+        public ResourceUnit LoadImmediate(string filePath, EResourceType EResourceType, string archiveName = "Resources")
         {
             if (UsedAssetBundle)
             {
@@ -200,17 +202,17 @@ namespace UDK.Resource
                 {
                     AssetInfo dependencyAsset = mAssetInfoManager.GetAssetInfo(index);
                     string dependencyAssetName = dependencyAsset.Name;
-                    return _LoadImmediate(fullName, resourceType);
+                    return _LoadImmediate(fullName, EResourceType);
                 }
 
                 // 加载自身
-                ResourceUnit unit = _LoadImmediate(fullName, resourceType);
+                ResourceUnit unit = _LoadImmediate(fullName, EResourceType);
                 return unit;
             }
             else
             {
                 Object asset = Resources.Load(filePath);
-                return new ResourceUnit(null, 0, asset, null, resourceType);
+                return new ResourceUnit(null, 0, asset, null, EResourceType);
             }
         }
 
@@ -227,20 +229,20 @@ namespace UDK.Resource
                 }
                 else
                 {
-                    ResourceAsyncOperation operation = new ResourceAsyncOperation(RequestType.LOAD_LEVEL);
-                    mAllRequests.Enqueue(new Request(fullName, ResourceType.LEVEL, handle, RequestType.LOAD_LEVEL, operation));
+                    ResourceAsyncOperation operation = new ResourceAsyncOperation(ERequestType.LOAD_LEVEL);
+                    mAllRequests.Enqueue(new Request(fullName, EResourceType.LEVEL, handle, ERequestType.LOAD_LEVEL, operation));
                     return operation;
                 }
             }
             else
             {
-                ResourceAsyncOperation operation = new ResourceAsyncOperation(RequestType.LOAD_LEVEL);
-                mAllRequests.Enqueue(new Request(fileName, ResourceType.LEVEL, handle, RequestType.LOAD_LEVEL, operation));
+                ResourceAsyncOperation operation = new ResourceAsyncOperation(ERequestType.LOAD_LEVEL);
+                mAllRequests.Enqueue(new Request(fileName, EResourceType.LEVEL, handle, ERequestType.LOAD_LEVEL, operation));
                 return operation;
             }
         }
 
-        private IEnumerator _LoadLevel(string path, LoadLevelFinishEventHandle handle, ResourceType resourceType, ResourceAsyncOperation operation)
+        private IEnumerator _LoadLevel(string path, LoadLevelFinishEventHandle handle, EResourceType EResourceType, ResourceAsyncOperation operation)
         {
             if (UsedAssetBundle)
             {
@@ -254,7 +256,7 @@ namespace UDK.Resource
                     AssetInfo dependencyAsset = mAssetInfoManager.GetAssetInfo(index);
                     string dependencyAssetName = dependencyAsset.Name;
 
-                    ResourceUnit unit = _LoadImmediate(dependencyAssetName, ResourceType.LEVEL);
+                    ResourceUnit unit = _LoadImmediate(dependencyAssetName, EResourceType.LEVEL);
                     operation.mLoadedDependenciesAssetSize += unit.AssetBundleSize;
                 }
 
@@ -281,10 +283,9 @@ namespace UDK.Resource
             }
             else
             {
-                ResourceUnit level = new ResourceUnit(null, 0, null, path, resourceType);
-
+                ResourceUnit level = new ResourceUnit(null, 0, null, path, EResourceType);
                 string sceneName = FileUtil.GetFileName(path, true);
-                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(FileUtil.GetFileName(path, false));
+                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
                 operation.asyncOperation = asyncOperation;
                 yield return asyncOperation;
                 operation.asyncOperation = null;
@@ -295,7 +296,7 @@ namespace UDK.Resource
         }
 
         // 加载单个资源
-        private ResourceUnit _LoadImmediate(string fileName, ResourceType resourceType)
+        private ResourceUnit _LoadImmediate(string fileName, EResourceType EResourceType)
         {
             if (!mLoadedResourceUnit.ContainsKey(fileName))
             {
@@ -310,7 +311,7 @@ namespace UDK.Resource
                 if (!asset)
                     DebugEx.LogError("load assetbundle failed");
 
-                ResourceUnit unit = new ResourceUnit(assetBundle, assetBundleSize, asset, fileName, resourceType);
+                ResourceUnit unit = new ResourceUnit(assetBundle, assetBundleSize, asset, fileName, EResourceType);
                 mLoadedResourceUnit.Add(fileName, unit);
                 return unit;
             }

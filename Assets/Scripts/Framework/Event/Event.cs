@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:06:53
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-22 22:11:49
+ * @LastEditTime: 2020-11-29 23:40:59
  * @Description: 
  */
 using System.Collections;
@@ -13,20 +13,20 @@ namespace UDK.Event
 
     public class Event
     {
-        private GameEvent mId;
+        private EGameEvent mId;
         private Dictionary<string, object> mParamList;
         public Event()
         {
             mParamList = new Dictionary<string, object>();
         }
 
-        public Event(GameEvent id)
+        public Event(EGameEvent id)
         {
             mId = id;
             mParamList = new Dictionary<string, object>();
         }
 
-        public GameEvent ID
+        public EGameEvent ID
         {
             get
             {

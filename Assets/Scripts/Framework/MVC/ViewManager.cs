@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UDK.View
 {
-    public enum SceneType {
+    public enum ESceneType {
         ST_None,
         ST_Login,
         ST_Play
@@ -36,7 +36,7 @@ namespace UDK.View
             }
         }
 
-        public void Hide(SceneType front){
+        public void Hide(ESceneType front){
             foreach(var item in mViewDic){
                 if(front == item.Value.SceneType){
                     item.Value.Hide();

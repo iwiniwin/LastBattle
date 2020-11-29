@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UDK.FSM
 {
-    public enum FSMState
+    public enum EFSMState
     {
         FREE,
         RUN,

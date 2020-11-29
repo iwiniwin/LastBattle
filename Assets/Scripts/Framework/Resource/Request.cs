@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 14:51:07
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-08 18:42:14
+ * @LastEditTime: 2020-11-29 23:47:23
  * @Description: 
  */
 using System.Collections;
@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace UDK.Resource
 {
-    public enum RequestType
+    public enum ERequestType
     {
         LOAD,
         UNLOAD,
@@ -22,15 +22,15 @@ namespace UDK.Resource
     public class Request
     {
         internal string mFileName;
-        internal ResourceType mResourceType;
+        internal EResourceType mResourceType;
         internal ResourceManager.LoadFinishEventHandle mHandle;
         internal ResourceManager.LoadLevelFinishEventHandle mHandleLevel;
         internal ResourceManager.UnloadLevelFinishEventHandle mHandleUnloadLevel;
 
-        internal RequestType mRequestType;
+        internal ERequestType mRequestType;
         internal ResourceAsyncOperation mResourceAsyncOperation;
 
-        internal Request(string fileName, ResourceType resourceType, ResourceManager.LoadFinishEventHandle handle, RequestType requestType, ResourceAsyncOperation operation)
+        internal Request(string fileName, EResourceType resourceType, ResourceManager.LoadFinishEventHandle handle, ERequestType requestType, ResourceAsyncOperation operation)
         {
             mFileName = fileName;
             mResourceType = resourceType;
@@ -39,7 +39,7 @@ namespace UDK.Resource
             mResourceAsyncOperation = operation;
         }
 
-        internal Request(string fileName, ResourceType resourceType, ResourceManager.LoadLevelFinishEventHandle handle, RequestType requestType, ResourceAsyncOperation operation){
+        internal Request(string fileName, EResourceType resourceType, ResourceManager.LoadLevelFinishEventHandle handle, ERequestType requestType, ResourceAsyncOperation operation){
             mFileName = fileName;
             mResourceType = resourceType;
             mHandleLevel = handle;
@@ -47,7 +47,7 @@ namespace UDK.Resource
             mResourceAsyncOperation = operation;
         }
 
-        internal Request(string fileName, ResourceType resourceType, ResourceManager.UnloadLevelFinishEventHandle handle, RequestType requestType, ResourceAsyncOperation operation){
+        internal Request(string fileName, EResourceType resourceType, ResourceManager.UnloadLevelFinishEventHandle handle, ERequestType requestType, ResourceAsyncOperation operation){
             mFileName = fileName;
             mResourceType = resourceType;
             mHandleUnloadLevel = handle;

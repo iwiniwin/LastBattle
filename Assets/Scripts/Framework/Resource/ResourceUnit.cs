@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-07 21:50:59
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-08 23:31:53
+ * @LastEditTime: 2020-11-29 23:46:34
  * @Description: 资源单元
  */
 using System.Collections;
@@ -14,7 +14,7 @@ using Object = UnityEngine.Object;
 namespace UDK.Resource
 {
     // 资源类型
-    public enum ResourceType
+    public enum EResourceType
     {
         ASSET,
         PREFAB,
@@ -26,13 +26,13 @@ namespace UDK.Resource
     {
         private string mPath;
         private Object mAsset;  // 资源本身
-        private ResourceType mResourceType;
+        private EResourceType mResourceType;
         private List<ResourceUnit> mNextLevelAssets;  // 记录下一个场景的资源
         private AssetBundle mAssetBundle;
         private int mAssetBundleSize;
         private int mReferenceCount;
 
-        internal ResourceUnit(AssetBundle assetBundle, int assetBundleSize, Object asset, string path, ResourceType resourceType)
+        internal ResourceUnit(AssetBundle assetBundle, int assetBundleSize, Object asset, string path, EResourceType resourceType)
         {
             mAssetBundle = assetBundle;
             mAssetBundleSize = assetBundleSize;
@@ -55,7 +55,7 @@ namespace UDK.Resource
             }
         }
 
-        public ResourceType ResourceType
+        public EResourceType ResourceType
         {
             get
             {

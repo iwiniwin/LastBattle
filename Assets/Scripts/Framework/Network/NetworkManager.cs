@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.Net.Sockets;
 using System.IO;
-using UDK.Utils;
+using UDK.Debug;
 using System.Net;
 using UDK.Event;
 
@@ -12,7 +12,7 @@ namespace UDK.Network
 {
     public class NetworkManager : Singleton<NetworkManager>
     {
-        public enum ServerType
+        public enum EServerType
         {
             GateServer = 0,
             BalanceServer,
@@ -24,7 +24,7 @@ namespace UDK.Network
         private string mIP = "";
         private Int32 mPort = 40001;
         private Int32 mConnectTimes = 0;
-        private ServerType mServerType = ServerType.BalanceServer;
+        private EServerType mServerType = EServerType.BalanceServer;
         private float mCanConnectTime = 0f;
         private float mRecvOverTime = 0f;
         private float mRecvOverDelayTime = 2f;
@@ -81,7 +81,7 @@ namespace UDK.Network
             }
         }
 
-        public void Init(string ip, Int32 port, ServerType type)
+        public void Init(string ip, Int32 port, EServerType type)
         {
             DebugEx.Log("set network ip : " + ip + " port : " + port + " type : " + type);
             mIP = ip;
@@ -311,9 +311,9 @@ namespace UDK.Network
 
         public void OnConnected(object sender, EventArgs e)
         {
-            switch (mServerType)
-            {
-                // todo
+            // todo
+            // switch (mServerType)
+            // {
                 // case ServerType.BalanceServer:
                 //     {
                 //         CGLCtrl_GameLogic.Instance.BsOneClinetLogin();
@@ -338,7 +338,7 @@ namespace UDK.Network
                 //         CGLCtrl_GameLogic.Instance.EmsgToLs_AskLogin();
                 //     }
                 //     break;
-            }
+            // }
         }
 
         public void OnConnectError(object sender, ErrorEventArgs e)
@@ -362,14 +362,14 @@ namespace UDK.Network
             mRecvOverCount = 0;
             mConnectOverCount = 0;
 
-            EventSystem.Broadcast(GameEvent.GameEvent_ConnectServerFail);
+            EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
 
             DebugEx.Log("OnConnectError end");
         }
 
         public void OnClosed(object sender, EventArgs e)
         {
-            EventSystem.Broadcast(GameEvent.GameEvent_ConnectServerFail);
+            EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
             
             try
             {
@@ -492,7 +492,7 @@ namespace UDK.Network
 
                 if (mRecvPos < 0)
                 {
-                    Debug.LogError("mRecvPos < 0");
+                    DebugEx.LogError("mRecvPos < 0");
                 }
 
                 if (mRecvPos > 0)

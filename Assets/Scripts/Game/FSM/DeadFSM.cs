@@ -13,9 +13,9 @@ namespace Game
 
         }
 
-        public FSMState State {
+        public EFSMState State {
             get {
-                return FSMState.DEAD;
+                return EFSMState.DEAD;
             }
         }
 
@@ -38,7 +38,7 @@ namespace Game
         }
 
         public void Exit(Entity entity){
-            if(entity.FSM != null && entity.FSM.State == FSMState.DEAD){
+            if(entity.FSM != null && entity.FSM.State == EFSMState.DEAD){
                 entity.objTransform.position = entity.FSMDirection;
                 entity.objTransform.rotation = Quaternion.LookRotation(entity.FSMDirection);
                 entity.OnReborn();

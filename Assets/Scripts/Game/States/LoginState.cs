@@ -7,7 +7,7 @@ namespace Game
 {
     public class LoginState : IGameState
     {
-        GameStateType type;
+        EGameStateType type;
 
         GameObject mSceneRoot;
 
@@ -15,18 +15,18 @@ namespace Game
 
         }
 
-        public GameStateType Type {
+        public EGameStateType Type {
             get;
             set;
         }
 
-        public void SetStateTo(GameStateType type){
+        public void SetStateTo(EGameStateType type){
             this.type = type;
         }
 
         public void Enter(){
-            SetStateTo(GameStateType.Continue);
-            ResourceUnit unit = ResourceManager.Instance.LoadImmediate("", ResourceType.PREFAB);
+            SetStateTo(EGameStateType.Continue);
+            ResourceUnit unit = ResourceManager.Instance.LoadImmediate("", EResourceType.PREFAB);
             mSceneRoot = GameObject.Instantiate(unit.Asset) as GameObject;
             
         }
@@ -39,7 +39,7 @@ namespace Game
 
         }
 
-        public GameStateType Update(float deltaTime){
+        public EGameStateType Update(float deltaTime){
             return type;
         }
     }

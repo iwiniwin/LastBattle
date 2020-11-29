@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UDK.Resource;
-using UDK.Utils;
+using UDK.Debug;
 
 namespace UDK
 {
-    public enum PoolObjectType
+    public enum EPoolObjectType
     {
         POT_Effect,
     }
@@ -17,7 +17,7 @@ namespace UDK
 
         // 缓存时间
         public float mCacheTime;
-        public PoolObjectType type;
+        public EPoolObjectType type;
 
         // 是否可以重用
         public bool mCanUse = true;
@@ -67,7 +67,7 @@ namespace UDK
             if (!mPoolDic.TryGetValue(res, out pool) || !TryGetObject(pool, out pair))
             {
                 // 新创建
-                ResourceUnit unit = ResourceManager.Instance.LoadImmediate(res, ResourceType.PREFAB);
+                ResourceUnit unit = ResourceManager.Instance.LoadImmediate(res, EResourceType.PREFAB);
                 if (unit.Asset == null)
                 {
                     DebugEx.Log("can not find the resource " + res);
@@ -83,7 +83,7 @@ namespace UDK
             return go;
         }
 
-        public void ReleaseObject(string res, GameObject gameObject, PoolObjectType type)
+        public void ReleaseObject(string res, GameObject gameObject, EPoolObjectType type)
         {
             if (objectsPool == null)
             {
@@ -126,7 +126,7 @@ namespace UDK
         public void DisablePoolObject(GameObject go, PoolObjectInfo info)
         {
             //特效Disable
-            if (info.type == PoolObjectType.POT_Effect)
+            if (info.type == EPoolObjectType.POT_Effect)
             {
                 ParticleSystem[] particles = go.GetComponentsInChildren<ParticleSystem>(true);
                 foreach (ParticleSystem part in particles)

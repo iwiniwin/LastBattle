@@ -6,7 +6,7 @@ namespace UDK.UI
 {
     public class ButtonOnPress : BaseGUI
     {
-        public enum EventType {
+        public enum EEventType {
             ClickType,
             PressType
         }
@@ -18,25 +18,25 @@ namespace UDK.UI
                 ClickHandler(PrIe, false);
         }
 
-        public void AddListener(int ie, HandleOnPress handler, EventType type = EventType.ClickType) {
+        public void AddListener(int ie, HandleOnPress handler, EEventType type = EEventType.ClickType) {
             PrIe = ie;
-            if(type == EventType.ClickType){
+            if(type == EEventType.ClickType){
                 ClickHandler += handler;
             }else{
                 PressHandler += handler;
             }
         }
 
-        public void AddListener(HandleOnPress handler, EventType type = EventType.ClickType){
-            if(type == EventType.ClickType){
+        public void AddListener(HandleOnPress handler, EEventType type = EEventType.ClickType){
+            if(type == EEventType.ClickType){
                 ClickHandler += handler;
             }else{
                 PressHandler += handler;
             }
         }
 
-        public void RemoveListener(HandleOnPress handler, EventType type = EventType.ClickType){
-            if(type == EventType.ClickType){
+        public void RemoveListener(HandleOnPress handler, EEventType type = EEventType.ClickType){
+            if(type == EEventType.ClickType){
                 ClickHandler -= handler;
             }else{
                 PressHandler -= handler;

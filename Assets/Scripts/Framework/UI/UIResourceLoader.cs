@@ -2,14 +2,14 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:13:15
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-11 23:02:33
+ * @LastEditTime: 2020-11-29 23:16:11
  * @Description: UI资源加载器
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UDK.Resource;
-using UDK.Utils;
+using UDK.Debug;
 
 namespace UDK.UI
 {
@@ -24,7 +24,7 @@ namespace UDK.UI
             GameObject obj = Find(path);
             if (obj != null)
                 return obj;
-            ResourceUnit unit = ResourceManager.Instance.LoadImmediate(path, ResourceType.PREFAB);
+            ResourceUnit unit = ResourceManager.Instance.LoadImmediate(path, EResourceType.PREFAB);
             if (unit == null || unit.Asset == null)
             {
                 DebugEx.LogError("load unit failed " + path);

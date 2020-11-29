@@ -6,7 +6,7 @@ using UDK;
 namespace Game
 {
 
-    public enum GameStateType {
+    public enum EGameStateType {
         Continue,
         Login,
         User,
@@ -20,11 +20,11 @@ namespace Game
 
     public class GameStateManager : Singleton<GameStateManager>
     {
-        Dictionary<GameStateType, IGameState> mStatesDic;
+        Dictionary<EGameStateType, IGameState> mStatesDic;
         IGameState currentState;
 
         public GameStateManager(){
-            mStatesDic = new Dictionary<GameStateType, IGameState>();
+            mStatesDic = new Dictionary<EGameStateType, IGameState>();
         }
 
         public IGameState CurrentState {
@@ -33,8 +33,8 @@ namespace Game
             }
         }
 
-        public void ChangeGameStateTo(GameStateType stateType){
-            if(currentState != null && currentState.Type != GameStateType.Loading && currentState.Type == stateType)
+        public void ChangeGameStateTo(EGameStateType stateType){
+            if(currentState != null && currentState.Type != EGameStateType.Loading && currentState.Type == stateType)
                 return;
 
             if(mStatesDic.ContainsKey(stateType)){
@@ -47,7 +47,7 @@ namespace Game
         }
 
         public void EnterDefaultState(){
-            ChangeGameStateTo(GameStateType.Login);
+            ChangeGameStateTo(EGameStateType.Login);
         }
 
         public void FixedUpdate(float fixedDeltaTime){
@@ -57,16 +57,16 @@ namespace Game
         }
 
         public void Update(float deltaTime){
-            GameStateType nextStateType = GameStateType.Continue;
+            EGameStateType nextStateType = EGameStateType.Continue;
             if(currentState != null){
                 nextStateType = currentState.Update(deltaTime);
             }
-            if(nextStateType > GameStateType.Continue){
+            if(nextStateType > EGameStateType.Continue){
                 ChangeGameStateTo(nextStateType);
             }
         }
 
-        public IGameState GetState(GameStateType type){
+        public IGameState GetState(EGameStateType type){
             if(!mStatesDic.ContainsKey(type)){
                 return null;
             }
