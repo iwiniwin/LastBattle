@@ -8,10 +8,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Framework.Utils;
-using Framework.UI;
+using UDK.Utils;
+using UDK.UI;
 
-namespace Framework.View
+namespace UDK.View
 {
     public abstract class BaseView
     {

@@ -16,9 +16,9 @@ using System.Text.RegularExpressions;
 using System.Diagnostics;
 using UnityObject = UnityEngine.Object;
 // using Debug = UnityEngine.Debug;
-using Debug = Framework.Utils.DebugEx;
+using Debug = UDK.Utils.DebugEx;
 
-namespace Framework.Utils{
+namespace UDK.Utils{
     public delegate void LogDelegate(object message);
     public delegate void LogDelegate2(object message, UnityObject context);
 

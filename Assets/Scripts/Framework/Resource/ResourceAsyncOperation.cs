@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework.Resource
+namespace UDK.Resource
 {
     public class ResourceAsyncOperation 
     {

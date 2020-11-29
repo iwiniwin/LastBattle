@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework.Utils
+namespace UDK.Utils
 {
     public static class AudioUtil
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework.View
+namespace UDK.View
 {
     public enum SceneType {
         ST_None,

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Framework.Resource;
-using Framework.Utils;
+using UDK.Resource;
+using UDK.Utils;
 
-namespace Framework
+namespace UDK
 {
     public enum PoolObjectType
     {

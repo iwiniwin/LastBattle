@@ -11,9 +11,9 @@ using UnityEngine;
 using System.Xml;
 using System;
 using System.IO;
-using Framework.Utils;
+using UDK.Utils;
 
-namespace Framework.Resource
+namespace UDK.Resource
 {
     public class AssetInfo
     {

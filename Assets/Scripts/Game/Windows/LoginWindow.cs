@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Framework.View;
-using Framework.UI;
+using UDK.View;
+using UDK.UI;
 
 public class LoginWindow : BaseView
 {

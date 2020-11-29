@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Framework.Utils
+namespace UDK.Utils
 {
     public class DebugEx
     {

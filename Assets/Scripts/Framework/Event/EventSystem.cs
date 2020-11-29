@@ -34,7 +34,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework.Event
+namespace UDK.Event
 {
 
     public delegate void Callback();

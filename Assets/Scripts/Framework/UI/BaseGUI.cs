@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Framework.Utils;
+using UDK.Utils;
 
-namespace Framework.UI
+namespace UDK.UI
 {
     public class BaseGUI : MonoBehaviour
     {

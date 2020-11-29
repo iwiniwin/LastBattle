@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework.FSM
+namespace UDK.FSM
 {
     public interface IFSM<T>
     {

@@ -11,7 +11,7 @@ using UnityEngine;
 using System;
 using Object = UnityEngine.Object;
 
-namespace Framework.Resource
+namespace UDK.Resource
 {
     // 资源类型
     public enum ResourceType

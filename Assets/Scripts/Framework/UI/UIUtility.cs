@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework.UI
+namespace UDK.UI
 {
     public static class UIUtility
     {

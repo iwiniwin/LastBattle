@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 17:47:07
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-11 23:03:07
+ * @LastEditTime: 2020-11-29 20:42:44
  * @Description: 文件操作工具类
  */
 using System.Collections;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-namespace Framework.Utils
+namespace UDK.Utils
 {
     public static class FileUtil
     {
@@ -19,11 +19,11 @@ namespace Framework.Utils
             string localPath;
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
-                localPath = string.Format("{0}/{1}", Application.persistentDataPath, path + Framework.Config.AssetBundleFileSuffix);
+                localPath = string.Format("{0}/{1}", Application.persistentDataPath, path + UDK.Config.AssetBundleFileSuffix);
             }
             else
             {
-                localPath = Framework.Config.AssetBundleFilePath + path + Framework.Config.AssetBundleFileSuffix;
+                localPath = UDK.Config.AssetBundleFilePath + path + UDK.Config.AssetBundleFileSuffix;
             }
 
             if (File.Exists(localPath))
@@ -89,11 +89,11 @@ namespace Framework.Utils
             string localPath;
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
-                localPath = string.Format("{0}/{1}", Application.persistentDataPath, path + Framework.Config.AssetBundleFileSuffix);
+                localPath = string.Format("{0}/{1}", Application.persistentDataPath, path + UDK.Config.AssetBundleFileSuffix);
             }
             else
             {
-                localPath = Framework.Config.AssetBundleFilePath + path + Framework.Config.AssetBundleFileSuffix;
+                localPath = UDK.Config.AssetBundleFilePath + path + UDK.Config.AssetBundleFileSuffix;
             }
             if (File.Exists(localPath))
             {

@@ -4,11 +4,11 @@ using UnityEngine;
 using System;
 using System.Net.Sockets;
 using System.IO;
-using Framework.Utils;
+using UDK.Utils;
 using System.Net;
-using Framework.Event;
+using UDK.Event;
 
-namespace Framework.Network
+namespace UDK.Network
 {
     public class NetworkManager : Singleton<NetworkManager>
     {

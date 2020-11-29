@@ -11,9 +11,9 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Xml;
-using Framework.Utils;
+using UDK.Utils;
 
-namespace Framework.Resource
+namespace UDK.Resource
 {
     class ArchiveManager : Singleton<ArchiveManager>
     {

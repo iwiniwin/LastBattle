@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Framework.Event
+namespace UDK.Event
 {
 
     public class Event

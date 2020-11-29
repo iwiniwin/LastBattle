@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Framework
+namespace UDK
 {
 
     public abstract class Singleton<T> where T : new()

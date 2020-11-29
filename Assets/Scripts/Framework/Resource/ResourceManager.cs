@@ -8,11 +8,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Framework.Utils;
+using UDK.Utils;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-namespace Framework.Resource
+namespace UDK.Resource
 {
     public class ResourceManager : UnitySingleton<ResourceManager>
     {

@@ -8,9 +8,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Framework.Utils;
+using UDK.Utils;
 
-namespace Framework.Resource
+namespace UDK.Resource
 {
     public class Archive
     {
