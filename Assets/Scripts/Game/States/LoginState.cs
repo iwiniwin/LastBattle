@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UDK.FSM;
 using UDK.Resource;
+using GameDefine;
 
 namespace Game
 {
-    public class LoginState : IGameState
+    public class LoginState : IGameState<EGameStateType>
     {
-        EGameStateType type;
+        
 
         GameObject mSceneRoot;
 
@@ -20,12 +22,17 @@ namespace Game
             set;
         }
 
-        public void SetStateTo(EGameStateType type){
-            this.type = type;
+        public EGameStateType NextStateType {
+            get;
+            set;
+        }
+
+        public void SetNextState(EGameStateType type){
+            NextStateType = type;
         }
 
         public void Enter(){
-            SetStateTo(EGameStateType.Continue);
+            SetNextState(EGameStateType.Continue);
             ResourceUnit unit = ResourceManager.Instance.LoadImmediate("", EResourceType.PREFAB);
             mSceneRoot = GameObject.Instantiate(unit.Asset) as GameObject;
             
@@ -40,7 +47,7 @@ namespace Game
         }
 
         public EGameStateType Update(float deltaTime){
-            return type;
+            return NextStateType;
         }
     }
 }

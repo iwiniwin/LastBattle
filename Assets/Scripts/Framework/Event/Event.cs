@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:06:53
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-29 23:40:59
+ * @LastEditTime: 2020-11-30 23:46:57
  * @Description: 
  */
 using System.Collections;
@@ -10,28 +10,24 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace UDK.Event
 {
-
     public class Event
     {
-        private EGameEvent mId;
         private Dictionary<string, object> mParamList;
         public Event()
         {
             mParamList = new Dictionary<string, object>();
         }
 
-        public Event(EGameEvent id)
+        public System.Enum Id
         {
-            mId = id;
-            mParamList = new Dictionary<string, object>();
+            get;
+            set;
         }
 
-        public EGameEvent ID
+        public Event(System.Enum id)
         {
-            get
-            {
-                return mId;
-            }
+            Id = id;
+            mParamList = new Dictionary<string, object>();
         }
 
         public void AddParam(string name, object value)

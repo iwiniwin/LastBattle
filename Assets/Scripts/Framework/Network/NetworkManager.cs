@@ -362,14 +362,14 @@ namespace UDK.Network
             mRecvOverCount = 0;
             mConnectOverCount = 0;
 
-            EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
+            // EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
 
             DebugEx.Log("OnConnectError end");
         }
 
         public void OnClosed(object sender, EventArgs e)
         {
-            EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
+            // EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
             
             try
             {

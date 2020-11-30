@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameDefine 
+namespace Game 
 {
-    public class GameDefine : MonoBehaviour
+    public class UIGameSetting : MonoBehaviour
     {
+        public const string VoiceKey = "VoiceKey";
+        public const string SoundKey = "SoundKey";
+
         // Start is called before the first frame update
         void Start()
         {
