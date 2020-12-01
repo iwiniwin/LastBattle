@@ -39,7 +39,7 @@ namespace Game
             NetworkManager.Instance.Close();
 
             GameStateManager<EGameStateType>.Instance.Init(new LoginState());
-            GameStateManager<EGameStateType>.Instance.ChangeGameStateTo(EGameStateType.Login);
+            GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
 
             // 预加载，减少进入游戏资源加载卡顿
             // ConfigReader.Init();

@@ -11,7 +11,7 @@ namespace UDK.FSM
         // 下一个状态的类型
         T NextStateType{get; set;}
         void Enter();
-        T Update(float deltaTime);
+        bool Update(float deltaTime);
         void FixedUpdate(float fixedDeltaTime);
         void Exit();
     }

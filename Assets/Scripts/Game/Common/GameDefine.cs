@@ -15,7 +15,6 @@ namespace GameDefine
 
     // 游戏状态类型
     public enum EGameStateType {
-        Continue,
         Login,
         User,
         Lobby,

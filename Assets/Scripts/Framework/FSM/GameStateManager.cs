@@ -26,8 +26,9 @@ namespace UDK.FSM
             }
         }
 
-        public void ChangeGameStateTo(T stateType){
-            if(currentState != null && stateType.CompareTo(currentState.Type)  == 0)
+        public void ChangeStateTo(T stateType){
+            
+            if(currentState != null && stateType.CompareTo(currentState.Type) == 0)
                 return;
 
             if(mStatesDic.ContainsKey(stateType)){
@@ -47,8 +48,8 @@ namespace UDK.FSM
 
         public void Update(float deltaTime){
             if(currentState != null){
-                T nextStateType = nextStateType = currentState.Update(deltaTime);
-                ChangeGameStateTo(nextStateType);
+                bool needChange = currentState.Update(deltaTime);
+                ChangeStateTo(currentState.NextStateType);
             }
         }
 

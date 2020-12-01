@@ -20,7 +20,7 @@ namespace Game
         public EGameStateType Type {
             get;
             set;
-        }
+        } = EGameStateType.Login;
 
         public EGameStateType NextStateType {
             get;
@@ -32,8 +32,7 @@ namespace Game
         }
 
         public void Enter(){
-            SetNextState(EGameStateType.Continue);
-            ResourceUnit unit = ResourceManager.Instance.LoadImmediate("", EResourceType.PREFAB);
+            ResourceUnit unit = ResourceManager.Instance.LoadImmediate(GameConfig.LoginPrefabPath, EResourceType.PREFAB);
             mSceneRoot = GameObject.Instantiate(unit.Asset) as GameObject;
             
         }
@@ -46,8 +45,8 @@ namespace Game
 
         }
 
-        public EGameStateType Update(float deltaTime){
-            return NextStateType;
+        public bool Update(float deltaTime){
+            return true;
         }
     }
 }
