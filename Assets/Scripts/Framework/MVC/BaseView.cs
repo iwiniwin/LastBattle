@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:48:48
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-29 23:43:21
+ * @LastEditTime: 2020-12-03 01:20:36
  * @Description: 视图基类
  */
 using System.Collections;
@@ -11,34 +11,30 @@ using UnityEngine;
 using UDK.Debug;
 using UDK.UI;
 
-namespace UDK.View
+namespace UDK.MVC
 {
     public abstract class BaseView
     {
-        protected Transform mRoot;  // 根节点
+        public Transform Root{get; protected set;}  // 根节点
 
-        protected ESceneType mSceneType;  // 场景类型
+        // public T Type{get; protected set;}  // 视图类型
+        // public U SceneType{get; protected set;}  // 视图所属的场景类型
+
         protected string mResName;  // 资源名称
-        protected bool mResident;  // 是否常驻
-        protected bool mVisible;  // 是否可见
+        public bool IsResident{get; protected set;}  // 是否常驻
+        public bool IsVisible{get; private set;}   // 是否可见
 
-        // 类对象初始化
+        // 视图对象被实例化时触发初始化
         public abstract void Init();
 
-        // 类对象释放
+        // 视图对象被销毁时触发
         public abstract void Release();
 
-        // 控件初始化
+        // 视图上的控件初始化，视图对应的UI资源被创建时触发
         protected abstract void InitWidget();
 
-        // 控件释放
+        // 视图上的控件释放，视图对象被销毁时触发
         protected abstract void ReleaseWidget();
-
-        // 游戏事件注册
-        protected abstract void OnAddListener();
-
-        // 游戏事件注销
-        protected abstract void OnRemoveListener();
 
         public abstract void OnEnable();
 
@@ -47,97 +43,54 @@ namespace UDK.View
         // 每帧更新
         public virtual void Update(float deltaTime) { }
 
-        public Transform Root
-        {
-            get
-            {
-                return mRoot;
-            }
-        }
-
-        public ESceneType SceneType
-        {
-            get
-            {
-                return mSceneType;
-            }
-        }
-
-        public bool IsVisible
-        {
-            get
-            {
-                return mVisible;
-            }
-        }
-
-        public bool IsResident
-        {
-            get
-            {
-                return mResident;
-            }
-        }
-
         public void Show()
         {
-            if (mRoot == null)
+            if (Root == null)
             {
                 if (Create())
                 {
                     InitWidget();
                 }
             }
-            if (mRoot && mRoot.gameObject.activeSelf == false)
+            if (Root && Root.gameObject.activeSelf == false)
             {
-                mRoot.gameObject.SetActive(true);
-                mVisible = true;
+                Root.gameObject.SetActive(true);
+                IsVisible = true;
                 OnEnable();
-                OnAddListener();
             }
         }
 
         public void Hide()
         {
-            if (mRoot && mRoot.gameObject.activeSelf == true)
+            if (Root && Root.gameObject.activeSelf == true)
             {
-                OnRemoveListener();
                 OnDisable();
-                if (mResident)
+                if (IsResident)
                 {
-                    mRoot.gameObject.SetActive(false);
+                    Root.gameObject.SetActive(false);
                 }
                 else
                 {
-                    ReleaseWidget();
                     Destroy();
                 }
-                mVisible = false;
+                IsVisible = false;
             }
         }
 
         // 预加载
-        public void PreLoad()
+        public void Preload()
         {
-            if(mRoot == null){
+            if(Root == null){
                 if(Create()){
                     InitWidget();
                 }
             }
         }
 
-        public void DelayDestroy()
-        {
-            if(mRoot){
-                ReleaseWidget();
-                Destroy();
-            }
-        }
-
-        // 创建
+        // 创建，加载视图对应的UI资源
         private bool Create()
         {
-            if (mRoot)
+            if (Root)
             {
                 DebugEx.LogError("window create error exist");
                 return false;
@@ -159,17 +112,19 @@ namespace UDK.View
                 DebugEx.LogError("window create error load res failed " + mResName);
                 return false;
             }
-            mRoot = obj.transform;
-            mRoot.gameObject.SetActive(false);
+            Root = obj.transform;
+            Root.gameObject.SetActive(false);
             return true;
         }
 
-        protected void Destroy()
+        public void Destroy()
         {
-            if (mRoot)
+            if (Root)
             {
-                UIResourceLoader.Unload(mRoot.gameObject);
-                mRoot = null;
+                Release();
+                ReleaseWidget();
+                UIResourceLoader.Unload(Root.gameObject);
+                Root = null;
             }
         }
     }

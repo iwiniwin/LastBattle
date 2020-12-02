@@ -6,6 +6,7 @@ using UDK.FSM;
 using GameDefine;
 using UDK.Network;
 using UDK.Event;
+using UDK.MVC;
 
 namespace Game 
 {
@@ -30,7 +31,8 @@ namespace Game
             Application.runInBackground = true;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-            // WindowManager.Instance.ChangeScenseToLogin
+            ModuleManager<EModuleType>.Instance.Init(new LoginCtrl());
+            ModuleManager<EModuleType>.Instance.Preload(EModuleType.Login);
         }
 
         private void Start() {

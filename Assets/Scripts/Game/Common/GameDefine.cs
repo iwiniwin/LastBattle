@@ -4,6 +4,21 @@ using UnityEngine;
 
 namespace GameDefine
 {
+    // 场景类型
+    public enum ESceneType {
+        None,
+        Login,
+        Play
+    }
+
+    // 模块类型
+    public enum EModuleType {
+        Login,
+        User,
+        Lobby
+    }
+
+    // 战斗类型
     public enum EBattleState
     {
         SelectHero = 0,

@@ -4,6 +4,7 @@ using UnityEngine;
 using UDK.FSM;
 using UDK.Resource;
 using GameDefine;
+using UDK.MVC;
 
 namespace Game
 {
@@ -35,6 +36,7 @@ namespace Game
             ResourceUnit unit = ResourceManager.Instance.LoadImmediate(GameConfig.LoginPrefabPath, EResourceType.PREFAB);
             mSceneRoot = GameObject.Instantiate(unit.Asset) as GameObject;
             
+            ModuleManager<EModuleType>.Instance.Enter(EModuleType.Login);
         }
 
         public void Exit(){

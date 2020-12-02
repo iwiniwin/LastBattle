@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UDK.MVC;
+using GameDefine;
 
-public class LoginCtrl : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class LoginCtrl : BaseCtrl<EModuleType>
     {
-        
-    }
+        public LoginCtrl()
+        {
+            BindView<LoginView>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void Enter()
+        {
+            ShowView();
+        }
+
+        public override void Exit()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
+
+
