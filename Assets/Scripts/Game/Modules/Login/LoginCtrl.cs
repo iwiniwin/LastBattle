@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UDK.MVC;
-using GameDefine;
+using UDK.Event;
 
 namespace Game
 {
-    public class LoginCtrl : BaseCtrl<EModuleType>
+    public class LoginCtrl : BaseCtrl
     {
         public LoginCtrl()
         {
-            BindView<LoginView>();
         }
 
-        public override void Enter()
+        public override void Init()
         {
-            ShowView();
+            EventSystem.AddListener(EGameEvent.ShowLoginView, ShowView);
+            EventSystem.AddListener(EGameEvent.HideLoginView, HideView);
         }
 
-        public override void Exit()
+        public override void Release()
+        {
+            EventSystem.RemoveListener(EGameEvent.ShowLoginView, ShowView);
+            EventSystem.RemoveListener(EGameEvent.HideLoginView, HideView);
+        }
+
+        public override void Update(float deltaTime)
         {
             throw new System.NotImplementedException();
         }

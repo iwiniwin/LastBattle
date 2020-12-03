@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:48:48
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-03 01:20:36
+ * @LastEditTime: 2020-12-03 23:11:16
  * @Description: 视图基类
  */
 using System.Collections;
@@ -15,33 +15,27 @@ namespace UDK.MVC
 {
     public abstract class BaseView
     {
+        
+        public BaseCtrl Ctrl{get; private set;}  // 对应的控制器
         public Transform Root{get; protected set;}  // 根节点
 
-        // public T Type{get; protected set;}  // 视图类型
+        public bool EnablePreload {get; protected set;}  // 是否需要预加载
+
         // public U SceneType{get; protected set;}  // 视图所属的场景类型
 
         protected string mResName;  // 资源名称
         public bool IsResident{get; protected set;}  // 是否常驻
         public bool IsVisible{get; private set;}   // 是否可见
 
-        // 视图对象被实例化时触发初始化
-        public abstract void Init();
+        // 初始化，视图对应的UI资源被创建时触发
+        protected abstract void Init();
 
-        // 视图对象被销毁时触发
+         // 视图对象被销毁时触发
         public abstract void Release();
-
-        // 视图上的控件初始化，视图对应的UI资源被创建时触发
-        protected abstract void InitWidget();
-
-        // 视图上的控件释放，视图对象被销毁时触发
-        protected abstract void ReleaseWidget();
 
         public abstract void OnEnable();
 
         public abstract void OnDisable();
-
-        // 每帧更新
-        public virtual void Update(float deltaTime) { }
 
         public void Show()
         {
@@ -49,7 +43,7 @@ namespace UDK.MVC
             {
                 if (Create())
                 {
-                    InitWidget();
+                    Init();
                 }
             }
             if (Root && Root.gameObject.activeSelf == false)
@@ -82,7 +76,7 @@ namespace UDK.MVC
         {
             if(Root == null){
                 if(Create()){
-                    InitWidget();
+                    Init();
                 }
             }
         }
@@ -121,10 +115,28 @@ namespace UDK.MVC
         {
             if (Root)
             {
+                UnbindCtrl();
                 Release();
-                ReleaseWidget();
                 UIResourceLoader.Unload(Root.gameObject);
                 Root = null;
+            }
+        }
+
+        public BaseCtrl BindCtrl<T>() where T : BaseCtrl, new(){
+            if(Ctrl != null){
+                DebugEx.LogWarning("repeat bind ctrl");
+                return Ctrl;
+            }
+            Ctrl = new T();
+            Ctrl.Init();
+            Ctrl.View = this;
+            return Ctrl;
+        }
+
+        public void UnbindCtrl(){
+            if(Ctrl != null){
+                Ctrl.Release();
+                Ctrl = null;
             }
         }
     }

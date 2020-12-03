@@ -2,61 +2,71 @@
  * @Author: iwiniwin
  * @Date: 2020-12-03 00:14:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-03 01:07:40
+ * @LastEditTime: 2020-12-03 23:23:27
  * @Description: 模块管理器
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UDK.Debug;
 
 namespace UDK.MVC
 {
-    public class ModuleManager<T> : Singleton<ModuleManager<T>> where T : System.Enum
+    public class ModuleManager : Singleton<ModuleManager>
     {
-        private Dictionary<T, BaseCtrl<T>> mCtrlDic;
+        private Dictionary<System.Type, BaseView> mViewDic;
         public ModuleManager(){
-            mCtrlDic = new Dictionary<T, BaseCtrl<T>>();
+            mViewDic = new Dictionary<System.Type, BaseView>();
         }
 
-        public void Init(params BaseCtrl<T>[] ctrls){
-            foreach(BaseCtrl<T> ctrl in ctrls) {
-                mCtrlDic.Add(ctrl.Type, ctrl);
+        // 获取指定模块
+        public T GetModule<T>() where T : BaseView {
+            var type = typeof(T);
+            if(mViewDic.ContainsKey(type)){
+                return mViewDic[type] as T;
             }
-        }
-
-        public BaseCtrl<T> GetCtrl(T type){
-            if(mCtrlDic.ContainsKey(type))
-                return mCtrlDic[type];
             return null;
         }
 
+        // 加载指定模块
+        public T LoadModule<T, U>() where T : BaseView, new() where U : BaseCtrl, new(){
+            T view = LoadModule<T>();
+            if(view != null){
+                view.BindCtrl<U>();
+            }
+            return view;
+        }
+
+        public T LoadModule<T>() where T : BaseView, new(){
+            T view = GetModule<T>();
+            if(view != null) {
+                DebugEx.LogWarning("repeat load module");
+                return view;
+            }
+            view = new T();
+            if(view.EnablePreload){
+                view.Preload();
+            }
+            mViewDic.Add(typeof(T), view);
+            return view;
+        }
+
+        // 每帧更新
         public void Update(float deltaTime){
-            foreach(BaseCtrl<T> ctrl in mCtrlDic.Values){
-                if(ctrl.NeedUpdate){
-                    ctrl.Update(deltaTime);
+            foreach(BaseView view in mViewDic.Values){
+                if(view.Ctrl != null && view.Ctrl.NeedUpdate){
+                    view.Ctrl.Update(deltaTime);
                 }
             }
         }
 
-        // 预加载指定模块
-        public void Preload(T type){
-            BaseCtrl<T> ctrl = GetCtrl(type);
-            if(ctrl != null)
-                ctrl.Preload();
-        }
-
-        // 进入指定模块
-        public void Enter(T type){
-            BaseCtrl<T> ctrl = GetCtrl(type);
-            if(ctrl != null)
-                ctrl.Enter();
-        }
-
-        // 退出指定模块
-        public void Exit(T type){
-            BaseCtrl<T> ctrl = GetCtrl(type);
-            if(ctrl != null)
-                ctrl.Exit();
+        public void UnloadModule<T>() where T : BaseView {
+            T view = GetModule<T>();
+            if(view != null){
+                view.Hide();
+                view.Destroy();
+                mViewDic.Remove(typeof(T));
+            }
         }
     }
 }

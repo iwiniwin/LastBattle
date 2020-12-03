@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-02 23:52:46
+ * @LastEditTime: 2020-12-03 23:03:36
  * @Description: 
  */
 using System.Collections;
@@ -21,10 +21,10 @@ namespace Game
         ReconnectToBattle,
         BeginWaiting,
 
-        // 进入登录
-        EnterLogin,
-        // 退出登录
-        ExitLogin,
+        // 显示登录视图
+        ShowLoginView,
+        // 关闭登录视图
+        HideLoginView,
     }
 }
 

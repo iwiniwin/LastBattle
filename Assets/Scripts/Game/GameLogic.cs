@@ -31,8 +31,7 @@ namespace Game
             Application.runInBackground = true;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-            ModuleManager<EModuleType>.Instance.Init(new LoginCtrl());
-            ModuleManager<EModuleType>.Instance.Preload(EModuleType.Login);
+            ModuleManager.Instance.LoadModule<LoginView, LoginCtrl>();
         }
 
         private void Start() {
@@ -87,30 +86,30 @@ namespace Game
 
         private void OnEnable() {
             // 添加事件注册
-            EventSystem.AddListener(EGameEvent.ConnectServerSuccess, OnConnectServerSuccess);
-            EventSystem.AddListener(EGameEvent.ConnectServerFail, OpenConnectUI);
-            EventSystem.AddListener(EGameEvent.ReconnectToBattle, OpenConnectUI);
-            EventSystem.AddListener(EGameEvent.BeginWaiting, OpenWaitingUI);
+            // EventSystem.AddListener(EGameEvent.ConnectServerSuccess, OnConnectServerSuccess);
+            // EventSystem.AddListener(EGameEvent.ConnectServerFail, OpenConnectUI);
+            // EventSystem.AddListener(EGameEvent.ReconnectToBattle, OpenConnectUI);
+            // EventSystem.AddListener(EGameEvent.BeginWaiting, OpenWaitingUI);
 
-            // 读取配置，是否启用声音
-            if(PlayerPrefs.HasKey(UIGameSetting.VoiceKey)){
-                int voiceValue = PlayerPrefs.GetInt(UIGameSetting.VoiceKey);
-                bool state = (voiceValue == 1) ? true : false;
+            // // 读取配置，是否启用声音
+            // if(PlayerPrefs.HasKey(UIGameSetting.VoiceKey)){
+            //     int voiceValue = PlayerPrefs.GetInt(UIGameSetting.VoiceKey);
+            //     bool state = (voiceValue == 1) ? true : false;
                 
-            }
+            // }
 
-            if(PlayerPrefs.HasKey(UIGameSetting.SoundKey)){
-                int voiceValue = PlayerPrefs.GetInt(UIGameSetting.SoundKey);
-                bool state = (voiceValue == 1) ? true : false;
+            // if(PlayerPrefs.HasKey(UIGameSetting.SoundKey)){
+            //     int voiceValue = PlayerPrefs.GetInt(UIGameSetting.SoundKey);
+            //     bool state = (voiceValue == 1) ? true : false;
                 
-            }
+            // }
         }
 
         private void OnDisable() {
-            EventSystem.RemoveListener(EGameEvent.ConnectServerSuccess, OnConnectServerSuccess);
-            EventSystem.RemoveListener(EGameEvent.ConnectServerFail, OpenConnectUI);
-            EventSystem.RemoveListener(EGameEvent.ReconnectToBattle, OpenConnectUI);
-            EventSystem.RemoveListener(EGameEvent.BeginWaiting, OpenWaitingUI);
+            // EventSystem.RemoveListener(EGameEvent.ConnectServerSuccess, OnConnectServerSuccess);
+            // EventSystem.RemoveListener(EGameEvent.ConnectServerFail, OpenConnectUI);
+            // EventSystem.RemoveListener(EGameEvent.ReconnectToBattle, OpenConnectUI);
+            // EventSystem.RemoveListener(EGameEvent.BeginWaiting, OpenWaitingUI);
         }
 
         

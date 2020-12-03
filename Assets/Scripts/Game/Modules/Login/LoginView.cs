@@ -11,24 +11,11 @@ namespace Game
     {
         public LoginView(){
             // mResName = GameConfig.
+            // EnablePreload = true;
             IsResident = false;
         }
 
-        public override void Init(){
-            
-        }
-
-        public override void Release()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void InitWidget()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void ReleaseWidget()
+        protected override void Init()
         {
             throw new System.NotImplementedException();
         }
@@ -39,6 +26,11 @@ namespace Game
         }
 
         public override void OnDisable()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Release()
         {
             throw new System.NotImplementedException();
         }
