@@ -6,7 +6,7 @@ namespace UDK.Debug
 {
     public class FPSDisplay : UnitySingleton<FPSDisplay>
     {
-        private float mUpdateInterval = 0.5f;
+        public float UpdateInterval = 0.5f;
         private float mLastInterval;
 
         private int mFrames = 0;
@@ -31,7 +31,7 @@ namespace UDK.Debug
 
         private void Update() {
             ++ mFrames;
-            if(Time.realtimeSinceStartup > mLastInterval + mUpdateInterval){
+            if(Time.realtimeSinceStartup > mLastInterval + UpdateInterval){
                 mFps = mFrames / (Time.realtimeSinceStartup - mLastInterval);
                 mFrames = 0;
                 mLastInterval = Time.realtimeSinceStartup;

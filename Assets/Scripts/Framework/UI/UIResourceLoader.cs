@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:13:15
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-29 23:16:11
+ * @LastEditTime: 2020-12-05 16:02:16
  * @Description: UI资源加载器
  */
 using System.Collections;
@@ -31,7 +31,7 @@ namespace UDK.UI
                 return null;
             }
             obj = GameObject.Instantiate(unit.Asset) as GameObject;
-            obj.transform.parent = parent;
+            obj.transform.SetParent(parent);
             obj.transform.localScale = Vector3.one;
             obj.transform.localPosition = Vector3.zero;
             mLoadedResDic.Add(path, obj);

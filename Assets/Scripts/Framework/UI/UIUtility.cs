@@ -6,9 +6,9 @@ namespace UDK.UI
 {
     public static class UIUtility
     {
-        public static Camera GetUICamera() {
-            return GUI.Instance.transform.Find("Camera").GetComponent<Camera>();
-        }
+        // public static Camera GetUICamera() {
+        //     return GUI.Instance.transform.Find("Canvas").GetComponent<Camera>();
+        // }
     }
 }
 

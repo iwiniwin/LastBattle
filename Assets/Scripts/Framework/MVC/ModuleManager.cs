@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-03 00:14:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-03 23:23:27
+ * @LastEditTime: 2020-12-05 15:57:21
  * @Description: 模块管理器
  */
 using System.Collections;
@@ -44,6 +44,7 @@ namespace UDK.MVC
                 return view;
             }
             view = new T();
+            view.Init();
             if(view.EnablePreload){
                 view.Preload();
             }

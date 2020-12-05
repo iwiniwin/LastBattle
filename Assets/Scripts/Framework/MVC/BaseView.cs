@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:48:48
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-03 23:11:16
+ * @LastEditTime: 2020-12-05 15:57:39
  * @Description: 视图基类
  */
 using System.Collections;
@@ -23,12 +23,14 @@ namespace UDK.MVC
 
         // public U SceneType{get; protected set;}  // 视图所属的场景类型
 
-        protected string mResName;  // 资源名称
+        protected string ResName {get; set;}  // 资源名称
         public bool IsResident{get; protected set;}  // 是否常驻
         public bool IsVisible{get; private set;}   // 是否可见
 
-        // 初始化，视图对应的UI资源被创建时触发
-        protected abstract void Init();
+        public abstract void Init();
+
+        // 初始化，视图对应的UI资源被加载时触发
+        protected abstract void OnLoad();
 
          // 视图对象被销毁时触发
         public abstract void Release();
@@ -43,7 +45,7 @@ namespace UDK.MVC
             {
                 if (Create())
                 {
-                    Init();
+                    OnLoad();
                 }
             }
             if (Root && Root.gameObject.activeSelf == false)
@@ -76,7 +78,7 @@ namespace UDK.MVC
         {
             if(Root == null){
                 if(Create()){
-                    Init();
+                    OnLoad();
                 }
             }
         }
@@ -89,21 +91,21 @@ namespace UDK.MVC
                 DebugEx.LogError("window create error exist");
                 return false;
             }
-            if (mResName == null || mResName == "")
+            if (ResName == null || ResName == "")
             {
                 DebugEx.LogError("window create error res name is empty");
                 return false;
             }
-            Transform transform = UIUtility.GetUICamera().transform;
+            Transform transform = GameObject.Find("Canvas").transform;
             if (transform == null)
             {
                 DebugEx.LogError("window create error ui camera is empty");
                 return false;
             }
-            GameObject obj = UIResourceLoader.Load(transform, mResName);
+            GameObject obj = UIResourceLoader.Load(transform, ResName);
             if (obj == null)
             {
-                DebugEx.LogError("window create error load res failed " + mResName);
+                DebugEx.LogError("window create error load res failed " + ResName);
                 return false;
             }
             Root = obj.transform;

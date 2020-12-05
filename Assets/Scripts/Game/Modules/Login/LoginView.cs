@@ -10,29 +10,36 @@ namespace Game
     public class LoginView : BaseView
     {
         public LoginView(){
-            // mResName = GameConfig.
+            ResName = GameConfig.LoginUIPath;
             // EnablePreload = true;
             IsResident = false;
         }
 
-        protected override void Init()
+        public override void Init()
         {
-            throw new System.NotImplementedException();
+            
+        }
+
+        protected override void OnLoad()
+        {
+            RectTransform transform = Root.gameObject.GetComponent<RectTransform>();
+            transform.offsetMin = new Vector2(0.0f, 0.0f);  // left  bottom
+            transform.offsetMax = new Vector2(0.0f, 0.0f);  // right top
         }
 
         public override void OnEnable()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void OnDisable()
         {
-            throw new System.NotImplementedException();
+           
         }
 
         public override void Release()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

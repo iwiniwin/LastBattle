@@ -1,0 +1,1573 @@
+fileFormatVersion: 2
+guid: 45b48ce9ad736374198dc87ec59699e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3424037299226747744
+    second: UIatlas14_0
+  - first:
+      213: 9029108177998785643
+    second: UIatlas14_1
+  - first:
+      213: -1561189805446675465
+    second: UIatlas14_2
+  - first:
+      213: -997672262302132211
+    second: UIatlas14_3
+  - first:
+      213: 9132461928718405644
+    second: UIatlas14_4
+  - first:
+      213: 494536209379842223
+    second: UIatlas14_5
+  - first:
+      213: -2463677989383016199
+    second: UIatlas14_6
+  - first:
+      213: 4174351577356332230
+    second: UIatlas14_7
+  - first:
+      213: -3768312522686848064
+    second: UIatlas14_8
+  - first:
+      213: 1095384449090456488
+    second: UIatlas14_9
+  - first:
+      213: -6468740859648574111
+    second: UIatlas14_10
+  - first:
+      213: -1589383002239707442
+    second: UIatlas14_11
+  - first:
+      213: -1407811575996170794
+    second: UIatlas14_12
+  - first:
+      213: -6228448317803653593
+    second: UIatlas14_13
+  - first:
+      213: 5698377891383292896
+    second: UIatlas14_14
+  - first:
+      213: -440797553510453523
+    second: UIatlas14_15
+  - first:
+      213: 8392952613564536995
+    second: UIatlas14_16
+  - first:
+      213: 1636232821614621874
+    second: UIatlas14_17
+  - first:
+      213: -5506156686257614532
+    second: UIatlas14_18
+  - first:
+      213: -8589789890874358222
+    second: UIatlas14_19
+  - first:
+      213: 398976169953201734
+    second: UIatlas14_20
+  - first:
+      213: 3521985295864097596
+    second: UIatlas14_21
+  - first:
+      213: 4491320854052158175
+    second: UIatlas14_22
+  - first:
+      213: -1959242824922339647
+    second: UIatlas14_23
+  - first:
+      213: 8945851520561959367
+    second: UIatlas14_24
+  - first:
+      213: -5056673580674712732
+    second: UIatlas14_25
+  - first:
+      213: 5116952381140607163
+    second: UIatlas14_26
+  - first:
+      213: -3666843175988117235
+    second: UIatlas14_27
+  - first:
+      213: -249588376753477946
+    second: UIatlas14_28
+  - first:
+      213: -4742651213296694267
+    second: UIatlas14_0
+  - first:
+      213: -6660263601686296415
+    second: UIatlas14_1
+  - first:
+      213: 6767153954049710435
+    second: UIatlas14_2
+  - first:
+      213: -2057505764818362452
+    second: UIatlas14_3
+  - first:
+      213: 1559166481810932921
+    second: UIatlas14_4
+  - first:
+      213: 2881970953778841443
+    second: UIatlas14_5
+  - first:
+      213: -963138462271195975
+    second: UIatlas14_6
+  - first:
+      213: 391543548718644093
+    second: UIatlas14_7
+  - first:
+      213: 3221559530094133828
+    second: UIatlas14_8
+  - first:
+      213: -4671223403660259426
+    second: UIatlas14_9
+  - first:
+      213: -1070049384400262114
+    second: UIatlas14_10
+  - first:
+      213: -1540168647723253005
+    second: UIatlas14_11
+  - first:
+      213: -5538746813592786211
+    second: UIatlas14_12
+  - first:
+      213: -9040718260931884873
+    second: UIatlas14_13
+  - first:
+      213: 7548453328548430855
+    second: UIatlas14_14
+  - first:
+      213: 921216982844937484
+    second: UIatlas14_15
+  - first:
+      213: 1833007815805269137
+    second: UIatlas14_16
+  - first:
+      213: 1657205820452036187
+    second: UIatlas14_17
+  - first:
+      213: 8259872610664112852
+    second: UIatlas14_18
+  - first:
+      213: -5065820828434137436
+    second: UIatlas14_19
+  - first:
+      213: 4975691461016363910
+    second: UIatlas14_20
+  - first:
+      213: -4662544410206912912
+    second: UIatlas14_21
+  - first:
+      213: 7166469446076258454
+    second: UIatlas14_22
+  - first:
+      213: 2794087533513931228
+    second: UIatlas14_23
+  - first:
+      213: -3139515244995252182
+    second: UIatlas14_24
+  - first:
+      213: 968872823345768776
+    second: UIatlas14_25
+  - first:
+      213: -4795597491642668362
+    second: UIatlas14_26
+  - first:
+      213: 9047964479290879853
+    second: UIatlas14_27
+  - first:
+      213: 2008044065381382267
+    second: UIatlas14_28
+  - first:
+      213: -2741228721193429278
+    second: UIatlas14_29
+  - first:
+      213: 6012697165947389450
+    second: UIatlas14_30
+  - first:
+      213: -3285588935066430412
+    second: UIatlas14_31
+  - first:
+      213: -4667115867980646666
+    second: UIatlas14_32
+  - first:
+      213: 4997547445131206882
+    second: UIatlas14_33
+  - first:
+      213: 1275620977307896212
+    second: UIatlas14_34
+  - first:
+      213: -1732893893250701686
+    second: UIatlas14_35
+  - first:
+      213: 417606926639864296
+    second: UIatlas14_36
+  - first:
+      213: -3593159522701138311
+    second: UIatlas14_37
+  - first:
+      213: -2693521788756207240
+    second: UIatlas14_38
+  - first:
+      213: -2890694153137001571
+    second: UIatlas14_39
+  - first:
+      213: -5383010082914823053
+    second: UIatlas14_40
+  - first:
+      213: -99471046550311434
+    second: UIatlas14_41
+  - first:
+      213: -5091150856225614458
+    second: UIatlas14_42
+  - first:
+      213: -9012375434054729386
+    second: UIatlas14_43
+  - first:
+      213: -8513122964262865756
+    second: UIatlas14_44
+  - first:
+      213: 4087161824865983272
+    second: UIatlas14_45
+  - first:
+      213: 841101079827609517
+    second: UIatlas14_46
+  - first:
+      213: 8261153063435847091
+    second: UIatlas14_47
+  - first:
+      213: -6468360368840910437
+    second: UIatlas14_48
+  - first:
+      213: 6730013883438640468
+    second: UIatlas14_49
+  - first:
+      213: -4498187852178674901
+    second: UIatlas14_50
+  - first:
+      213: 8535763410839056325
+    second: UIatlas14_51
+  - first:
+      213: 3278714899925425307
+    second: UIatlas14_52
+  - first:
+      213: -2819190926718024566
+    second: UIatlas14_53
+  - first:
+      213: -6940674239004485485
+    second: UIatlas14_54
+  - first:
+      213: 3205297910206397165
+    second: UIatlas14_55
+  - first:
+      213: -9123482758524773727
+    second: UIatlas14_56
+  - first:
+      213: 6165990701817155849
+    second: UIatlas14_57
+  - first:
+      213: 7009541124770302496
+    second: UIatlas14_58
+  - first:
+      213: 7912844982865791279
+    second: UIatlas14_59
+  - first:
+      213: -1607151384598747833
+    second: UIatlas14_60
+  - first:
+      213: -116460327821971357
+    second: UIatlas14_61
+  - first:
+      213: -7318283503180511726
+    second: UIatlas14_62
+  - first:
+      213: -8277701203768663832
+    second: UIatlas14_63
+  - first:
+      213: 2228687018859927888
+    second: UIatlas14_64
+  - first:
+      213: 3134340779905243154
+    second: UIatlas14_65
+  - first:
+      213: -4006213064025128038
+    second: UIatlas14_66
+  - first:
+      213: -2674416202353970549
+    second: UIatlas14_67
+  - first:
+      213: 5222455013501004195
+    second: UIatlas14_68
+  - first:
+      213: -8080309961780737900
+    second: UIatlas14_69
+  - first:
+      213: 542646827663191082
+    second: UIatlas14_70
+  - first:
+      213: 1664706607215022010
+    second: UIatlas14_71
+  - first:
+      213: -7159592482125723744
+    second: UIatlas14_72
+  - first:
+      213: 4236527692003704289
+    second: UIatlas14_73
+  - first:
+      213: 4380438562462712847
+    second: UIatlas14_74
+  - first:
+      213: 3788208036879272982
+    second: UIatlas14_75
+  - first:
+      213: -2825249396828266943
+    second: UIatlas14_76
+  - first:
+      213: 796230909312639059
+    second: UIatlas14_77
+  - first:
+      213: 2913376711252032750
+    second: UIatlas14_78
+  - first:
+      213: 4513506292281681552
+    second: UIatlas14_79
+  - first:
+      213: -5240812475022466428
+    second: UIatlas14_80
+  - first:
+      213: -6341303215356499771
+    second: UIatlas14_81
+  - first:
+      213: -7789040149996978312
+    second: UIatlas14_82
+  - first:
+      213: -8769337660009642180
+    second: UIatlas14_83
+  - first:
+      213: -6120894833833829537
+    second: UIatlas14_84
+  - first:
+      213: 6367674244417781436
+    second: UIatlas14_85
+  - first:
+      213: -6335538520302806880
+    second: UIatlas14_86
+  - first:
+      213: 6969016796469668727
+    second: UIatlas14_87
+  - first:
+      213: -7991557253313305290
+    second: UIatlas14_88
+  - first:
+      213: 4018123865513323637
+    second: UIatlas14_89
+  - first:
+      213: -7544544169327970749
+    second: UIatlas14_90
+  - first:
+      213: -8167064716096298569
+    second: UIatlas14_91
+  - first:
+      213: 8219009908909884659
+    second: UIatlas14_92
+  - first:
+      213: -4486577459480073964
+    second: UIatlas14_93
+  - first:
+      213: 2078041087171880313
+    second: UIatlas14_94
+  - first:
+      213: 629952487263564594
+    second: UIatlas14_95
+  - first:
+      213: -1473712079676034638
+    second: UIatlas14_96
+  - first:
+      213: -6323969318697901656
+    second: UIatlas14_97
+  - first:
+      213: -5490536601355773285
+    second: UIatlas14_98
+  - first:
+      213: -1514936247332868062
+    second: UIatlas14_99
+  - first:
+      213: -8915852095896001600
+    second: UIatlas14_100
+  - first:
+      213: -8621870572479571411
+    second: UIatlas14_101
+  - first:
+      213: -459374928224161602
+    second: UIatlas14_102
+  - first:
+      213: -8755221545759964179
+    second: UIatlas14_103
+  - first:
+      213: 1785256327062082438
+    second: UIatlas14_104
+  - first:
+      213: -3688648074910720608
+    second: UIatlas14_105
+  - first:
+      213: -2738936302205377912
+    second: UIatlas14_106
+  - first:
+      213: 2670562971191534385
+    second: UIatlas14_107
+  - first:
+      213: 1502535922165628810
+    second: UIatlas14_108
+  - first:
+      213: -4098416151494627994
+    second: UIatlas14_109
+  - first:
+      213: 6814449793558047409
+    second: UIatlas14_110
+  - first:
+      213: -96953974615559662
+    second: UIatlas14_111
+  - first:
+      213: 8650966676933408387
+    second: UIatlas14_112
+  - first:
+      213: -3909132935231298261
+    second: UIatlas14_113
+  - first:
+      213: 3624892079822001694
+    second: UIatlas14_114
+  - first:
+      213: -5541242157153922598
+    second: UIatlas14_115
+  - first:
+      213: -2030436612248039894
+    second: UIatlas14_116
+  - first:
+      213: -3779992310847435530
+    second: UIatlas14_117
+  - first:
+      213: 5525112085136684000
+    second: UIatlas14_118
+  - first:
+      213: 5124928507514768553
+    second: UIatlas14_119
+  - first:
+      213: 685786420095418087
+    second: UIatlas14_120
+  - first:
+      213: -3826238742627604607
+    second: UIatlas14_121
+  - first:
+      213: -4263614603696787197
+    second: UIatlas14_122
+  - first:
+      213: 6196905066998589301
+    second: UIatlas14_123
+  - first:
+      213: 3773905454583895163
+    second: UIatlas14_124
+  - first:
+      213: -7542784482626208264
+    second: UIatlas14_125
+  - first:
+      213: -2506565857003484299
+    second: UIatlas14_126
+  - first:
+      213: 7096082099337857339
+    second: UIatlas14_127
+  - first:
+      213: -6843180877616231769
+    second: UIatlas14_128
+  - first:
+      213: -8497843555298062364
+    second: UIatlas14_129
+  - first:
+      213: -8800505356173391442
+    second: UIatlas14_130
+  - first:
+      213: -4517916087512466961
+    second: UIatlas14_131
+  - first:
+      213: -2139269493665015158
+    second: UIatlas14_132
+  - first:
+      213: -449516525825297613
+    second: UIatlas14_133
+  - first:
+      213: -2215866475112772160
+    second: UIatlas14_134
+  - first:
+      213: -5135504293598568583
+    second: UIatlas14_135
+  - first:
+      213: 6553378562868727916
+    second: UIatlas14_136
+  - first:
+      213: -4203687234120877669
+    second: UIatlas14_137
+  - first:
+      213: -6702126818066319516
+    second: UIatlas14_138
+  - first:
+      213: -7661165023503494497
+    second: UIatlas14_139
+  - first:
+      213: -3773577958716612822
+    second: UIatlas14_140
+  - first:
+      213: 926957244501758108
+    second: UIatlas14_141
+  - first:
+      213: -5607719645100702697
+    second: UIatlas14_142
+  - first:
+      213: -389740295024329829
+    second: UIatlas14_143
+  - first:
+      213: -8321639117779016706
+    second: UIatlas14_144
+  - first:
+      213: -8028418677215027728
+    second: UIatlas14_145
+  - first:
+      213: -7678568314722617933
+    second: UIatlas14_146
+  - first:
+      213: 5749512395010354999
+    second: UIatlas14_147
+  - first:
+      213: -7043879049702505550
+    second: UIatlas14_148
+  - first:
+      213: 540535943014869586
+    second: UIatlas14_149
+  - first:
+      213: 4999747097296978966
+    second: UIatlas14_150
+  - first:
+      213: 6155694954346985455
+    second: UIatlas14_151
+  - first:
+      213: -1793355369165375547
+    second: UIatlas14_152
+  - first:
+      213: -237579065027555514
+    second: UIatlas14_153
+  - first:
+      213: 7828785049999060494
+    second: UIatlas14_154
+  - first:
+      213: 5004022522448437430
+    second: UIatlas14_155
+  - first:
+      213: 560402708374374413
+    second: UIatlas14_156
+  - first:
+      213: 3581328707148163342
+    second: UIatlas14_157
+  - first:
+      213: 1195274176988640118
+    second: UIatlas14_158
+  - first:
+      213: 5313031434601834748
+    second: UIatlas14_159
+  - first:
+      213: 5778829630683268719
+    second: UIatlas14_160
+  - first:
+      213: -8003025978576398046
+    second: UIatlas14_161
+  - first:
+      213: 4587831253364216736
+    second: UIatlas14_162
+  - first:
+      213: -7734592282135734565
+    second: UIatlas14_163
+  - first:
+      213: -909685352477113265
+    second: UIatlas14_164
+  - first:
+      213: -6725566439190915748
+    second: UIatlas14_165
+  - first:
+      213: -1916805525326918034
+    second: UIatlas14_166
+  - first:
+      213: 6705395412482021355
+    second: UIatlas14_167
+  - first:
+      213: -69870817018860715
+    second: UIatlas14_168
+  - first:
+      213: 2201280142928040998
+    second: UIatlas14_169
+  - first:
+      213: -258868245310301482
+    second: UIatlas14_170
+  - first:
+      213: -7505540968279167897
+    second: UIatlas14_171
+  - first:
+      213: -8776617497062074303
+    second: UIatlas14_172
+  - first:
+      213: 2303469313798452706
+    second: UIatlas14_173
+  - first:
+      213: -8194239272003231214
+    second: UIatlas14_174
+  - first:
+      213: -3384960132803114306
+    second: UIatlas14_175
+  - first:
+      213: 6946137147494021319
+    second: UIatlas14_176
+  - first:
+      213: 6687308553927066395
+    second: UIatlas14_177
+  - first:
+      213: -7661720123058620594
+    second: UIatlas14_178
+  - first:
+      213: -3261648989478433722
+    second: UIatlas14_179
+  - first:
+      213: 2055811239416724573
+    second: UIatlas14_180
+  - first:
+      213: -7784022191120110109
+    second: UIatlas14_181
+  - first:
+      213: 7096708725241439890
+    second: UIatlas14_182
+  - first:
+      213: -7325746976825020650
+    second: UIatlas14_183
+  - first:
+      213: 2902267303277302387
+    second: UIatlas14_184
+  - first:
+      213: 506213375951697584
+    second: UIatlas14_185
+  - first:
+      213: 1494652098280594985
+    second: UIatlas14_186
+  - first:
+      213: -8077439410343868505
+    second: UIatlas14_187
+  - first:
+      213: 2109739229558383603
+    second: UIatlas14_188
+  - first:
+      213: -105695570047881068
+    second: UIatlas14_189
+  - first:
+      213: 7765780751519979061
+    second: UIatlas14_190
+  - first:
+      213: 8273871301849203560
+    second: UIatlas14_191
+  - first:
+      213: -6589668500321519735
+    second: UIatlas14_192
+  - first:
+      213: 1177472761384378994
+    second: UIatlas14_193
+  - first:
+      213: 9134230159153800981
+    second: UIatlas14_194
+  - first:
+      213: -2963666439406933014
+    second: UIatlas14_195
+  - first:
+      213: 2123001964623738929
+    second: UIatlas14_196
+  - first:
+      213: 4314473477103624352
+    second: UIatlas14_197
+  - first:
+      213: -7711601603531317591
+    second: UIatlas14_198
+  - first:
+      213: -408929703459347048
+    second: UIatlas14_199
+  - first:
+      213: -4940794582811589439
+    second: UIatlas14_200
+  - first:
+      213: 6386941557131067737
+    second: UIatlas14_201
+  - first:
+      213: -1001443437774947050
+    second: UIatlas14_202
+  - first:
+      213: -673763677037511211
+    second: UIatlas14_203
+  - first:
+      213: 7484767574069569890
+    second: UIatlas14_204
+  - first:
+      213: 140542240928333830
+    second: UIatlas14_205
+  - first:
+      213: 3835949599182259996
+    second: UIatlas14_206
+  - first:
+      213: -8626861200579118249
+    second: UIatlas14_207
+  - first:
+      213: -6078505436183719447
+    second: UIatlas14_208
+  - first:
+      213: 4146134050650029778
+    second: UIatlas14_209
+  - first:
+      213: -2345855766140762247
+    second: UIatlas14_210
+  - first:
+      213: 1830368456969718740
+    second: UIatlas14_211
+  - first:
+      213: -9067279121903098370
+    second: UIatlas14_212
+  - first:
+      213: 5291590294321517692
+    second: UIatlas14_213
+  - first:
+      213: 7736279450301928664
+    second: UIatlas14_214
+  - first:
+      213: -7182908493615919892
+    second: UIatlas14_215
+  - first:
+      213: 7140421988658946701
+    second: UIatlas14_216
+  - first:
+      213: -5348342405130771469
+    second: UIatlas14_217
+  - first:
+      213: -5080253387657497154
+    second: UIatlas14_218
+  - first:
+      213: 1764245911870207222
+    second: UIatlas14_219
+  - first:
+      213: -4952576370602023741
+    second: UIatlas14_220
+  - first:
+      213: -5174821893352060430
+    second: UIatlas14_221
+  - first:
+      213: 2854136042551692649
+    second: UIatlas14_222
+  - first:
+      213: -34731330722991957
+    second: UIatlas14_223
+  - first:
+      213: -5694164520719844473
+    second: UIatlas14_224
+  - first:
+      213: 4400289647132068880
+    second: UIatlas14_225
+  - first:
+      213: -1459157158921447188
+    second: UIatlas14_226
+  - first:
+      213: 757506460750948175
+    second: UIatlas14_227
+  - first:
+      213: -8820058350176867910
+    second: UIatlas14_228
+  - first:
+      213: 8478520243688652674
+    second: UIatlas14_229
+  - first:
+      213: -1553554646212803216
+    second: UIatlas14_230
+  - first:
+      213: -4398556690363724879
+    second: UIatlas14_231
+  - first:
+      213: -1030626253471465659
+    second: UIatlas14_232
+  - first:
+      213: -975002690624011802
+    second: UIatlas14_233
+  - first:
+      213: -8213023830080725867
+    second: UIatlas14_234
+  - first:
+      213: -7634513137609928778
+    second: UIatlas14_235
+  - first:
+      213: 5467772511774906009
+    second: UIatlas14_236
+  - first:
+      213: 901280497177077619
+    second: UIatlas14_237
+  - first:
+      213: -4339657160371007539
+    second: UIatlas14_238
+  - first:
+      213: -9079688678063850264
+    second: UIatlas14_239
+  - first:
+      213: -693401175689229880
+    second: UIatlas14_240
+  - first:
+      213: -2858797723344474326
+    second: UIatlas14_241
+  - first:
+      213: -8276036764647964484
+    second: UIatlas14_242
+  - first:
+      213: 1267653104794581837
+    second: UIatlas14_243
+  - first:
+      213: 8952758948213653610
+    second: UIatlas14_244
+  - first:
+      213: -4342955145552821767
+    second: UIatlas14_245
+  - first:
+      213: 5094376435842873515
+    second: UIatlas14_246
+  - first:
+      213: -2024663377019171734
+    second: UIatlas14_247
+  - first:
+      213: -9001860933666257517
+    second: UIatlas14_248
+  - first:
+      213: -5687783412885538636
+    second: UIatlas14_249
+  - first:
+      213: -685324355947422251
+    second: UIatlas14_250
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UIatlas14_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 591
+        width: 1024
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c00e169d7be2eb0800000000000000
+      internalID: -4742651213296694267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 286
+        width: 498
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a84607ba8df193a0800000000000000
+      internalID: -6660263601686296415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_2
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 263
+        width: 185
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.5, y: 41}
+        - {x: -30.5, y: 127}
+        - {x: -4.5, y: 127}
+        - {x: -4.5, y: 41}
+      - - {x: -62.5, y: -7}
+        - {x: -62.5, y: 24}
+        - {x: 45.5, y: 24}
+        - {x: 45.5, y: -7}
+      - - {x: 24.5, y: 21}
+        - {x: 24.5, y: 67}
+        - {x: 38.5, y: 67}
+        - {x: 38.5, y: 21}
+      - - {x: 17.5, y: -113}
+        - {x: 17.5, y: -58}
+        - {x: 54.5, y: -58}
+        - {x: 54.5, y: -113}
+      - - {x: -58.5, y: -134}
+        - {x: -58.5, y: -17}
+        - {x: -4.5, y: -17}
+        - {x: -4.5, y: -134}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3695383daa2c9ed50800000000000000
+      internalID: 6767153954049710435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_3
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 63
+        width: 85
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafdea478654273e0800000000000000
+      internalID: -2057505764818362452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_4
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 428
+        width: 148
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4490687a543a510800000000000000
+      internalID: 1559166481810932921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_5
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 547
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3674bf82051def720800000000000000
+      internalID: 2881970953778841443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_6
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 495
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b43fc6ebae32a2f0800000000000000
+      internalID: -963138462271195975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_7
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 451
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b787778ca0f6500800000000000000
+      internalID: 391543548718644093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_8
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 278
+        width: 137
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4420906f25745bc20800000000000000
+      internalID: 3221559530094133828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_9
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 412
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fc656401b7c2fb0800000000000000
+      internalID: -4671223403660259426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 199
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c62b611cb6621f0800000000000000
+      internalID: -1070049384400262114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_11
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 133
+        width: 137
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2034a66c830aae0800000000000000
+      internalID: -1540168647723253005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_12
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 143
+        width: 137
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddaa9fa5e1b6223b0800000000000000
+      internalID: -5538746813592786211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_13
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 160
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b884c634aae88280800000000000000
+      internalID: -9040718260931884873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_14
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 197
+        width: 53
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7048eb31f4e71c860800000000000000
+      internalID: 7548453328548430855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_15
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 223
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05978f07f1d8cc00800000000000000
+      internalID: 921216982844937484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_16
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 122
+        width: 109
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194769395e6207910800000000000000
+      internalID: 1833007815805269137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_17
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 175
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ed0c7d9e39ff610800000000000000
+      internalID: 1657205820452036187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_18
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 158
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2ec907066f0a270800000000000000
+      internalID: 8259872610664112852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_19
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 154
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae7861ebc692b9b0800000000000000
+      internalID: -5065820828434137436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_20
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 72
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68323dd75053d0540800000000000000
+      internalID: 4975691461016363910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_21
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 87
+        width: 366
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e3228ef805b4fb0800000000000000
+      internalID: -4662544410206912912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_22
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 19
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698d01bddf9647360800000000000000
+      internalID: 7166469446076258454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_23
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 75
+        width: 295
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9f17adec796c620800000000000000
+      internalID: 2794087533513931228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 303
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 50, y: 20, z: 50, w: 20}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20722fb4833e64d0800000000000000
+      internalID: -3139515244995252182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_25
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 41
+        width: 236
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849ed0413b0227d00800000000000000
+      internalID: 968872823345768776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_26
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 23
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba62e05d7d927db0800000000000000
+      internalID: -4795597491642668362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_27
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 23
+        width: 44
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f2c7871c3d09d70800000000000000
+      internalID: 9047964479290879853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIatlas14_28
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 14
+        width: 301
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78736a30710edb10800000000000000
+      internalID: 2008044065381382267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0568c33472a0a134aa78a7858a8813e1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
