@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 14:48:52
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-29 23:44:57
+ * @LastEditTime: 2020-12-05 16:26:42
  * @Description: 资源管理器
  */
 using System.Collections;
@@ -188,6 +188,7 @@ namespace UDK.Resource
             mCurrentRequest = null;
         }
 
+        // 立即加载Resources目录下资源
         public ResourceUnit LoadImmediate(string filePath, EResourceType EResourceType, string archiveName = "Resources")
         {
             if (UsedAssetBundle)

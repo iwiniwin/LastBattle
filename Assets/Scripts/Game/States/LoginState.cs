@@ -37,6 +37,17 @@ namespace Game
             mSceneRoot = GameObject.Instantiate(unit.Asset) as GameObject;
             
             EventSystem.Broadcast(EGameEvent.ShowLoginView);
+
+            ResourceUnit audioClipUnit = ResourceManager.Instance.LoadImmediate(GameConfig.UIBGSoundPath, EResourceType.ASSET);
+            AudioClip clip = audioClipUnit.Asset as AudioClip;
+            
+            // 播放背景音乐
+            AudioSource source = GameObject.Find("GameLogic").AddComponent<AudioSource>();
+            source.loop = true;
+            source.playOnAwake = false;
+            source.volume = GameSettings.AudioVolume;
+            source.clip = clip;
+            source.Play();
         }
 
         public void Exit(){
