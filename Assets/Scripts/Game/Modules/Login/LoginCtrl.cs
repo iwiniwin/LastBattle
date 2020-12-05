@@ -28,6 +28,10 @@ namespace Game
         {
             throw new System.NotImplementedException();
         }
+
+        public void Login(string account, string password){
+            Debug.Log(account + " " + password);
+        }
     }
 }
 

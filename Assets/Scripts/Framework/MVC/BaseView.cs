@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-11 22:48:48
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-05 15:57:39
+ * @LastEditTime: 2020-12-05 21:56:56
  * @Description: 视图基类
  */
 using System.Collections;
@@ -130,8 +130,8 @@ namespace UDK.MVC
                 return Ctrl;
             }
             Ctrl = new T();
-            Ctrl.Init();
             Ctrl.View = this;
+            Ctrl.Init();
             return Ctrl;
         }
 

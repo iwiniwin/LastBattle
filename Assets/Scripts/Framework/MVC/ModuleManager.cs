@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-03 00:14:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-05 15:57:21
+ * @LastEditTime: 2020-12-05 21:59:01
  * @Description: 模块管理器
  */
 using System.Collections;
@@ -30,10 +30,18 @@ namespace UDK.MVC
 
         // 加载指定模块
         public T LoadModule<T, U>() where T : BaseView, new() where U : BaseCtrl, new(){
-            T view = LoadModule<T>();
-            if(view != null){
-                view.BindCtrl<U>();
+            T view = GetModule<T>();
+            if(view != null) {
+                DebugEx.LogWarning("repeat load module");
+                return view;
             }
+            view = new T();
+            view.BindCtrl<U>();
+            view.Init();
+            if(view.EnablePreload){
+                view.Preload();
+            }
+            mViewDic.Add(typeof(T), view);
             return view;
         }
 
