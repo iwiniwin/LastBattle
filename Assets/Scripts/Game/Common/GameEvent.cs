@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-03 23:03:36
+ * @LastEditTime: 2020-12-06 23:03:27
  * @Description: 
  */
 using System.Collections;
@@ -17,6 +17,9 @@ namespace Game
         ConnectServerSuccess,
         // 连接服务器失败
         ConnectServerFail,
+
+        // 获取到服务地址
+        OnGetBSAddress,
 
         ReconnectToBattle,
         BeginWaiting,

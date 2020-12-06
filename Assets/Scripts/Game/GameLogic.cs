@@ -5,8 +5,8 @@ using UDK;
 using UDK.FSM;
 using GameDefine;
 using UDK.Network;
-using UDK.Event;
 using UDK.MVC;
+using System.IO;
 
 namespace Game 
 {
@@ -38,6 +38,7 @@ namespace Game
             // PlayerManager
             // NpcManager
             NetworkManager.Instance.Close();
+            NetworkManager.Instance.Init(GameConfig.LoginServerAddress, GameConfig.LoginServerPort, Serialize);
 
             GameStateManager<EGameStateType>.Instance.Init(new LoginState());
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
@@ -137,6 +138,9 @@ namespace Game
             }
         }
 
+        public void Serialize(MemoryStream stream, object msg) {
+            ProtoBuf.Serializer.Serialize(stream, (ProtoBuf.IExtensible)msg);
+        }
 
         // 游戏推出前执行
         private void OnApplicationQuit() {

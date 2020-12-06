@@ -4,64 +4,88 @@ using UnityEngine;
 using System;
 using System.Net.Sockets;
 using System.IO;
-using UDK;
 using System.Net;
-using UDK.Event;
 
 namespace UDK.Network
 {
-    public enum EServerType
-    {
-        GateServer = 0,
-        BalanceServer,
-        LoginServer
-    }
+    public delegate void ConnectAction();
+
+    public delegate void SerializeAction(MemoryStream stream, object msg);
+
+    public delegate void MessageHandler(MemoryStream stream, int id);
 
     public class NetworkManager : Singleton<NetworkManager>
     {
-        public bool CanReconnect { get; set; } = false;
+        public bool EnableConnect { get; set; } = false;
 
         private TcpClient mClient = null;
         private TcpClient mConnectingClient = null;
         private string mIP = "";
         private Int32 mPort = 40001;
         private Int32 mConnectTimes = 0;
-        private EServerType mServerType = EServerType.BalanceServer;
         private float mCanConnectTime = 0f;
-        private float mRecvOverTime = 0f;
-        private float mRecvOverDelayTime = 2f;
-        private float mConnectOverTime = 0f;
-        private Int32 mConnectOverCount = 0;
-        private Int32 mRecvOverCount = 0;
+        // 预创建的数据接收流数量
+        private int mReceiveStreamsPoolSize = 50;
 
-        public byte[] mRecvBuffer = new byte[2 * 1024 * 1024];
-        public Int32 mRecvPos = 0;
+        /* 数据接收 */
+
+        // 数据接收结束时间
+        private float mReceiveOverTime = 0f;
+        // 数据接收历经次数（经过了多少帧）
+        private Int32 mReceiveCount = 0;
+        // 数据接收历经的最大帧数，在此数值内未接收成功，则接收失败
+        private Int32 mMaxReceiveCount = 200;
+        // 数据接收最大时长
+        private float mMaxReceiveDuration = 2f;
+        // 接收结果
         IAsyncResult mRecvResult;
+        // 数据接收缓冲
+        public byte[] mRecvBuffer = new byte[2 * 1024 * 1024];
+        // mRecvBuffer中有效数据的位置，即已读取数据大小
+        public Int32 mRecvPos = 0;
+
+        /* 连接 */
+
+        // 连接结束时间
+        private float mConnectOverTime = 0f;
+        // 连接最大时长，在此时间内未连接成功，则连接失败
+        private float mMaxConnectDuration = 2f;
+        // 连接历经次数（经过了多少帧）
+        private Int32 mConnectCount = 0;
+        // 连接历经的最大帧数，在此数值内未连接成功，则连接失败
+        private Int32 mMaxConnectCount = 200;
+        // 连接结果
         IAsyncResult mConnectResult;
 
         // 发送数据stream
         public MemoryStream mSendStream = new MemoryStream();
-        // 接收数据stream
-        public List<int> mReceiveMsgIDs = new List<int>();
-        public List<MemoryStream> mReceiveStreams = new List<MemoryStream>();
+
+        // 消息队列，存放已读取消息的标识与数据流
+        public Queue<KeyValuePair<int, MemoryStream>> mMessageQueue = new Queue<KeyValuePair<int, MemoryStream>>();
+
+        // 数据读取流池，存放空闲的数据读取流
         public List<MemoryStream> mReceiveStreamsPool = new List<MemoryStream>();
+
+        public event ConnectAction OnConnectServerSuccess;
+        public event ConnectAction OnConnectServerFailed;
+        public event ConnectAction OnConnectClosed;
+        public event MessageHandler OnReceiveMessage;
+
+        private SerializeAction mSerializer = null;
 
         public NetworkManager()
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < mReceiveStreamsPoolSize; i++)
             {
                 mReceiveStreamsPool.Add(new MemoryStream());
             }
-
-            // 预先创建消息运行时类型模型
-            // ProtoBuf.Serializer.PrepareSerializer<>();
         }
 
         ~NetworkManager()
         {
-            foreach (MemoryStream ms in mReceiveStreams)
+            foreach (var ms in mMessageQueue)
             {
-                ms.Close();
+                ms.Value.Close();
             }
             foreach (MemoryStream ms in mReceiveStreamsPool)
             {
@@ -82,29 +106,23 @@ namespace UDK.Network
             }
         }
 
-        public void Init(string ip, Int32 port, EServerType type)
+        public void Init(string ip, Int32 port, SerializeAction serializer)
         {
-            DebugEx.Log("set network ip : " + ip + " port : " + port + " type : " + type);
+            mSerializer = serializer;
+            DebugEx.Log("init network, ip : " + ip + " port : " + port);
             mIP = ip;
             mPort = port;
-            mServerType = type;
             mConnectTimes = 0;
-            CanReconnect = true;
             mRecvPos = 0;
 #if UNITY_EDITOR
-            mRecvOverDelayTime = 20000f;
+            mMaxReceiveDuration = 20000f;
 #endif
         }
 
-        public void UnInit()
-        {
-            CanReconnect = false;
-        }
-
+        // 异步连接远程主机
         public void Connect()
         {
-            if (!CanReconnect) return;
-
+            if (!EnableConnect) return;
             if (mCanConnectTime > Time.time) return;
 
             if (mClient != null)
@@ -113,18 +131,20 @@ namespace UDK.Network
             if (mConnectingClient != null)
                 throw new Exception("the socket is connecting, cannot connect again");
 
+            DebugEx.Log("satrt connect ip : " + mIP + " port : " + mPort);
+
             IPAddress ipAddress = IPAddress.Parse(mIP);
 
             try
             {
                 mConnectingClient = new TcpClient();
                 mConnectResult = mConnectingClient.BeginConnect(mIP, mPort, null, null);
-                mConnectOverCount = 0;
-                mConnectOverTime = Time.time + 2;
+                mConnectCount = 0;
+                mConnectOverTime = Time.time + mMaxConnectDuration;
             }
             catch (System.Exception exception)
             {
-                DebugEx.LogError(exception.ToString());
+                DebugEx.LogError("connect exception : " + exception.ToString());
                 mClient = mConnectingClient;
                 mConnectingClient = null;
                 mConnectResult = null;
@@ -143,28 +163,28 @@ namespace UDK.Network
 
         public void Update(float deltaTime)
         {
-            if (mClient != null)
+            if (mClient != null)  // 已连接状态
             {
                 DealWithMsg();
 
                 if (mRecvResult != null)
                 {
-                    if (mRecvOverCount > 200 && Time.time > mRecvOverTime)
+                    if (mReceiveCount > mMaxReceiveCount && Time.time > mReceiveOverTime)
                     {
                         DebugEx.LogError("recv data over 200, so close network");
                         Close();
                         return;
                     }
 
-                    ++mRecvOverCount;
+                    ++mReceiveCount;
 
                     if (mRecvResult.IsCompleted)
                     {
                         try
                         {
-                            Int32 n32BytesRead = mClient.GetStream().EndRead(mRecvResult);
-                            mRecvPos += n32BytesRead;
-                            if (n32BytesRead == 0)
+                            Int32 readSize = mClient.GetStream().EndRead(mRecvResult);  // 从流中读取的字节数
+                            mRecvPos += readSize;
+                            if (readSize == 0)
                             {
                                 DebugEx.LogError("can't recv data now, so close network");
                                 Close();
@@ -178,15 +198,16 @@ namespace UDK.Network
                             return;
                         }
 
-                        OnDataReceived(null, null);
+                        OnDataReceived();
 
                         if (mClient != null)
                         {
                             try
                             {
+                                // 从流中读取数据存放到mRecvBuffer中，从mRecvPos位置开始存放
                                 mRecvResult = mClient.GetStream().BeginRead(mRecvBuffer, mRecvPos, mRecvBuffer.Length - mRecvPos, null, null);
-                                mRecvOverTime = Time.time + mRecvOverDelayTime;
-                                mRecvOverCount = 0;
+                                mReceiveOverTime = Time.time + mMaxReceiveDuration;
+                                mReceiveCount = 0;
                             }
                             catch (System.Exception exception)
                             {
@@ -204,9 +225,9 @@ namespace UDK.Network
                     return;
                 }
             }
-            else if (mConnectingClient != null)
+            else if (mConnectingClient != null)  // 正在连接状态
             {
-                if (mConnectOverCount > 200 && Time.time > mConnectOverTime)
+                if (mConnectCount > mMaxConnectCount && Time.time > mConnectOverTime)
                 {
                     DebugEx.LogError("can't connect, so close network");
                     mClient = mConnectingClient;
@@ -215,9 +236,9 @@ namespace UDK.Network
                     OnConnectError(mClient, null);
                     return;
                 }
-
-                ++mConnectOverCount;
-                if (mConnectResult.IsCompleted)
+                // 记录连接历经的帧数
+                ++mConnectCount;
+                if (mConnectResult.IsCompleted)  // 连接完成
                 {
                     mClient = mConnectingClient;
                     mConnectingClient = null;
@@ -238,9 +259,9 @@ namespace UDK.Network
 
                             mRecvResult = mClient.GetStream().BeginRead(mRecvBuffer, 0, mRecvBuffer.Length, null, null);
 
-                            mRecvOverTime = Time.time + mRecvOverDelayTime;
+                            mReceiveOverTime = Time.time + mMaxReceiveDuration;
 
-                            mRecvOverCount = 0;
+                            mReceiveCount = 0;
 
                             OnConnected(mClient, null);
                         }
@@ -263,103 +284,53 @@ namespace UDK.Network
             }
         }
 
-        public void SendMsg(ProtoBuf.IExtensible pMsg, Int32 n32MsgID)
+        // 发送消息
+        public void SendMsg(object msg, Int32 n32MsgID)
         {
+            if (mSerializer == null)
+            {
+                DebugEx.LogError("missing serialization method");
+                return;
+            }
             if (mClient != null)
             {
                 //清除stream
                 mSendStream.SetLength(0);
                 mSendStream.Position = 0;
 
-
                 //序列到stream
-                ProtoBuf.Serializer.Serialize(mSendStream, pMsg);
-                // todo
-                //                 CMsg pcMsg = new CMsg((int)mSendStream.Length);
-                //                 pcMsg.SetProtocalID(n32MsgID);
-                //                 pcMsg.Add(mSendStream.ToArray(), 0, (int)mSendStream.Length);
-                //                 //ms.Close();
-                // #if UNITY_EDITOR
-                // #else
-                //                 try
-                //                 {
-                // #endif
+                mSerializer(mSendStream, msg);
 
-                // #if LOG_FILE && UNITY_EDITOR
-                //                 if (n32MsgID != 8192 && n32MsgID != 16385)
-                //                 {
-                //                     string msgName = "";
-                //                     if (Enum.IsDefined(typeof(GCToBS.MsgNum), n32MsgID))
-                //                     {
-                //                         msgName = ((GCToBS.MsgNum)n32MsgID).ToString();
-                //                     }
-                //                     else if (Enum.IsDefined(typeof(GCToCS.MsgNum), n32MsgID))
-                //                     {
-                //                         msgName = ((GCToCS.MsgNum)n32MsgID).ToString();
-                //                     }
-                //                     else if (Enum.IsDefined(typeof(GCToLS.MsgID), n32MsgID))
-                //                     {
-                //                         msgName = ((GCToLS.MsgID)n32MsgID).ToString();
-                //                     }
-                //                     else if (Enum.IsDefined(typeof(GCToSS.MsgNum), n32MsgID))
-                //                     {
-                //                         msgName = ((GCToSS.MsgNum)n32MsgID).ToString();
-                //                     }
-
-                //                     using (System.IO.StreamWriter sw = new System.IO.StreamWriter(@"E:\Log.txt", true))
-                //                     {
-                //                         sw.WriteLine(Time.time + "   发送消息：\t" + n32MsgID + "\t" + msgName);
-                //                     }
-                //                 }
-                // #endif
-                //                 mClient.GetStream().Write(pcMsg.GetMsgBuffer(), 0, (int)pcMsg.GetMsgSize());
+                Message message = new Message((int)mSendStream.Length, n32MsgID);
+                message.Add(mSendStream.ToArray(), 0, (int)mSendStream.Length);
+#if UNITY_EDITOR
+#else
+                try
+                {
+#endif
+                mClient.GetStream().Write(message.GetBuffer(), 0, (int)message.GetBufferSize());
 #if UNITY_EDITOR
 #else
                 }
                 catch (Exception exc)
                 {
-                    DebugEx.LogError(exc.ToString());
+                    DebugEx.LogError("send msg exception : " + exc.ToString());
                     Close();
                 }
 #endif
             }
         }
 
+        // 连接成功
         public void OnConnected(object sender, EventArgs e)
         {
-            // todo
-            // switch (mServerType)
-            // {
-            // case ServerType.BalanceServer:
-            //     {
-            //         CGLCtrl_GameLogic.Instance.BsOneClinetLogin();
-            //     }
-            //     break;
-            // case ServerType.GateServer:
-            //     {
-            //         ++mConnectTimes;
-            //         if (mConnectTimes > 1)
-            //         {
-            //             CGLCtrl_GameLogic.Instance.EmsgTocsAskReconnect();
-            //         }
-            //         else
-            //         {
-            //             CGLCtrl_GameLogic.Instance.GameLogin();
-            //         }
-            //         EventSystem.Broadcast(GameEvent.GameEvent_ConnectServerSuccess);
-            //     }
-            //     break;
-            // case ServerType.LoginServer:
-            //     {
-            //         CGLCtrl_GameLogic.Instance.EmsgToLs_AskLogin();
-            //     }
-            //     break;
-            // }
+            if(OnConnectServerSuccess != null)
+                OnConnectServerSuccess();
         }
 
         public void OnConnectError(object sender, ErrorEventArgs e)
         {
-            DebugEx.Log("OnConnectError begin");
+            DebugEx.Log("connect error, ready to close");
 
             try
             {
@@ -375,18 +346,16 @@ namespace UDK.Network
             mRecvResult = null;
             mClient = null;
             mRecvPos = 0;
-            mRecvOverCount = 0;
-            mConnectOverCount = 0;
+            mReceiveCount = 0;
+            mConnectCount = 0;
 
-            // EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
-
-            DebugEx.Log("OnConnectError end");
+            if(OnConnectServerFailed != null)
+                OnConnectServerFailed();
         }
 
+        // 关闭连接
         public void OnClosed(object sender, EventArgs e)
         {
-            // EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
-
             try
             {
                 mClient.Client.Shutdown(SocketShutdown.Both);
@@ -402,51 +371,31 @@ namespace UDK.Network
             mRecvResult = null;
             mClient = null;
             mRecvPos = 0;
-            mRecvOverCount = 0;
-            mConnectOverCount = 0;
-            mReceiveStreams.Clear();
-            mReceiveMsgIDs.Clear();
+            mReceiveCount = 0;
+            mConnectCount = 0;
+            mMessageQueue.Clear();
+
+            if(OnConnectClosed != null)
+                OnConnectClosed();
         }
 
+        // 处理读取到的一条消息
         public void DealWithMsg()
         {
-            while (mReceiveMsgIDs.Count > 0 && mReceiveStreams.Count > 0)
+            while (mMessageQueue.Count > 0)
             {
-                int type = mReceiveMsgIDs[0];
-                System.IO.MemoryStream iostream = mReceiveStreams[0];
-                mReceiveMsgIDs.RemoveAt(0);
-                mReceiveStreams.RemoveAt(0);
+                KeyValuePair<int, MemoryStream> pair = mMessageQueue.Dequeue();
+                int type = pair.Key;
+                System.IO.MemoryStream iostream = pair.Value;
 #if UNITY_EDITOR
 #else
                 try
                 {
 #endif
-#if LOG_FILE && UNITY_EDITOR
-                if (type != 1)
-                {
-                    string msgName = "";
-                    if (Enum.IsDefined(typeof(BSToGC.MsgID), type))
-                    {
-                        msgName = ((BSToGC.MsgID)type).ToString();
-                    }
-                    else if (Enum.IsDefined(typeof(LSToGC.MsgID), type))
-                    {
-                        msgName = ((LSToGC.MsgID)type).ToString();
-                    }
-                    else if (Enum.IsDefined(typeof(GSToGC.MsgID), type))
-                    {
-                        msgName = ((GSToGC.MsgID)type).ToString();
-                    }
-
-                   using (System.IO.StreamWriter sw = new System.IO.StreamWriter(@"E:\Log.txt", true))
-                   {
-                       sw.WriteLine(Time.time + "  收到消息：\t" + type + "\t" + msgName);
-                    }
+                if(OnReceiveMessage != null) {
+                    OnReceiveMessage(iostream, type);
                 }
-#endif
-                // todo
-                // CGLCtrl_GameLogic.Instance.HandleNetMsg(iostream, type);
-                if (mReceiveStreamsPool.Count < 100)
+                if (mReceiveStreamsPool.Count < mReceiveStreamsPoolSize)
                 {
                     mReceiveStreamsPool.Add(iostream);
                 }
@@ -454,7 +403,6 @@ namespace UDK.Network
                 {
                     iostream = null;
                 }
-
 #if UNITY_EDITOR
 #else
                 }
@@ -466,21 +414,25 @@ namespace UDK.Network
             }
         }
 
-        public void OnDataReceived(object sender, DataEventArgs e)
+
+        // 收到数据，解析并读取数据
+        public void OnDataReceived()
         {
             int curPos = 0;
             while (mRecvPos - curPos >= 8)
             {
-                int len = BitConverter.ToInt32(mRecvBuffer, curPos);
+                // 数据长度
+                int len = BitConverter.ToInt32(mRecvBuffer, curPos);  // 将数组中指定位置的四个字节转换为Int32
+                // 数据类型
                 int type = BitConverter.ToInt32(mRecvBuffer, curPos + 4);
                 if (len > mRecvBuffer.Length)
                 {
-                    DebugEx.LogError("can't pause message" + "type=" + type + "len=" + len);
+                    DebugEx.LogError("can't parse message" + "type=" + type + "len=" + len);
                     break;
                 }
                 if (len > mRecvPos - curPos)
                 {
-                    break;//wait net recv more buffer to parse.
+                    break; //wait net recv more buffer to parse.
                 }
                 //获取stream
                 System.IO.MemoryStream tempStream = null;
@@ -499,12 +451,11 @@ namespace UDK.Network
                 tempStream.Write(mRecvBuffer, curPos + 8, len - 8);
                 tempStream.Position = 0;
                 curPos += len;
-                mReceiveMsgIDs.Add(type);
-                mReceiveStreams.Add(tempStream);
+                mMessageQueue.Enqueue(new KeyValuePair<int, MemoryStream>(type, tempStream));
             }
-            if (curPos > 0)
+            if (curPos > 0)  // 读取了大小为curPos数据
             {
-                mRecvPos = mRecvPos - curPos;
+                mRecvPos -= curPos;  // 剩下未读取的数据量
 
                 if (mRecvPos < 0)
                 {
@@ -513,6 +464,7 @@ namespace UDK.Network
 
                 if (mRecvPos > 0)
                 {
+                    // 将剩下未读取的数据移动到mRecvBuffer的头部
                     Buffer.BlockCopy(mRecvBuffer, curPos, mRecvBuffer, 0, mRecvPos);
                 }
             }

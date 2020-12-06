@@ -59,7 +59,7 @@ namespace Game
         }
 
         public bool Update(float deltaTime){
-            return true;
+            return false;
         }
     }
 }

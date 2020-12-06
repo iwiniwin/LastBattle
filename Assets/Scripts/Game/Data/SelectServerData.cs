@@ -13,6 +13,12 @@ namespace Game
             HouseFull,  // 爆满
         }
 
+        public static KeyValuePair<string, Color>[] StateDescrption = {
+            new KeyValuePair<string, Color>("流畅", Color.green),
+            new KeyValuePair<string, Color>("繁忙", Color.yellow),
+            new KeyValuePair<string, Color>("爆满", Color.red),
+        };
+
         public class ServerInfo {
             public int index;
             public string name;
@@ -28,12 +34,10 @@ namespace Game
         public string ServerToken {get; set;}
         public int ServerPlatform {private set; get;}
         public string ServerUin {get; set;}
-        public string ServerSionId {get; set;}
+        public string ServerSessionId {get; set;}
         public string GateServerUin {get; set;}
         public int CurSelectIndex {private set; get;}
         public ServerInfo CurSelectServer {private set; get;}
-
-        public string[] StateName = {"流畅", "繁忙", "爆满"};
 
         public const string ServerKey = "Server";
         public const string ServerStateKey = "ServerState";
@@ -65,11 +69,11 @@ namespace Game
         }
 
         // uin = account ?
-        // sionId = password ?
-        public void SetExtraInfo(int platform, string uin, string sionId) {
+        // SessionId = password ?
+        public void SetExtraInfo(int platform, string uin, string sessionId) {
             ServerPlatform = platform;
             ServerUin = uin;
-            ServerSionId = sionId;
+            ServerSessionId = sessionId;
         }
 
         public void SetSelectServer(int index) {

@@ -18,6 +18,14 @@ namespace GameDefine
         Lobby
     }
 
+    // 服务器类型
+    public enum EServerType
+    {
+        GateServer = 0,
+        BalanceServer,
+        LoginServer
+    }
+
     // 战斗类型
     public enum EBattleState
     {
