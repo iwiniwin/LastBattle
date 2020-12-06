@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 19:33:53
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-29 23:19:27
+ * @LastEditTime: 2020-12-06 12:17:18
  * @Description: 用于Unity的日志格式化打印工具，其他C#项目略作修改也可使用
  * 支持包含且不限于数组，字典，列表等各种数据结构的格式化输出
  * Log formatting printing tool for Unity, other C# items can be modified slightly
@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using System.Diagnostics;
 using UnityObject = UnityEngine.Object;
 // using DebugClass = UnityEngine.Debug;
-using DebugClass = UDK.Debug.DebugEx;
+using DebugClass = UDK.DebugEx;
 
 namespace UDK.Utils{
     public delegate void LogDelegate(object message);

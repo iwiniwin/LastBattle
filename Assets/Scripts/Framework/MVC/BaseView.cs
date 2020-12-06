@@ -8,7 +8,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UDK.Debug;
 using UDK.UI;
 
 namespace UDK.MVC

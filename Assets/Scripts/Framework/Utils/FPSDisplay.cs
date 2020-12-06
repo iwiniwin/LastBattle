@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UDK.Debug 
+namespace UDK 
 {
     public class FPSDisplay : UnitySingleton<FPSDisplay>
     {

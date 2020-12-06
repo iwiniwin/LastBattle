@@ -11,8 +11,6 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Xml;
-using UDK.Utils;
-using UDK.Debug;
 
 namespace UDK.Resource
 {

@@ -9,7 +9,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UDK.Resource;
-using UDK.Debug;
 
 namespace UDK.UI
 {

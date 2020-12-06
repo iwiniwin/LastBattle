@@ -2,16 +2,15 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 17:47:07
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-11-29 23:00:40
+ * @LastEditTime: 2020-12-06 12:20:09
  * @Description: 文件操作工具类
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UDK.Debug;
 
-namespace UDK.Utils
+namespace UDK
 {
     public static class FileUtil
     {
