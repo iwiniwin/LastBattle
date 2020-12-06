@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UDK.MVC;
 using UDK.Event;
+using UDK.Network;
 
 namespace Game
 {
@@ -30,7 +31,10 @@ namespace Game
         }
 
         public void Login(string account, string password){
-            Debug.Log(account + " " + password);
+            // Debug.Log(account + " " + password);
+            SelectServerData.Instance.SetExtraInfo((int)SdkManager.Instance.PlatformType, account, password);
+            NetworkManager.Instance.CanReconnect = false;
+            NetworkManager.Instance.Init(GameConfig.LoginServerAddress, GameConfig.LoginServerPort, EServerType.LoginServer);
         }
     }
 }

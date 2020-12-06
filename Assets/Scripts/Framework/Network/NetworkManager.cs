@@ -10,14 +10,16 @@ using UDK.Event;
 
 namespace UDK.Network
 {
+    public enum EServerType
+    {
+        GateServer = 0,
+        BalanceServer,
+        LoginServer
+    }
+
     public class NetworkManager : Singleton<NetworkManager>
     {
-        public enum EServerType
-        {
-            GateServer = 0,
-            BalanceServer,
-            LoginServer
-        }
+        public bool CanReconnect { get; set; } = false;
 
         private TcpClient mClient = null;
         private TcpClient mConnectingClient = null;
@@ -31,7 +33,6 @@ namespace UDK.Network
         private float mConnectOverTime = 0f;
         private Int32 mConnectOverCount = 0;
         private Int32 mRecvOverCount = 0;
-        private bool mCanReconnect = false;
 
         public byte[] mRecvBuffer = new byte[2 * 1024 * 1024];
         public Int32 mRecvPos = 0;
@@ -88,26 +89,28 @@ namespace UDK.Network
             mPort = port;
             mServerType = type;
             mConnectTimes = 0;
-            mCanReconnect = true;
+            CanReconnect = true;
             mRecvPos = 0;
 #if UNITY_EDITOR
             mRecvOverDelayTime = 20000f;
 #endif
         }
 
-        public void UnInit(){
-            mCanReconnect = false;
+        public void UnInit()
+        {
+            CanReconnect = false;
         }
 
-        public void Connect(){
-            if(!mCanReconnect) return;
+        public void Connect()
+        {
+            if (!CanReconnect) return;
 
-            if(mCanConnectTime > Time.time) return;
+            if (mCanConnectTime > Time.time) return;
 
-            if(mClient != null)
+            if (mClient != null)
                 throw new Exception("the socket is connecting, cannot connect again");
 
-            if(mConnectingClient != null)
+            if (mConnectingClient != null)
                 throw new Exception("the socket is connecting, cannot connect again");
 
             IPAddress ipAddress = IPAddress.Parse(mIP);
@@ -130,31 +133,39 @@ namespace UDK.Network
             }
         }
 
-        public void Close(){
-            if(mClient != null){
+        public void Close()
+        {
+            if (mClient != null)
+            {
                 OnClosed(mClient, null);
             }
         }
 
-        public void Update(float deltaTime){
-            if(mClient != null){
+        public void Update(float deltaTime)
+        {
+            if (mClient != null)
+            {
                 DealWithMsg();
 
-                if(mRecvResult != null){
-                    if(mRecvOverCount > 200 && Time.time > mRecvOverTime){
+                if (mRecvResult != null)
+                {
+                    if (mRecvOverCount > 200 && Time.time > mRecvOverTime)
+                    {
                         DebugEx.LogError("recv data over 200, so close network");
                         Close();
                         return;
                     }
 
-                    ++ mRecvOverCount;
+                    ++mRecvOverCount;
 
-                    if(mRecvResult.IsCompleted){
+                    if (mRecvResult.IsCompleted)
+                    {
                         try
                         {
                             Int32 n32BytesRead = mClient.GetStream().EndRead(mRecvResult);
                             mRecvPos += n32BytesRead;
-                            if(n32BytesRead == 0){
+                            if (n32BytesRead == 0)
+                            {
                                 DebugEx.LogError("can't recv data now, so close network");
                                 Close();
                                 return;
@@ -169,7 +180,8 @@ namespace UDK.Network
 
                         OnDataReceived(null, null);
 
-                        if(mClient != null){
+                        if (mClient != null)
+                        {
                             try
                             {
                                 mRecvResult = mClient.GetStream().BeginRead(mRecvBuffer, mRecvPos, mRecvBuffer.Length - mRecvPos, null, null);
@@ -185,14 +197,17 @@ namespace UDK.Network
                         }
                     }
                 }
-                if(mClient != null && mClient.Connected == false){
+                if (mClient != null && mClient.Connected == false)
+                {
                     DebugEx.LogError("client is close by system, so close it now");
                     Close();
                     return;
                 }
             }
-            else if(mConnectingClient != null){
-                if(mConnectOverCount > 200 && Time.time > mConnectOverTime){
+            else if (mConnectingClient != null)
+            {
+                if (mConnectOverCount > 200 && Time.time > mConnectOverTime)
+                {
                     DebugEx.LogError("can't connect, so close network");
                     mClient = mConnectingClient;
                     mConnectingClient = null;
@@ -201,8 +216,9 @@ namespace UDK.Network
                     return;
                 }
 
-                ++ mConnectOverCount;
-                if(mConnectResult.IsCompleted){
+                ++mConnectOverCount;
+                if (mConnectResult.IsCompleted)
+                {
                     mClient = mConnectingClient;
                     mConnectingClient = null;
 
@@ -255,48 +271,48 @@ namespace UDK.Network
                 mSendStream.SetLength(0);
                 mSendStream.Position = 0;
 
-               
+
                 //序列到stream
                 ProtoBuf.Serializer.Serialize(mSendStream, pMsg);
                 // todo
-//                 CMsg pcMsg = new CMsg((int)mSendStream.Length);
-//                 pcMsg.SetProtocalID(n32MsgID);
-//                 pcMsg.Add(mSendStream.ToArray(), 0, (int)mSendStream.Length);
-//                 //ms.Close();
-// #if UNITY_EDITOR
-// #else
-//                 try
-//                 {
-// #endif
+                //                 CMsg pcMsg = new CMsg((int)mSendStream.Length);
+                //                 pcMsg.SetProtocalID(n32MsgID);
+                //                 pcMsg.Add(mSendStream.ToArray(), 0, (int)mSendStream.Length);
+                //                 //ms.Close();
+                // #if UNITY_EDITOR
+                // #else
+                //                 try
+                //                 {
+                // #endif
 
-// #if LOG_FILE && UNITY_EDITOR
-//                 if (n32MsgID != 8192 && n32MsgID != 16385)
-//                 {
-//                     string msgName = "";
-//                     if (Enum.IsDefined(typeof(GCToBS.MsgNum), n32MsgID))
-//                     {
-//                         msgName = ((GCToBS.MsgNum)n32MsgID).ToString();
-//                     }
-//                     else if (Enum.IsDefined(typeof(GCToCS.MsgNum), n32MsgID))
-//                     {
-//                         msgName = ((GCToCS.MsgNum)n32MsgID).ToString();
-//                     }
-//                     else if (Enum.IsDefined(typeof(GCToLS.MsgID), n32MsgID))
-//                     {
-//                         msgName = ((GCToLS.MsgID)n32MsgID).ToString();
-//                     }
-//                     else if (Enum.IsDefined(typeof(GCToSS.MsgNum), n32MsgID))
-//                     {
-//                         msgName = ((GCToSS.MsgNum)n32MsgID).ToString();
-//                     }
+                // #if LOG_FILE && UNITY_EDITOR
+                //                 if (n32MsgID != 8192 && n32MsgID != 16385)
+                //                 {
+                //                     string msgName = "";
+                //                     if (Enum.IsDefined(typeof(GCToBS.MsgNum), n32MsgID))
+                //                     {
+                //                         msgName = ((GCToBS.MsgNum)n32MsgID).ToString();
+                //                     }
+                //                     else if (Enum.IsDefined(typeof(GCToCS.MsgNum), n32MsgID))
+                //                     {
+                //                         msgName = ((GCToCS.MsgNum)n32MsgID).ToString();
+                //                     }
+                //                     else if (Enum.IsDefined(typeof(GCToLS.MsgID), n32MsgID))
+                //                     {
+                //                         msgName = ((GCToLS.MsgID)n32MsgID).ToString();
+                //                     }
+                //                     else if (Enum.IsDefined(typeof(GCToSS.MsgNum), n32MsgID))
+                //                     {
+                //                         msgName = ((GCToSS.MsgNum)n32MsgID).ToString();
+                //                     }
 
-//                     using (System.IO.StreamWriter sw = new System.IO.StreamWriter(@"E:\Log.txt", true))
-//                     {
-//                         sw.WriteLine(Time.time + "   发送消息：\t" + n32MsgID + "\t" + msgName);
-//                     }
-//                 }
-// #endif
-//                 mClient.GetStream().Write(pcMsg.GetMsgBuffer(), 0, (int)pcMsg.GetMsgSize());
+                //                     using (System.IO.StreamWriter sw = new System.IO.StreamWriter(@"E:\Log.txt", true))
+                //                     {
+                //                         sw.WriteLine(Time.time + "   发送消息：\t" + n32MsgID + "\t" + msgName);
+                //                     }
+                //                 }
+                // #endif
+                //                 mClient.GetStream().Write(pcMsg.GetMsgBuffer(), 0, (int)pcMsg.GetMsgSize());
 #if UNITY_EDITOR
 #else
                 }
@@ -314,41 +330,41 @@ namespace UDK.Network
             // todo
             // switch (mServerType)
             // {
-                // case ServerType.BalanceServer:
-                //     {
-                //         CGLCtrl_GameLogic.Instance.BsOneClinetLogin();
-                //     }
-                //     break;
-                // case ServerType.GateServer:
-                //     {
-                //         ++mConnectTimes;
-                //         if (mConnectTimes > 1)
-                //         {
-                //             CGLCtrl_GameLogic.Instance.EmsgTocsAskReconnect();
-                //         }
-                //         else
-                //         {
-                //             CGLCtrl_GameLogic.Instance.GameLogin();
-                //         }
-                //         EventSystem.Broadcast(GameEvent.GameEvent_ConnectServerSuccess);
-                //     }
-                //     break;
-                // case ServerType.LoginServer:
-                //     {
-                //         CGLCtrl_GameLogic.Instance.EmsgToLs_AskLogin();
-                //     }
-                //     break;
+            // case ServerType.BalanceServer:
+            //     {
+            //         CGLCtrl_GameLogic.Instance.BsOneClinetLogin();
+            //     }
+            //     break;
+            // case ServerType.GateServer:
+            //     {
+            //         ++mConnectTimes;
+            //         if (mConnectTimes > 1)
+            //         {
+            //             CGLCtrl_GameLogic.Instance.EmsgTocsAskReconnect();
+            //         }
+            //         else
+            //         {
+            //             CGLCtrl_GameLogic.Instance.GameLogin();
+            //         }
+            //         EventSystem.Broadcast(GameEvent.GameEvent_ConnectServerSuccess);
+            //     }
+            //     break;
+            // case ServerType.LoginServer:
+            //     {
+            //         CGLCtrl_GameLogic.Instance.EmsgToLs_AskLogin();
+            //     }
+            //     break;
             // }
         }
 
         public void OnConnectError(object sender, ErrorEventArgs e)
         {
             DebugEx.Log("OnConnectError begin");
-            
+
             try
             {
                 mClient.Client.Shutdown(SocketShutdown.Both);
-                mClient.GetStream().Close();          
+                mClient.GetStream().Close();
                 mClient.Close();
                 mClient = null;
             }
@@ -370,7 +386,7 @@ namespace UDK.Network
         public void OnClosed(object sender, EventArgs e)
         {
             // EventSystem.Broadcast(EGameEvent.GameEvent_ConnectServerFail);
-            
+
             try
             {
                 mClient.Client.Shutdown(SocketShutdown.Both);
@@ -394,7 +410,7 @@ namespace UDK.Network
 
         public void DealWithMsg()
         {
-            while (mReceiveMsgIDs.Count>0 && mReceiveStreams.Count>0)
+            while (mReceiveMsgIDs.Count > 0 && mReceiveStreams.Count > 0)
             {
                 int type = mReceiveMsgIDs[0];
                 System.IO.MemoryStream iostream = mReceiveStreams[0];
@@ -430,7 +446,7 @@ namespace UDK.Network
 #endif
                 // todo
                 // CGLCtrl_GameLogic.Instance.HandleNetMsg(iostream, type);
-                if (mReceiveStreamsPool.Count<100)
+                if (mReceiveStreamsPool.Count < 100)
                 {
                     mReceiveStreamsPool.Add(iostream);
                 }
@@ -468,7 +484,7 @@ namespace UDK.Network
                 }
                 //获取stream
                 System.IO.MemoryStream tempStream = null;
-                if (mReceiveStreamsPool.Count>0)
+                if (mReceiveStreamsPool.Count > 0)
                 {
                     tempStream = mReceiveStreamsPool[0];
                     tempStream.SetLength(0);
@@ -497,7 +513,7 @@ namespace UDK.Network
 
                 if (mRecvPos > 0)
                 {
-                    Buffer.BlockCopy(mRecvBuffer, curPos, mRecvBuffer, 0, mRecvPos);                    
+                    Buffer.BlockCopy(mRecvBuffer, curPos, mRecvBuffer, 0, mRecvPos);
                 }
             }
         }
