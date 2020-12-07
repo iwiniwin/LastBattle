@@ -62,7 +62,6 @@ namespace Game
         }
 
         public void OnConnectServerSuccess() {
-            UDK.Output.Dump("sucdcessssssss");
             MessageCenter.Instance.AskLoginToLoginServer();
         }
 

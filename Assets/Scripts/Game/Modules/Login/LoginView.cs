@@ -58,7 +58,7 @@ namespace Game
             mServerParent = Root.Find("GameServerUI");
             mChangeAccountBtn = Root.Find("ChangeAccount");
 
-            mChangeAccountName = Root.Find("ChangeAccount/Position/Label").GetComponent<Text>();
+            mChangeAccountName = Root.Find("ChangeAccount/Label1").GetComponent<Text>();
 
             mPlayNameLabel = Root.Find("LoginBG/CurrentSelection/Label2").GetComponent<Text>();
             mPlayStateLabel = Root.Find("LoginBG/CurrentSelection/Label3").GetComponent<Text>();
