@@ -61,7 +61,7 @@ namespace Game
             mChangeAccountName = Root.Find("ChangeAccount/Label1").GetComponent<Text>();
 
             mPlayNameLabel = Root.Find("LoginBG/CurrentSelection/Label2").GetComponent<Text>();
-            mPlayStateLabel = Root.Find("LoginBG/CurrentSelection/Label3").GetComponent<Text>();
+            mPlayStateLabel = Root.Find("LoginBG/CurrentSelection/Label1").GetComponent<Text>();
             
             EventListener.Get(mLoginSubmit.gameObject).onClick += OnLoginSubmit;
         }
