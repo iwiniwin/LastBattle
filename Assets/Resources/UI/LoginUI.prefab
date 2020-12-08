@@ -643,7 +643,6 @@ GameObject:
   - component: {fileID: 3845697763427076960}
   - component: {fileID: 3845697763427076957}
   - component: {fileID: 3845697763427076958}
-  - component: {fileID: 3845697763427076959}
   m_Layer: 5
   m_Name: Halo
   m_TagString: Untagged
@@ -708,25 +707,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &3845697763427076959
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845697763427076961}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3845697763429559276
 GameObject:
   m_ObjectHideFlags: 0
@@ -6003,6 +5983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3845697764945743879}
   - component: {fileID: 3845697764945743878}
+  - component: {fileID: 6845294266105244589}
   m_Layer: 5
   m_Name: StartBtn
   m_TagString: Untagged
@@ -6041,6 +6022,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3845697764945743880}
   m_CullTransparentMesh: 0
+--- !u!95 &6845294266105244589
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845697764945743880}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3845697764955870457
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,10 +16,16 @@ namespace UDK.Network
 
     public class NetworkManager : Singleton<NetworkManager>
     {
+        enum EConnectState {
+            None = 0,
+            Connecting,  // 正在连接
+            Connected,  // 已连接
+        }
+
+        // 是否启动连接
         public bool EnableConnect { get; set; } = false;
 
         private TcpClient mClient = null;
-        private TcpClient mConnectingClient = null;
         private string mIP = "";
         private Int32 mPort = 40001;
         private Int32 mConnectTimes = 0;
@@ -46,6 +52,8 @@ namespace UDK.Network
 
         /* 连接 */
 
+        // 当前连接状态
+        private EConnectState mConnectState = EConnectState.None;
         // 连接结束时间
         private float mConnectOverTime = 0f;
         // 连接最大时长，在此时间内未连接成功，则连接失败
@@ -106,10 +114,14 @@ namespace UDK.Network
             }
         }
 
-        public void Init(string ip, Int32 port, SerializeAction serializer)
-        {
+        public void Init(SerializeAction serializer) {
             mSerializer = serializer;
-            DebugEx.Log("init network, ip : " + ip + " port : " + port);
+            Close();
+        }
+
+        public void Configure(string ip, Int32 port)
+        {
+            DebugEx.Log("configure network -> ip : " + ip + " port : " + port);
             mIP = ip;
             mPort = port;
             mConnectTimes = 0;
@@ -117,6 +129,7 @@ namespace UDK.Network
 #if UNITY_EDITOR
             mMaxReceiveDuration = 20000f;
 #endif
+            Close();
         }
 
         // 异步连接远程主机
@@ -128,25 +141,21 @@ namespace UDK.Network
             if (mClient != null)
                 throw new Exception("the socket is connecting, cannot connect again");
 
-            if (mConnectingClient != null)
-                throw new Exception("the socket is connecting, cannot connect again");
-
             DebugEx.Log("satrt connect ip : " + mIP + " port : " + mPort);
 
             IPAddress ipAddress = IPAddress.Parse(mIP);
 
             try
             {
-                mConnectingClient = new TcpClient();
-                mConnectResult = mConnectingClient.BeginConnect(mIP, mPort, null, null);
+                mClient = new TcpClient();
+                mConnectResult = mClient.BeginConnect(mIP, mPort, null, null);
                 mConnectCount = 0;
                 mConnectOverTime = Time.time + mMaxConnectDuration;
+                mConnectState = EConnectState.Connecting;
             }
             catch (System.Exception exception)
             {
                 DebugEx.LogError("connect exception : " + exception.ToString());
-                mClient = mConnectingClient;
-                mConnectingClient = null;
                 mConnectResult = null;
                 OnConnectError(mClient, null);
                 throw;
@@ -155,6 +164,7 @@ namespace UDK.Network
 
         public void Close()
         {
+            EnableConnect = false;
             if (mClient != null)
             {
                 OnClosed(mClient, null);
@@ -163,7 +173,7 @@ namespace UDK.Network
 
         public void Update(float deltaTime)
         {
-            if (mClient != null)  // 已连接状态
+            if (mConnectState == EConnectState.Connected)  // 已连接状态
             {
                 DealWithMsg();
 
@@ -225,13 +235,11 @@ namespace UDK.Network
                     return;
                 }
             }
-            else if (mConnectingClient != null)  // 正在连接状态
+            else if (mConnectState == EConnectState.Connecting)  // 正在连接状态
             {
                 if (mConnectCount > mMaxConnectCount && Time.time > mConnectOverTime)
                 {
                     DebugEx.LogError("can't connect, so close network");
-                    mClient = mConnectingClient;
-                    mConnectingClient = null;
                     mConnectResult = null;
                     OnConnectError(mClient, null);
                     return;
@@ -240,8 +248,7 @@ namespace UDK.Network
                 ++mConnectCount;
                 if (mConnectResult.IsCompleted)  // 连接完成
                 {
-                    mClient = mConnectingClient;
-                    mConnectingClient = null;
+                    mConnectState = EConnectState.Connected;
 
                     mConnectResult = null;
 
@@ -330,6 +337,7 @@ namespace UDK.Network
 
         public void OnConnectError(object sender, ErrorEventArgs e)
         {
+            mConnectState = EConnectState.None;
             DebugEx.Log("connect error, ready to close");
 
             try
@@ -368,6 +376,7 @@ namespace UDK.Network
                 DebugEx.Log(exc.ToString());
             }
 
+            mConnectState = EConnectState.None;
             mRecvResult = null;
             mClient = null;
             mRecvPos = 0;

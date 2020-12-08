@@ -1,11 +1,19 @@
-﻿using System.Collections;
+﻿/*
+ * @Author: iwiniwin
+ * @Date: 2020-12-05 22:14:35
+ * @LastEditors: iwiniwin
+ * @LastEditTime: 2020-12-08 22:51:25
+ * @Description: 游戏服务器数据
+ * 用于存放LS，BS或GS的IP与端口
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UDK;
 
 namespace Game 
 {
-    public class SelectServerData : Singleton<SelectServerData>
+    public class GameServerData : Singleton<GameServerData>
     {
         public enum EServerState {
             Fluent = 0,  // 流畅
@@ -19,12 +27,13 @@ namespace Game
             new KeyValuePair<string, Color>("爆满", Color.red),
         };
 
+        // 服务器信息
         public class ServerInfo {
             public int index;
-            public string name;
-            public EServerState state;
-            public string address;
-            public int port;
+            public string name;  // 服务器名称
+            public EServerState state;  // 服务器状态
+            public string address;  // 服务器地址
+            public int port;  // 服务器端口
         }
 
         Dictionary<int, ServerInfo> serverInfoDic = new Dictionary<int, ServerInfo>();
@@ -37,7 +46,7 @@ namespace Game
         public string ServerSessionId {get; set;}
         public string GateServerUin {get; set;}
         public int CurSelectIndex {private set; get;}
-        public ServerInfo CurSelectServer {private set; get;}
+        public ServerInfo CurSelectServerInfo {private set; get;}
 
         public const string ServerKey = "Server";
         public const string ServerStateKey = "ServerState";
@@ -78,7 +87,7 @@ namespace Game
 
         public void SetSelectServer(int index) {
             CurSelectIndex = index;
-            CurSelectServer = serverInfoDic[index];
+            CurSelectServerInfo = serverInfoDic[index];
         }
         
         public void Clean() {

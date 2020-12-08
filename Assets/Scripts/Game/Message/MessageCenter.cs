@@ -25,9 +25,9 @@ namespace Game
 
         public void AskLoginToLoginServer() {
             GCToLS.AskLogin msg = new GCToLS.AskLogin();
-            msg.platform = (uint)SelectServerData.Instance.ServerPlatform;
-            msg.uin = SelectServerData.Instance.ServerUin;
-            msg.sessionid = SelectServerData.Instance.ServerSessionId;
+            msg.platform = (uint)GameServerData.Instance.ServerPlatform;
+            msg.uin = GameServerData.Instance.ServerUin;
+            msg.sessionid = GameServerData.Instance.ServerSessionId;
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgid);
         }
     }

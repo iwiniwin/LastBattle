@@ -37,8 +37,8 @@ namespace Game
         private void Start() {
             // PlayerManager
             // NpcManager
-            NetworkManager.Instance.Close();
-            NetworkManager.Instance.Init(GameConfig.LoginServerAddress, GameConfig.LoginServerPort, Serialize);
+            NetworkManager.Instance.Init(Serialize);
+            NetworkManager.Instance.OnReceiveMessage += MessageCenter.Instance.HandleMessage;
 
             GameStateManager<EGameStateType>.Instance.Init(new LoginState());
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);

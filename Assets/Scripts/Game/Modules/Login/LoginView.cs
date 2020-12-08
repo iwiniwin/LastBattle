@@ -21,6 +21,10 @@ namespace Game
         // 等待中
         Transform mWaitingParent;
 
+        // 开始游戏
+        Transform mPlaySubmitBtn;
+        Animator mPlayAnimate;
+
         Text mChangeAccountName;
         Transform mChangeAccountBtn;
 
@@ -55,6 +59,8 @@ namespace Game
             mLoginPasswordInput = Root.Find("ChooseServer/Loginer/PasswordInput").GetComponent<InputField>();
 
             mPlayParent = Root.Find("LoginBG");
+            mPlaySubmitBtn = Root.Find("LoginBG/StartBtn");
+            mPlayAnimate = mPlaySubmitBtn.GetComponent<Animator>();
             mServerParent = Root.Find("GameServerUI");
             mChangeAccountBtn = Root.Find("ChangeAccount");
 
@@ -64,6 +70,7 @@ namespace Game
             mPlayStateLabel = Root.Find("LoginBG/CurrentSelection/Label1").GetComponent<Text>();
             
             EventListener.Get(mLoginSubmit.gameObject).onClick += OnLoginSubmit;
+            EventListener.Get(mPlaySubmitBtn.gameObject).onClick += onPlaySubmit;
         }
 
         public override void OnEnable()
@@ -93,9 +100,9 @@ namespace Game
         }
 
         public void ShowSelectServerInfo() {
-            SelectServerData.ServerInfo info = SelectServerData.Instance.CurSelectServer;
+            GameServerData.ServerInfo info = GameServerData.Instance.CurSelectServerInfo;
             mPlayNameLabel.text = info.name;
-            var pair = SelectServerData.StateDescrption[(int)info.state];
+            var pair = GameServerData.StateDescrption[(int)info.state];
             mPlayStateLabel.text = "(" + pair.Key + ")";
             mPlayStateLabel.color = pair.Value;
         }
@@ -108,6 +115,9 @@ namespace Game
 
         }
 
+        /* UI事件响应 */
+
+        // 点击登录按钮回调
         void OnLoginSubmit(GameObject gameObject, PointerEventData eventData) {
             string account = mLoginAccountInput.text;
             string password = mLoginPasswordInput.text;
@@ -115,6 +125,13 @@ namespace Game
                 return;
             mWaitingParent.gameObject.SetActive(true);
             Ctrl.Login(account, password);
+        }
+
+        // 点击开始游戏按钮回调
+        void onPlaySubmit(GameObject gameObject, PointerEventData eventData) {
+            EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= onPlaySubmit;
+            mWaitingParent.gameObject.SetActive(true);
+            Ctrl.StartGame();
         }
     }
 }
