@@ -376,6 +376,7 @@ namespace UDK.Network
                 DebugEx.Log(exc.ToString());
             }
 
+            EnableConnect = false;
             mConnectState = EConnectState.None;
             mRecvResult = null;
             mClient = null;

@@ -21,6 +21,11 @@ namespace Game
         // 等待中
         Transform mWaitingParent;
 
+        // 重新登录面板
+        Transform mReloginParent;
+        // 重新登录按钮
+        Transform mReLoginSubmit;
+
         // 开始游戏
         Transform mPlaySubmitBtn;
         Animator mPlayAnimate;
@@ -68,9 +73,13 @@ namespace Game
 
             mPlayNameLabel = Root.Find("LoginBG/CurrentSelection/Label2").GetComponent<Text>();
             mPlayStateLabel = Root.Find("LoginBG/CurrentSelection/Label1").GetComponent<Text>();
+
+            mReloginParent = Root.Find("LogInAgain");
+            mReLoginSubmit = Root.Find("LogInAgain/Status/Button");
             
             EventListener.Get(mLoginSubmit.gameObject).onClick += OnLoginSubmit;
             EventListener.Get(mPlaySubmitBtn.gameObject).onClick += onPlaySubmit;
+            EventListener.Get(mReLoginSubmit.gameObject).onClick += onReloginSubmit;
         }
 
         public override void OnEnable()
@@ -99,6 +108,12 @@ namespace Game
             mWaitingParent.gameObject.SetActive(false);
         }
 
+        public void ShowLoginFailUI() {
+            mReloginParent.gameObject.SetActive(true);
+            mWaitingParent.gameObject.SetActive(false);
+            EventListener.Get(mLoginSubmit.gameObject).onClick += OnLoginSubmit;
+        }
+
         public void ShowSelectServerInfo() {
             GameServerData.ServerInfo info = GameServerData.Instance.CurSelectServerInfo;
             mPlayNameLabel.text = info.name;
@@ -113,6 +128,10 @@ namespace Game
 
         public void ShowSelectServerUI() {
 
+        }
+
+        public void ShowLoginSuccessUI() {
+            EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= onPlaySubmit;
         }
 
         /* UI事件响应 */
@@ -132,6 +151,12 @@ namespace Game
             EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= onPlaySubmit;
             mWaitingParent.gameObject.SetActive(true);
             Ctrl.StartGame();
+        }
+
+        // 点击重新登录回调
+        void onReloginSubmit(GameObject gameObject, PointerEventData eventData) {
+            mReloginParent.gameObject.SetActive(false);
+            // todo 重新登录
         }
     }
 }

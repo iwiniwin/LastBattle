@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-06 23:03:27
+ * @LastEditTime: 2020-12-09 00:04:09
  * @Description: 
  */
 using System.Collections;
@@ -13,17 +13,16 @@ namespace Game
 {
     public enum EGameEvent
     {
-        // 连接服务器成功
-        ConnectServerSuccess,
-        // 连接服务器失败
-        ConnectServerFail,
-
-        // 获取到服务地址
-        OnGetBSAddress,
+        // 接收到到BS地址
+        OnReceiveBSAddress,
+        // 接收到登录BS校验结果
+        OnReceiveCheckLoginBSRet,
+        // 接收到GS信息
+        OnReceiveGSInfo,
 
         ReconnectToBattle,
         BeginWaiting,
-
+        
         // 显示登录视图
         ShowLoginView,
         // 关闭登录视图

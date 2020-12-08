@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-05 22:14:35
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-08 22:51:25
+ * @LastEditTime: 2020-12-09 00:08:33
  * @Description: 游戏服务器数据
  * 用于存放LS，BS或GS的IP与端口
  */
@@ -38,13 +38,15 @@ namespace Game
 
         Dictionary<int, ServerInfo> serverInfoDic = new Dictionary<int, ServerInfo>();
 
+        // gate server
         public string ServerAddress {get; set;}
         public int ServerPort {get; set;}
         public string ServerToken {get; set;}
+        public string GateServerUin {get; set;}
+        
         public int ServerPlatform {private set; get;}
         public string ServerUin {get; set;}
         public string ServerSessionId {get; set;}
-        public string GateServerUin {get; set;}
         public int CurSelectIndex {private set; get;}
         public ServerInfo CurSelectServerInfo {private set; get;}
 

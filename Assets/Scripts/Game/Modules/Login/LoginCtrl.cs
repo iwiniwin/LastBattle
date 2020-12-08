@@ -19,7 +19,9 @@ namespace Game
             View = base.View as LoginView;
             EventSystem.AddListener(EGameEvent.ShowLoginView, ShowView);
             EventSystem.AddListener(EGameEvent.HideLoginView, HideView);
-            EventSystem.AddListener<LSToGC.ServerBSAddr>(EGameEvent.OnGetBSAddress, OnGetBSAddress);
+            EventSystem.AddListener<LSToGC.ServerBSAddr>(EGameEvent.OnReceiveBSAddress, OnReceiveBSAddress);
+            EventSystem.AddListener<BSToGC.ClinetLoginCheckRet>(EGameEvent.OnReceiveCheckLoginBSRet, OnReceiveCheckLoginBSRet);
+            EventSystem.AddListener<BSToGC.AskGateAddressRet>(EGameEvent.OnReceiveGSInfo, OnReceiveGSInfo);
 
             NetworkManager.Instance.OnConnectServerFailed += OnConnectServerFailed;
         }
@@ -40,12 +42,11 @@ namespace Game
             NetworkManager.Instance.Configure(GameConfig.LoginServerAddress, GameConfig.LoginServerPort);
 
             NetworkManager.Instance.OnConnectServerSuccess += OnConnectLSSuccess;
-            
 
             NetworkManager.Instance.EnableConnect = true;
         }
 
-        public void OnGetBSAddress(LSToGC.ServerBSAddr msg) {
+        public void OnReceiveBSAddress(LSToGC.ServerBSAddr msg) {
             GameServerData.Instance.Clean();
             for(int i = 0; i < msg.serverinfo.Count; i ++) {
                 string address = msg.serverinfo[i].ServerAddr;
@@ -56,12 +57,30 @@ namespace Game
             }
 
             NetworkManager.Instance.Close();
-            NetworkManager.Instance.EnableConnect = false;
+
+            NetworkManager.Instance.OnConnectServerSuccess += OnConnectGSSuccess;
 
             GameServerData.Instance.SetDefaultServer();
 
             View.ShowLoginUI();
+        }
 
+        public void OnReceiveCheckLoginBSRet(BSToGC.ClinetLoginCheckRet msg) {
+            System.UInt32 loginSuccess = msg.login_success;
+            if(loginSuccess != 1){  // 登录失败
+                NetworkManager.Instance.EnableConnect = false;
+                View.ShowLoginFailUI();
+            }
+        }
+
+        public void OnReceiveGSInfo(BSToGC.AskGateAddressRet msg) {
+            GameServerData.Instance.ServerAddress = msg.ip;
+            GameServerData.Instance.ServerPort = msg.port;
+            GameServerData.Instance.ServerToken = msg.token;
+            GameServerData.Instance.GateServerUin = msg.user_name;
+            NetworkManager.Instance.Configure(msg.ip, msg.port);
+
+            NetworkManager.Instance.EnableConnect = true;
         }
 
         // 开始游戏
@@ -84,7 +103,12 @@ namespace Game
         // 连接到负载均衡服务器成功回调
         public void OnConnectBSSuccess() {
             NetworkManager.Instance.OnConnectServerSuccess -= OnConnectBSSuccess;
-            UDK.Output.Dump("vvvvvvvvvvvvvvvvv");
+            MessageCenter.Instance.AskLoginToBalanceServer();
+        }
+
+        // 连接到Gate Server成功回调
+        public void OnConnectGSSuccess() {
+            UDK.Output.Dump("ssssssssssssss");
         }
 
         public void OnConnectServerFailed() {
