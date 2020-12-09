@@ -26,11 +26,7 @@ namespace Game
         public EGameStateType NextStateType {
             get;
             set;
-        }
-
-        public void SetNextState(EGameStateType type){
-            NextStateType = type;
-        }
+        } = EGameStateType.Login;  // 等于自身，则不切换状态
 
         public void Enter(){
             ResourceUnit unit = ResourceManager.Instance.LoadImmediate(GameConfig.LoginPrefabPath, EResourceType.PREFAB);
@@ -48,10 +44,12 @@ namespace Game
             source.volume = GameSettings.AudioVolume;
             source.clip = clip;
             source.Play();
+
+            EventSystem.AddListener<GSToGC.UserBaseInfo>(EGameEvent.OnReceiveUserBaseInfo, OnReceiveUserBaseInfo);
         }
 
         public void Exit(){
-
+            EventSystem.RemoveListener<GSToGC.UserBaseInfo>(EGameEvent.OnReceiveUserBaseInfo, OnReceiveUserBaseInfo);
         }
 
         public void FixedUpdate(float fixedDeltaTime){
@@ -59,7 +57,17 @@ namespace Game
         }
 
         public bool Update(float deltaTime){
-            return false;
+            return NextStateType != EGameStateType.Login;
+        }
+
+        public void OnReceiveUserBaseInfo(GSToGC.UserBaseInfo msg) {
+            if(msg.nickname.Length > 1) {
+                // GameUserModel.Instance.SetGameBaseInfo(pMsg);
+                // EventCenter.SendEvent(new CEvent(EGameEvent.eGameEvent_IntoLobby));
+            }else if(msg.guid > 0) {
+                // 玩家没有昵称，进入补充玩家信息界面
+                NextStateType = EGameStateType.UserInfo;
+            }
         }
     }
 }

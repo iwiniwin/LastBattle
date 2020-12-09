@@ -39,7 +39,7 @@ namespace GameDefine
     // 游戏状态类型
     public enum EGameStateType {
         Login,
-        User,
+        UserInfo,
         Lobby,
         Room,
         Hero,

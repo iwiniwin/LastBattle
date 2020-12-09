@@ -7,6 +7,7 @@ using GameDefine;
 using UDK.Network;
 using UDK.MVC;
 using System.IO;
+using UDK.Event;
 
 namespace Game 
 {
@@ -40,7 +41,7 @@ namespace Game
             NetworkManager.Instance.Init(Serialize);
             NetworkManager.Instance.OnReceiveMessage += MessageCenter.Instance.HandleMessage;
 
-            GameStateManager<EGameStateType>.Instance.Init(new LoginState());
+            GameStateManager<EGameStateType>.Instance.Init(new LoginState(), new UserInfoState());
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
 
             // 预加载，减少进入游戏资源加载卡顿
@@ -87,7 +88,7 @@ namespace Game
 
         private void OnEnable() {
             // 添加事件注册
-            // EventSystem.AddListener(EGameEvent.ConnectServerSuccess, OnConnectServerSuccess);
+            EventSystem.AddListener(EGameEvent.OnConnectGateServerSuccess, OnConnectGateServerSuccess);
             // EventSystem.AddListener(EGameEvent.ConnectServerFail, OpenConnectUI);
             // EventSystem.AddListener(EGameEvent.ReconnectToBattle, OpenConnectUI);
             // EventSystem.AddListener(EGameEvent.BeginWaiting, OpenWaitingUI);
@@ -107,7 +108,7 @@ namespace Game
         }
 
         private void OnDisable() {
-            // EventSystem.RemoveListener(EGameEvent.ConnectServerSuccess, OnConnectServerSuccess);
+            EventSystem.RemoveListener(EGameEvent.OnConnectGateServerSuccess, OnConnectGateServerSuccess);
             // EventSystem.RemoveListener(EGameEvent.ConnectServerFail, OpenConnectUI);
             // EventSystem.RemoveListener(EGameEvent.ReconnectToBattle, OpenConnectUI);
             // EventSystem.RemoveListener(EGameEvent.BeginWaiting, OpenWaitingUI);
@@ -126,9 +127,9 @@ namespace Game
         }
 
         // 连接服务器成功
-        private void OnConnectServerSuccess(){
-            StopCoroutine("PingToServer");
-            StartCoroutine("PingToServer");
+        private void OnConnectGateServerSuccess(){
+            // StopCoroutine("PingToServer");
+            // StartCoroutine("PingToServer");
         }
 
         private IEnumerator PingToServerr(){

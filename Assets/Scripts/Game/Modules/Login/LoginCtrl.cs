@@ -58,8 +58,6 @@ namespace Game
 
             NetworkManager.Instance.Close();
 
-            NetworkManager.Instance.OnConnectServerSuccess += OnConnectGSSuccess;
-
             GameServerData.Instance.SetDefaultServer();
 
             View.ShowLoginUI();
@@ -79,6 +77,8 @@ namespace Game
             GameServerData.Instance.ServerToken = msg.token;
             GameServerData.Instance.GateServerUin = msg.user_name;
             NetworkManager.Instance.Configure(msg.ip, msg.port);
+
+            NetworkManager.Instance.OnConnectServerSuccess += OnConnectGSSuccess;
 
             NetworkManager.Instance.EnableConnect = true;
         }
@@ -108,7 +108,12 @@ namespace Game
 
         // 连接到Gate Server成功回调
         public void OnConnectGSSuccess() {
-            UDK.Output.Dump("ssssssssssssss");
+            NetworkManager.Instance.OnConnectServerSuccess -= OnConnectGSSuccess;
+            MessageCenter.Instance.AskLoginToGateServer();
+
+            // TalkGame初始化
+
+            EventSystem.Broadcast(EGameEvent.OnConnectGateServerSuccess);
         }
 
         public void OnConnectServerFailed() {

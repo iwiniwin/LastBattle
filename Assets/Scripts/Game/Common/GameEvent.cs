@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-09 00:04:09
+ * @LastEditTime: 2020-12-10 00:24:02
  * @Description: 
  */
 using System.Collections;
@@ -20,6 +20,12 @@ namespace Game
         // 接收到GS信息
         OnReceiveGSInfo,
 
+        // 连接到GS成功
+        OnConnectGateServerSuccess,
+
+        // 接收到用户信息
+        OnReceiveUserBaseInfo,
+
         ReconnectToBattle,
         BeginWaiting,
         
@@ -27,6 +33,10 @@ namespace Game
         ShowLoginView,
         // 关闭登录视图
         HideLoginView,
+        // 显示用户信息视图
+        ShowUserInfoView,
+        // 关闭用户信息视图
+        HideUserInfoView,
     }
 }
 
