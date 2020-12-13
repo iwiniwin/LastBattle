@@ -8,33 +8,33 @@ using GameDefine;
 
 namespace Game
 {
-    public class UserInfoState : IGameState<EGameStateType>
+    public class LobbyState : IGameState<EGameStateType>
     {
         
 
         GameObject mSceneRoot;
 
-        public UserInfoState(){
+        public LobbyState(){
 
         }
 
         public EGameStateType Type {
             get;
             set;
-        } = EGameStateType.UserInfo;
+        } = EGameStateType.Lobby;
 
         public EGameStateType NextStateType {
             get;
             set;
-        } = EGameStateType.UserInfo;
+        } = EGameStateType.Lobby;
 
         public void Enter(){
-            EventSystem.Broadcast(EGameEvent.ShowUserInfoView);
-            // play bg audio
+            UDK.Output.Dump("jinru..............");
+            EventSystem.Broadcast(EGameEvent.ShowLobbyView);
         }
 
         public void Exit(){
-            EventSystem.Broadcast(EGameEvent.HideUserInfoView);
+            EventSystem.Broadcast(EGameEvent.HideLobbyView);
         }
 
         public void FixedUpdate(float fixedDeltaTime){

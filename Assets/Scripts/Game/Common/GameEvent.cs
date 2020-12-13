@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-10 00:24:02
+ * @LastEditTime: 2020-12-13 19:52:18
  * @Description: 
  */
 using System.Collections;
@@ -37,6 +37,10 @@ namespace Game
         ShowUserInfoView,
         // 关闭用户信息视图
         HideUserInfoView,
+        // 显示大厅视图
+        ShowLobbyView,
+        // 关闭大厅视图
+        HideLobbyView,
     }
 }
 

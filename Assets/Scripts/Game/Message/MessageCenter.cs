@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-10 00:13:22
+ * @LastEditTime: 2020-12-13 19:44:26
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -22,16 +22,16 @@ namespace Game
             UDK.Output.Dump(protocalId, "receive msg");
             switch (protocalId)
             {
-                case (Int32)LSToGC.MsgID.eMsgToGCFromLS_NotifyServerBSAddr:
+                case (Int32)LSToGC.MsgID.eMsgToGCFromLS_NotifyServerBSAddr:  // 收到BS地址
                     OnNotifyServerAddress(stream);
                     break;
-                case (Int32)BSToGC.MsgID.eMsgToGCFromBS_OneClinetLoginCheckRet:
+                case (Int32)BSToGC.MsgID.eMsgToGCFromBS_OneClinetLoginCheckRet:  // 客户端登录校验结果
                     OnCheckLoginBSRet(stream);
                     break;
-                case (Int32)BSToGC.MsgID.eMsgToGCFromBS_AskGateAddressRet:
+                case (Int32)BSToGC.MsgID.eMsgToGCFromBS_AskGateAddressRet:  // 请求GS地址结果
                     onNotifyGateServerInfo(stream);
                     break;
-                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyUserBaseInfo:
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyUserBaseInfo:  // 收到用户信息
                     onNotifyUserBaseInfo(stream);
                     break;
             }
@@ -97,6 +97,15 @@ namespace Game
                 equimentid = "",  // todo
                 name = GameServerData.Instance.GateServerUin,
                 passwd = GameServerData.Instance.ServerToken,
+            };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void SendCompleteBaseInfo(byte[] nickName, int headId, byte sex) {
+            GCToCS.CompleteInfo msg = new GCToCS.CompleteInfo {
+                nickname = System.Text.Encoding.UTF8.GetString(nickName),
+                headid = headId,
+                sex = sex,
             };
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }

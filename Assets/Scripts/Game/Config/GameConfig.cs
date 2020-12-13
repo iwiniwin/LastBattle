@@ -12,6 +12,8 @@ namespace Game
 
         public static string LoginPrefabPath = "Game/GameLogin";
         public static string LoginUIPath = "UI/LoginUI";
+        public static string RegisterUIPath = "UI/RegisterUI";
+        public static string LobbyUIPath = "UI/LobbyUI";
 
 
         // 音频

@@ -34,7 +34,6 @@ namespace Game
 
         public override void Update(float deltaTime)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Login(string account, string password){

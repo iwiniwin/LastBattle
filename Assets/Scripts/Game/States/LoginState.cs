@@ -50,6 +50,9 @@ namespace Game
 
         public void Exit(){
             EventSystem.RemoveListener<GSToGC.UserBaseInfo>(EGameEvent.OnReceiveUserBaseInfo, OnReceiveUserBaseInfo);
+            
+            EventSystem.Broadcast(EGameEvent.HideLoginView);
+            GameObject.DestroyImmediate(mSceneRoot);
         }
 
         public void FixedUpdate(float fixedDeltaTime){
@@ -62,8 +65,8 @@ namespace Game
 
         public void OnReceiveUserBaseInfo(GSToGC.UserBaseInfo msg) {
             if(msg.nickname.Length > 1) {
-                // GameUserModel.Instance.SetGameBaseInfo(pMsg);
-                // EventCenter.SendEvent(new CEvent(EGameEvent.eGameEvent_IntoLobby));
+                UDK.Output.Dump("llllllllllllllll", msg.nickname);
+                NextStateType = EGameStateType.Lobby;
             }else if(msg.guid > 0) {
                 // 玩家没有昵称，进入补充玩家信息界面
                 NextStateType = EGameStateType.UserInfo;

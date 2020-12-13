@@ -33,6 +33,8 @@ namespace Game
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             ModuleManager.Instance.LoadModule<LoginView, LoginCtrl>();
+            ModuleManager.Instance.LoadModule<UserInfoView, UserInfoCtrl>();
+            ModuleManager.Instance.LoadModule<LobbyView, LobbyCtrl>();
         }
 
         private void Start() {
@@ -41,7 +43,7 @@ namespace Game
             NetworkManager.Instance.Init(Serialize);
             NetworkManager.Instance.OnReceiveMessage += MessageCenter.Instance.HandleMessage;
 
-            GameStateManager<EGameStateType>.Instance.Init(new LoginState(), new UserInfoState());
+            GameStateManager<EGameStateType>.Instance.Init(new LoginState(), new UserInfoState(), new LobbyState());
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
 
             // 预加载，减少进入游戏资源加载卡顿

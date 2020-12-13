@@ -1,0 +1,1208 @@
+fileFormatVersion: 2
+guid: 028f24a933ec4ba45969535db9c6ab31
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6864004943162989237
+    second: TeamHead2_0
+  - first:
+      213: -3679521872484740510
+    second: TeamHead2_1
+  - first:
+      213: 4673491111753902835
+    second: TeamHead2_2
+  - first:
+      213: 1695759182919984539
+    second: TeamHead2_3
+  - first:
+      213: 7513352713948248892
+    second: TeamHead2_4
+  - first:
+      213: -1680156002988975964
+    second: TeamHead2_5
+  - first:
+      213: 2304229715253491598
+    second: TeamHead2_6
+  - first:
+      213: 810767398755395593
+    second: TeamHead2_7
+  - first:
+      213: 5240765384544839230
+    second: TeamHead2_8
+  - first:
+      213: 3550940485739230640
+    second: TeamHead2_9
+  - first:
+      213: -1710392284497624290
+    second: TeamHead2_10
+  - first:
+      213: -8506456399235063075
+    second: TeamHead2_11
+  - first:
+      213: 8889026408927008805
+    second: TeamHead2_12
+  - first:
+      213: -4791541804624122910
+    second: TeamHead2_13
+  - first:
+      213: -8400257194323691077
+    second: TeamHead2_14
+  - first:
+      213: 6560471068267797579
+    second: TeamHead2_15
+  - first:
+      213: 7007841192707005142
+    second: TeamHead2_16
+  - first:
+      213: -745972409249522101
+    second: TeamHead2_17
+  - first:
+      213: 5921361014517497016
+    second: TeamHead2_18
+  - first:
+      213: 2073775116342301626
+    second: TeamHead2_19
+  - first:
+      213: -6082289459488570886
+    second: TeamHead2_20
+  - first:
+      213: -7241593419087352267
+    second: TeamHead2_21
+  - first:
+      213: -3857735100242197336
+    second: TeamHead2_22
+  - first:
+      213: 5743409876761710223
+    second: TeamHead2_23
+  - first:
+      213: 8343758120570123500
+    second: TeamHead2_24
+  - first:
+      213: 4847967568859543527
+    second: TeamHead2_25
+  - first:
+      213: -1310943779669211118
+    second: TeamHead2_26
+  - first:
+      213: -3144581127860789015
+    second: TeamHead2_27
+  - first:
+      213: -5225708505791421592
+    second: TeamHead2_28
+  - first:
+      213: -7906196391230497349
+    second: TeamHead2_29
+  - first:
+      213: 3093958521592279865
+    second: TeamHead2_30
+  - first:
+      213: 4975535240457388249
+    second: TeamHead2_31
+  - first:
+      213: 3838918274675279371
+    second: TeamHead2_32
+  - first:
+      213: 1197144547773676212
+    second: TeamHead2_33
+  - first:
+      213: -4120319282007433176
+    second: TeamHead2_34
+  - first:
+      213: 2796072154180811571
+    second: TeamHead2_35
+  - first:
+      213: -1555452528625537112
+    second: TeamHead2_36
+  - first:
+      213: -8545557541045011351
+    second: TeamHead2_37
+  - first:
+      213: -7696097584784355378
+    second: TeamHead2_38
+  - first:
+      213: 3745474349269081936
+    second: TeamHead2_39
+  - first:
+      213: 4375275286056730402
+    second: TeamHead2_40
+  - first:
+      213: -7913883199589176803
+    second: TeamHead2_41
+  - first:
+      213: -6858262470893951018
+    second: TeamHead2_42
+  - first:
+      213: -7645418143068645954
+    second: TeamHead2_43
+  - first:
+      213: -153425416202531583
+    second: TeamHead2_44
+  - first:
+      213: -3851025752475529186
+    second: TeamHead2_45
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TeamHead2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 921
+        width: 103
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45ae3a0fd72eb0a0800000000000000
+      internalID: -6864004943162989237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 921
+        width: 103
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26254471a56bfecc0800000000000000
+      internalID: -3679521872484740510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 921
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa6909a7639bd040800000000000000
+      internalID: 4673491111753902835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b956d8a0efb888710800000000000000
+      internalID: 1695759182919984539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 921
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b3a136c7ac44860800000000000000
+      internalID: 7513352713948248892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_5
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 921
+        width: 103
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a81a926403eea8e0800000000000000
+      internalID: -1680156002988975964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_6
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 921
+        width: 102
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e87759ab7b44aff10800000000000000
+      internalID: 2304229715253491598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_7
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 921
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908684e47ac604b00800000000000000
+      internalID: 810767398755395593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_8
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 921
+        width: 99
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3665f8b950fab840800000000000000
+      internalID: 5240765384544839230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 810
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b53a0fde89774130800000000000000
+      internalID: 3550940485739230640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_10
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 810
+        width: 98
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1343ff77477348e0800000000000000
+      internalID: -1710392284497624290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_11
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 810
+        width: 101
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2ee3a59fef2f980800000000000000
+      internalID: -8506456399235063075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_12
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 810
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528192f3c6a2c5b70800000000000000
+      internalID: 8889026408927008805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_13
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 810
+        width: 101
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebe1f88d16018db0800000000000000
+      internalID: -4791541804624122910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_14
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 810
+        width: 96
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9ba66969a4c6b80800000000000000
+      internalID: -8400257194323691077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_15
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 810
+        width: 99
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c545f7da97b0b50800000000000000
+      internalID: 6560471068267797579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_16
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 810
+        width: 103
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da96a58f6ad04160800000000000000
+      internalID: 7007841192707005142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_17
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 810
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e907ecb06c5a5f0800000000000000
+      internalID: -745972409249522101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 699
+        width: 103
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc79215876ec2250800000000000000
+      internalID: 5921361014517497016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_19
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 699
+        width: 103
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab390a12b7787cc10800000000000000
+      internalID: 2073775116342301626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_20
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 699
+        width: 103
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1c41246fd579ba0800000000000000
+      internalID: -6082289459488570886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_21
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 772
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eed772721b08b90800000000000000
+      internalID: -7241593419087352267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 588
+        width: 103
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a402809d52967ac0800000000000000
+      internalID: -3857735100242197336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_23
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 588
+        width: 101
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e0adf5ad0b4bf40800000000000000
+      internalID: 5743409876761710223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_24
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 588
+        width: 98
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4fc54bdcbfac370800000000000000
+      internalID: 8343758120570123500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 477
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7bc7871d0774340800000000000000
+      internalID: 4847967568859543527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_26
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 477
+        width: 100
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2180f4cf3979ecde0800000000000000
+      internalID: -1310943779669211118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_27
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 477
+        width: 92
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0e57aff143c54d0800000000000000
+      internalID: -3144581127860789015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 366
+        width: 97
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863a09c0dcd8a77b0800000000000000
+      internalID: -5225708505791421592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_29
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 366
+        width: 103
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd1b30654c874290800000000000000
+      internalID: -7906196391230497349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_30
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 366
+        width: 103
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933fc4502e2ffea20800000000000000
+      internalID: 3093958521592279865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 255
+        width: 101
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d086ee80f6ac0540800000000000000
+      internalID: 4975535240457388249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_32
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 255
+        width: 103
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0686c3d4d3964530800000000000000
+      internalID: 3838918274675279371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_33
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 255
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba78da9f9c1d9010800000000000000
+      internalID: 1197144547773676212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 103
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82021c2817fa1d6c0800000000000000
+      internalID: -4120319282007433176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_35
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 144
+        width: 99
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bfe4c5fc4adc620800000000000000
+      internalID: 2796072154180811571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_36
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 181
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8afaa469a2ce96ae0800000000000000
+      internalID: -1555452528625537112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_37
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 172
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cf95651b4186980800000000000000
+      internalID: -8545557541045011351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_38
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 164
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecfcf26b508f13590800000000000000
+      internalID: -7696097584784355378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 103
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f558783199af330800000000000000
+      internalID: 3745474349269081936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_40
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 33
+        width: 102
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ff4f301b918bc30800000000000000
+      internalID: 4375275286056730402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_41
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 33
+        width: 103
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a2e86d82d3c2290800000000000000
+      internalID: -7913883199589176803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d729fd8e9e82d0a0800000000000000
+      internalID: -6858262470893951018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_43
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 11
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5111fb4b406e590800000000000000
+      internalID: -7645418143068645954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_44
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 16
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d4bb7956ceeddf0800000000000000
+      internalID: -153425416202531583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeamHead2_45
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 16
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1090d25b786e8ac0800000000000000
+      internalID: -3851025752475529186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ca0ba50b766c1a54b97adfa414db60f3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
