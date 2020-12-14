@@ -669,7 +669,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2722770862792712485}
   toggleTransition: 1
   graphic: {fileID: 558927626989195653}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1941471108863840888}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 1496726488029456200}
   - component: {fileID: 318874120422028402}
   - component: {fileID: 4483830876084903525}
+  - component: {fileID: 1941471108863840888}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -973,6 +974,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1941471108863840888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702631936885672077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &1727176759396760149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2440,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -7184,7 +7198,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -11992,11 +12006,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6291438730357507739}
   toggleTransition: 1
   graphic: {fileID: 7545936382226175116}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1941471108863840888}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &4630072357983887873
 GameObject:
   m_ObjectHideFlags: 0
@@ -12078,11 +12092,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 421069618665696390}
   toggleTransition: 1
   graphic: {fileID: 4581119429755036656}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1941471108863840888}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &4980468875704841340
 GameObject:
   m_ObjectHideFlags: 0
@@ -18154,7 +18168,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -22869,11 +22883,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8059498088107431870}
   toggleTransition: 1
   graphic: {fileID: 2534574886361883129}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1941471108863840888}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &9059916640331597665
 GameObject:
   m_ObjectHideFlags: 0

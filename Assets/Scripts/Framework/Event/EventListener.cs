@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-05 20:59:19
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-05 21:15:59
+ * @LastEditTime: 2020-12-14 01:09:45
  * @Description: 统一事件管理
  3D事件如果使用，需要给主摄像机绑定Physics Raycaster组件
  */
@@ -19,6 +19,7 @@ namespace UDK.Event
         public UnityAction<GameObject, PointerEventData> onClick;
         public UnityAction<GameObject, PointerEventData> onEnter;
         public UnityAction<GameObject, PointerEventData> onExit;
+        public UnityAction<GameObject, BaseEventData> onSelect;
 
         // 是否透传事件
         public bool passthrough = false;
@@ -51,6 +52,15 @@ namespace UDK.Event
                 onExit(gameObject, eventData);
             }
             PassEvent(eventData, ExecuteEvents.pointerExitHandler);
+        }
+
+        public override void OnSelect(BaseEventData eventData)
+        {
+            base.OnSelect(eventData);
+            if (onSelect != null)
+            {
+                onSelect(gameObject, eventData);
+            }
         }
 
         /// <summary>

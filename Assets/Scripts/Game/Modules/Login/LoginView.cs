@@ -78,8 +78,8 @@ namespace Game
             mReLoginSubmit = Root.Find("LogInAgain/Status/Button");
             
             EventListener.Get(mLoginSubmit.gameObject).onClick += OnLoginSubmit;
-            EventListener.Get(mPlaySubmitBtn.gameObject).onClick += onPlaySubmit;
-            EventListener.Get(mReLoginSubmit.gameObject).onClick += onReloginSubmit;
+            EventListener.Get(mPlaySubmitBtn.gameObject).onClick += OnPlaySubmit;
+            EventListener.Get(mReLoginSubmit.gameObject).onClick += OnReloginSubmit;
         }
 
         public override void OnEnable()
@@ -131,7 +131,7 @@ namespace Game
         }
 
         public void ShowLoginSuccessUI() {
-            EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= onPlaySubmit;
+            EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= OnPlaySubmit;
         }
 
         /* UI事件响应 */
@@ -147,14 +147,14 @@ namespace Game
         }
 
         // 点击开始游戏按钮回调
-        void onPlaySubmit(GameObject gameObject, PointerEventData eventData) {
-            EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= onPlaySubmit;
+        void OnPlaySubmit(GameObject gameObject, PointerEventData eventData) {
+            EventListener.Get(mPlaySubmitBtn.gameObject).onClick -= OnPlaySubmit;
             mWaitingParent.gameObject.SetActive(true);
             Ctrl.StartGame();
         }
 
         // 点击重新登录回调
-        void onReloginSubmit(GameObject gameObject, PointerEventData eventData) {
+        void OnReloginSubmit(GameObject gameObject, PointerEventData eventData) {
             mReloginParent.gameObject.SetActive(false);
             // todo 重新登录
         }
