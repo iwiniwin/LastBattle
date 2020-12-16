@@ -14,6 +14,14 @@ namespace Game
     {
         public new BattleCtrl Ctrl;
 
+        Toggle mMatchToggle;
+        Toggle mCustomToggle;  // 自定义
+        Toggle mTrainMarketToggle;
+
+        Transform mMatchInterface;
+        Transform mCustomInterface;
+        Transform mTrainInterface;
+
         public BattleView(){
             ResName = GameConfig.LobbyBattleUIPath;
             IsResident = true;
@@ -30,6 +38,18 @@ namespace Game
             transform.offsetMin = new Vector2(0.0f, 0.0f);  // left  bottom
             transform.offsetMax = new Vector2(0.0f, 0.0f);  // right top
             transform.localScale = new Vector3(0.65f, 0.65f, 1.0f);
+
+            mMatchToggle = Root.Find("Menu/ModeSelect/Match").GetComponent<Toggle>();
+            mCustomToggle = Root.Find("Menu/ModeSelect/Custom").GetComponent<Toggle>();
+            mTrainMarketToggle = Root.Find("Menu/ModeSelect/Training").GetComponent<Toggle>();
+
+            mMatchInterface = Root.Find("Box/MatchInterface");
+            mCustomInterface = Root.Find("Box/CustomInterface");
+            mTrainInterface = Root.Find("Box/TrainingInterface");
+
+            mMatchToggle.onValueChanged.AddListener(OnMatchBattleChanged);
+            mCustomToggle.onValueChanged.AddListener(OnCustomToggleChanged);
+            mTrainMarketToggle.onValueChanged.AddListener(OnTrainBattleChanged);
         }
 
         public override void OnEnable()
@@ -45,6 +65,26 @@ namespace Game
         public override void Release()
         {
             
+        }
+
+        /* UI事件响应 */
+
+        void OnMatchBattleChanged(bool on) {
+            mMatchInterface.gameObject.SetActive(on);
+            mCustomInterface.gameObject.SetActive(!on);
+            mTrainInterface.gameObject.SetActive(!on);
+        }
+
+        void OnCustomToggleChanged(bool on) {
+            mMatchInterface.gameObject.SetActive(!on);
+            mCustomInterface.gameObject.SetActive(on);
+            mTrainInterface.gameObject.SetActive(!on);
+        }
+
+        void OnTrainBattleChanged(bool on) {
+            mMatchInterface.gameObject.SetActive(!on);
+            mCustomInterface.gameObject.SetActive(!on);
+            mTrainInterface.gameObject.SetActive(on);
         }
     }
 }
