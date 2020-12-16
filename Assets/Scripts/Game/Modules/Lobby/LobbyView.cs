@@ -60,6 +60,13 @@ namespace Game
             EventListener.Get(mBattleToggle.gameObject).onSelect += OnMenuSelect;
             EventListener.Get(mMarketToggle.gameObject).onSelect += OnMenuSelect;
             EventListener.Get(mInteractionToggle.gameObject).onSelect += OnMenuSelect;
+            mHomeToggle.onValueChanged.AddListener(OnHomeToggleChanged);
+            mBattleToggle.onValueChanged.AddListener(OnHomeBattleChanged);
+            
+            // 加载战斗模块
+            ModuleManager.Instance.LoadModule<BattleView, BattleCtrl>();
+            // 加载商城模块
+            // 加载社交模块
         }
 
         public override void OnEnable()
@@ -92,8 +99,18 @@ namespace Game
 
         // 点击登录按钮回调
         void OnMenuSelect(GameObject gameObject, BaseEventData eventData) {
-            UDK.Output.Dump(eventData.selectedObject.name, "vvv");
             DisableParticle(eventData.selectedObject);
+        }
+
+        void OnHomeToggleChanged(bool on) {
+
+        }
+
+        void OnHomeBattleChanged(bool on) {
+            if(on)
+                UDK.Event.EventSystem.Broadcast(EGameEvent.ShowBattleView);
+            else
+                UDK.Event.EventSystem.Broadcast(EGameEvent.HideBattleView);
         }
 
     }
