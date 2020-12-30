@@ -4,6 +4,7 @@ using UnityEngine;
 using UDK.MVC;
 using UDK.Event;
 using UDK.Network;
+using System;
 
 namespace Game
 {
@@ -20,6 +21,10 @@ namespace Game
 
             EventSystem.AddListener(EGameEvent.ShowBattleView, ShowView);
             EventSystem.AddListener(EGameEvent.HideBattleView, HideView);
+            EventSystem.AddListener<GSToGC.BattleBaseInfo>(EGameEvent.OnReceiveBattleBaseInfo, OnReceiveBattleBaseInfo);
+            EventSystem.AddListener<GSToGC.BattleSeatPosInfo>(EGameEvent.OnReceiveBattleSeatPosInfo, OnReceiveBattleSeatPosInfo);
+            EventSystem.AddListener<GSToGC.BattleStateChange>(EGameEvent.OnReceiveBattleStateChange, OnReceiveBattleStateChange);
+            EventSystem.AddListener<GSToGC.HeroList>(EGameEvent.OnReceiveHeroList, OnReceiveHeroList);
         }
 
         public override void Release()
@@ -35,6 +40,37 @@ namespace Game
         public void SendCompleteBaseInfo(byte[] nickName, int headId, byte sex){
             MessageCenter.Instance.SendCompleteBaseInfo(nickName, headId, sex);
         }
+
+        public void AskCreateNoviceGuideBattle(int mapId) {
+            MessageCenter.Instance.AskCSToCreateGuideBattle(mapId, GCToCS.AskCSCreateGuideBattle.guidetype.first);
+        }
+
+        public void OnReceiveBattleBaseInfo(GSToGC.BattleBaseInfo msg) {
+            UserInfoModel.Instance.GameBattleID = msg.battleid;
+            UserInfoModel.Instance.GameMapID = msg.mapid;
+            UserInfoModel.Instance.IsReconnect = msg.ifReconnect;
+            if(msg.ifReconnect) {
+                // 请求重连
+            }else{
+                // 请求进入战斗
+                Int64 nowTime = UDK.TimeUtil.GetUTCMillisec();
+                MessageCenter.Instance.AskEnterBattle(nowTime, msg.battleid);
+                UDK.Output.Dump("jinru...........");
+            }
+        }
+
+        public void OnReceiveBattleSeatPosInfo(GSToGC.BattleSeatPosInfo msg) {
+
+        }
+
+        public void OnReceiveBattleStateChange(GSToGC.BattleStateChange msg) {
+
+        }
+
+        public void OnReceiveHeroList(GSToGC.HeroList msg) {
+
+        }
+        
     }
 }
 

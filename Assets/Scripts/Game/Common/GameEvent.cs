@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-16 22:19:09
+ * @LastEditTime: 2020-12-31 00:28:29
  * @Description: 
  */
 using System.Collections;
@@ -22,6 +22,15 @@ namespace Game
 
         // 连接到GS成功
         OnConnectGateServerSuccess,
+
+        // 接收到战斗信息
+        OnReceiveBattleBaseInfo,
+        // 收到战斗座位信息
+        OnReceiveBattleSeatPosInfo,
+        OnReceiveBattleStateChange,
+
+        // 接收到英雄列表
+        OnReceiveHeroList,
 
         // 接收到用户信息
         OnReceiveUserBaseInfo,

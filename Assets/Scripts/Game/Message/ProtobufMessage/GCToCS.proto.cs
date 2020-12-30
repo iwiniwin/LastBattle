@@ -1742,7 +1742,7 @@ namespace GCToCS
       [global::ProtoBuf.ProtoEnum(Name=@"eMsgToGSToCSFromGC_AskCurtNotice", Value=8201)]
       eMsgToGSToCSFromGC_AskCurtNotice = 8201,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"eMsgToGSToCSFromGC_AskAddToSNSList", Value=8210)]
+      [global::ProtoBuf.ProtoEnum(Name=@"eMsgToGSToCSFromGC_AskAddToSNSList", Value=210)]
       eMsgToGSToCSFromGC_AskAddToSNSList = 8210,
             
       [global::ProtoBuf.ProtoEnum(Name=@"eMsgToGSToCSFromGC_AskRemoveFromSNSList", Value=8211)]

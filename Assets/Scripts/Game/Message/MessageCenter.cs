@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-13 19:44:26
+ * @LastEditTime: 2020-12-31 00:28:13
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -29,10 +29,22 @@ namespace Game
                     OnCheckLoginBSRet(stream);
                     break;
                 case (Int32)BSToGC.MsgID.eMsgToGCFromBS_AskGateAddressRet:  // 请求GS地址结果
-                    onNotifyGateServerInfo(stream);
+                    OnNotifyGateServerInfo(stream);
                     break;
                 case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyUserBaseInfo:  // 收到用户信息
-                    onNotifyUserBaseInfo(stream);
+                    OnNotifyUserBaseInfo(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyBattleBaseInfo:  // 收到战斗基本信息
+                    OnNotifyBattleBaseInfo(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyBattleSeatPosInfo:
+                    OnNotifyBattleSeatPosInfo(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyBattleStateChange:
+                    OnNetNotifyBattleStateChange(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyHeroList:
+                    OnNotifyHeroList(stream);
                     break;
             }
         }
@@ -51,17 +63,42 @@ namespace Game
             EventSystem.Broadcast(EGameEvent.OnReceiveCheckLoginBSRet, msg);
         }
 
-        public void onNotifyGateServerInfo(Stream stream)
+        public void OnNotifyGateServerInfo(Stream stream)
         {
             BSToGC.AskGateAddressRet msg = ProtoBuf.Serializer.Deserialize<BSToGC.AskGateAddressRet>(stream);
             EventSystem.Broadcast(EGameEvent.OnReceiveGSInfo, msg);
         }
 
-        public void onNotifyUserBaseInfo(Stream stream)
+        public void OnNotifyUserBaseInfo(Stream stream)
         {
             GSToGC.UserBaseInfo msg;
             if (!ParseProto(out msg, stream)) return;
             EventSystem.Broadcast(EGameEvent.OnReceiveUserBaseInfo, msg);
+        }
+
+        public void OnNotifyBattleBaseInfo(Stream stream)
+        {
+            GSToGC.BattleBaseInfo msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveBattleBaseInfo, msg);
+        }
+
+        public void OnNotifyBattleSeatPosInfo(Stream stream) {
+            GSToGC.BattleSeatPosInfo msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveBattleSeatPosInfo, msg);
+        }
+        
+        public void OnNetNotifyBattleStateChange(Stream stream) {
+            GSToGC.BattleStateChange msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveBattleStateChange, msg);
+        }
+
+        public void OnNotifyHeroList(Stream stream) {
+            GSToGC.HeroList msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveHeroList, msg);
         }
 
         /* 消息发送 */
@@ -101,11 +138,31 @@ namespace Game
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 
-        public void SendCompleteBaseInfo(byte[] nickName, int headId, byte sex) {
-            GCToCS.CompleteInfo msg = new GCToCS.CompleteInfo {
+        public void SendCompleteBaseInfo(byte[] nickName, int headId, byte sex)
+        {
+            GCToCS.CompleteInfo msg = new GCToCS.CompleteInfo
+            {
                 nickname = System.Text.Encoding.UTF8.GetString(nickName),
                 headid = headId,
                 sex = sex,
+            };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskCSToCreateGuideBattle(int mapId, GCToCS.AskCSCreateGuideBattle.guidetype type)
+        {
+            GCToCS.AskCSCreateGuideBattle msg = new GCToCS.AskCSCreateGuideBattle()
+            {
+                mapid = mapId,
+                ntype = type
+            };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskEnterBattle(Int64 time, UInt64 battleId) {
+            GCToSS.AskEnterBattle msg = new GCToSS.AskEnterBattle() {
+                battleid = battleId,
+                clientTime = time,  
             };
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
@@ -116,7 +173,8 @@ namespace Game
             try
             {
                 msg = ProtoBuf.Serializer.Deserialize<T>(stream);
-                if(msg == null) {
+                if (msg == null)
+                {
                     UDK.DebugEx.LogError("proto parse error");
                     msg = default(T);
                     return false;
