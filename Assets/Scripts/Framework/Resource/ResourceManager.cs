@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 14:48:52
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-06 12:20:01
+ * @LastEditTime: 2021-01-02 20:37:21
  * @Description: 资源管理器
  */
 using System.Collections;
@@ -187,7 +187,7 @@ namespace UDK.Resource
         }
 
         // 立即加载Resources目录下资源
-        public ResourceUnit LoadImmediate(string filePath, EResourceType EResourceType, string archiveName = "Resources")
+        public ResourceUnit LoadImmediate(string filePath, EResourceType resourceType, string archiveName = "Resources")
         {
             if (UsedAssetBundle)
             {
@@ -201,17 +201,17 @@ namespace UDK.Resource
                 {
                     AssetInfo dependencyAsset = mAssetInfoManager.GetAssetInfo(index);
                     string dependencyAssetName = dependencyAsset.Name;
-                    return _LoadImmediate(fullName, EResourceType);
+                    return _LoadImmediate(fullName, resourceType);
                 }
 
                 // 加载自身
-                ResourceUnit unit = _LoadImmediate(fullName, EResourceType);
+                ResourceUnit unit = _LoadImmediate(fullName, resourceType);
                 return unit;
             }
             else
             {
                 Object asset = Resources.Load(filePath);
-                return new ResourceUnit(null, 0, asset, null, EResourceType);
+                return new ResourceUnit(null, 0, asset, null, resourceType);
             }
         }
 
@@ -241,7 +241,7 @@ namespace UDK.Resource
             }
         }
 
-        private IEnumerator _LoadLevel(string path, LoadLevelFinishEventHandle handle, EResourceType EResourceType, ResourceAsyncOperation operation)
+        private IEnumerator _LoadLevel(string path, LoadLevelFinishEventHandle handle, EResourceType resourceType, ResourceAsyncOperation operation)
         {
             if (UsedAssetBundle)
             {
@@ -282,7 +282,7 @@ namespace UDK.Resource
             }
             else
             {
-                ResourceUnit level = new ResourceUnit(null, 0, null, path, EResourceType);
+                ResourceUnit level = new ResourceUnit(null, 0, null, path, resourceType);
                 string sceneName = FileUtil.GetFileName(path, true);
                 AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
                 operation.asyncOperation = asyncOperation;
@@ -295,7 +295,7 @@ namespace UDK.Resource
         }
 
         // 加载单个资源
-        private ResourceUnit _LoadImmediate(string fileName, EResourceType EResourceType)
+        private ResourceUnit _LoadImmediate(string fileName, EResourceType resourceType)
         {
             if (!mLoadedResourceUnit.ContainsKey(fileName))
             {
@@ -310,7 +310,7 @@ namespace UDK.Resource
                 if (!asset)
                     DebugEx.LogError("load assetbundle failed");
 
-                ResourceUnit unit = new ResourceUnit(assetBundle, assetBundleSize, asset, fileName, EResourceType);
+                ResourceUnit unit = new ResourceUnit(assetBundle, assetBundleSize, asset, fileName, resourceType);
                 mLoadedResourceUnit.Add(fileName, unit);
                 return unit;
             }

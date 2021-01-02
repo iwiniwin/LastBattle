@@ -5,6 +5,8 @@ using UDK.MVC;
 using UDK.Event;
 using UDK.Network;
 using System;
+using UDK.FSM;
+using GameDefine;
 
 namespace Game
 {
@@ -55,7 +57,6 @@ namespace Game
                 // 请求进入战斗
                 Int64 nowTime = UDK.TimeUtil.GetUTCMillisec();
                 MessageCenter.Instance.AskEnterBattle(nowTime, msg.battleid);
-                UDK.Output.Dump("jinru...........");
             }
         }
 
@@ -64,7 +65,20 @@ namespace Game
         }
 
         public void OnReceiveBattleStateChange(GSToGC.BattleStateChange msg) {
-
+            var curStateType = GameStateManager<EGameStateType>.Instance.CurrentState.Type;
+            switch((EBattleState)msg.state){
+                case EBattleState.SelectHero:
+                    break;
+                case EBattleState.SelectRune:
+                    break;
+                case EBattleState.Loading:
+                    EventSystem.Broadcast(EGameEvent.LoadingGame, EGameStateType.Play);
+                    break;
+                case EBattleState.Playing:
+                    break;
+                case EBattleState.Finished:
+                    break;
+            }
         }
 
         public void OnReceiveHeroList(GSToGC.HeroList msg) {

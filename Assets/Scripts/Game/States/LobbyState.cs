@@ -29,12 +29,15 @@ namespace Game
         } = EGameStateType.Lobby;
 
         public void Enter(){
-            UDK.Output.Dump("jinru..............");
             EventSystem.Broadcast(EGameEvent.ShowLobbyView);
+
+            EventSystem.AddListener<EGameStateType>(EGameEvent.LoadingGame, OnLoadingGame);
         }
 
         public void Exit(){
             EventSystem.Broadcast(EGameEvent.HideLobbyView);
+
+            EventSystem.RemoveListener<EGameStateType>(EGameEvent.LoadingGame, OnLoadingGame);
         }
 
         public void FixedUpdate(float fixedDeltaTime){
@@ -42,7 +45,13 @@ namespace Game
         }
 
         public bool Update(float deltaTime){
-            return false;
+            return NextStateType != EGameStateType.Lobby;
+        }
+
+        public void OnLoadingGame(EGameStateType nextStateType) {
+            LoadingState state = GameStateManager<EGameStateType>.Instance.GetState(EGameStateType.Loading) as LoadingState;
+            state.NextStateType = nextStateType;
+            NextStateType = EGameStateType.Loading;
         }
     }
 }

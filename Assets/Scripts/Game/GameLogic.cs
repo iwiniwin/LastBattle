@@ -35,6 +35,7 @@ namespace Game
             ModuleManager.Instance.LoadModule<LoginView, LoginCtrl>();
             ModuleManager.Instance.LoadModule<UserInfoView, UserInfoCtrl>();
             ModuleManager.Instance.LoadModule<LobbyView, LobbyCtrl>();
+            ModuleManager.Instance.LoadModule<LoadingView, LoadingCtrl>();
         }
 
         private void Start() {
@@ -43,7 +44,7 @@ namespace Game
             NetworkManager.Instance.Init(Serialize);
             NetworkManager.Instance.OnReceiveMessage += MessageCenter.Instance.HandleMessage;
 
-            GameStateManager<EGameStateType>.Instance.Init(new LoginState(), new UserInfoState(), new LobbyState());
+            GameStateManager<EGameStateType>.Instance.Init(new LoginState(), new UserInfoState(), new LobbyState(), new LoadingState());
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
 
             // 预加载，减少进入游戏资源加载卡顿
@@ -78,7 +79,7 @@ namespace Game
             // 小地图更新
 
             // UI更新
-            // WindowManager.Instance.Update(Time.deltaTime);
+            ModuleManager.Instance.Update(Time.deltaTime);
 
             // 特效后删除机制
 

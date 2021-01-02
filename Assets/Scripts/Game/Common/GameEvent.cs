@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-31 00:28:29
+ * @LastEditTime: 2021-01-02 19:48:07
  * @Description: 
  */
 using System.Collections;
@@ -29,6 +29,9 @@ namespace Game
         OnReceiveBattleSeatPosInfo,
         OnReceiveBattleStateChange,
 
+        // 加载游戏
+        LoadingGame,
+
         // 接收到英雄列表
         OnReceiveHeroList,
 
@@ -52,6 +55,9 @@ namespace Game
         HideLobbyView,
         ShowBattleView,
         HideBattleView,
+        // 加载视图
+        ShowLoadingView,
+        HideLoadingView,
     }
 }
 

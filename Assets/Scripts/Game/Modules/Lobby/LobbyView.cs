@@ -81,7 +81,7 @@ namespace Game
 
         public override void Release()
         {
-            
+            ModuleManager.Instance.UnloadModule<BattleView>();
         }
 
         private void DisableParticle(GameObject excludeObject) {

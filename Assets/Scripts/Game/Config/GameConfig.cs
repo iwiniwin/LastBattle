@@ -15,6 +15,10 @@ namespace Game
         public static string RegisterUIPath = "UI/RegisterUI";
         public static string LobbyUIPath = "UI/LobbyUI";
         public static string LobbyBattleUIPath = "UI/LobbyBattleUI";
+        public static string LoadProgressPrefabPath = "UI/LoadProgressUI";
+
+        // map
+        public static string MapConfigXMlPath = "Config/MapLoadCfg";
 
 
         // 音频
