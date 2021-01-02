@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 14:48:52
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-02 20:37:21
+ * @LastEditTime: 2021-01-02 21:15:22
  * @Description: 资源管理器
  */
 using System.Collections;
@@ -287,6 +287,9 @@ namespace UDK.Resource
                 AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
                 operation.asyncOperation = asyncOperation;
                 yield return asyncOperation;
+
+                HandleResponse();
+
                 operation.asyncOperation = null;
                 operation.mComplete = true;
                 if (handle != null)
