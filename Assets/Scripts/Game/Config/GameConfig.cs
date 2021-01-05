@@ -24,6 +24,9 @@ namespace Game
         // 音频
         public static string UIBGSoundPath = "Audio/EnvironAudio/mus_fb_login_lp";
 
+        // entity
+        public static string MonsterModelsDir = "Monsters/";
+
         // sdk
         public static string SdkPath = "";
     }

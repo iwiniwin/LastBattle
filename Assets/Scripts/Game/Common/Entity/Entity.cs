@@ -9,13 +9,9 @@ namespace Game
 {
     public class Entity
     {
-        // public Entity(UInt64 guid, EntityCamp)
-
         public AudioSource absorbSound;
 
         public int resPath;
-
-        public Transform objTransform = null;
 
         public virtual void OnEnterDead(){
 
@@ -23,6 +19,22 @@ namespace Game
 
         public virtual void OnExecuteDead(){
 
+        }
+
+        // 表示场景里的对象
+        public UInt64 GameObjGuid {
+            get;
+            set;
+        }
+
+        public string ModelName {
+            get;
+            set;
+        }
+
+        public EEntityType EntityType {
+            set;
+            get;
         }
 
         public IFSM<Entity> FSM {
@@ -48,6 +60,35 @@ namespace Game
         public int NpcGUIDType {
             get;
             set;
+        }
+
+        public ENpcCateChild NpcCateChild {
+            get;
+            set;
+        }
+
+        public float ColliderRadius {
+            get;
+            set;
+        }
+
+        public string ResPath {
+            get;
+            set;
+        }
+
+        public GameObject RealObject {
+            set;
+            get;
+        }
+
+        public Entity(UInt64 guid, EEntityCampType campType) {
+            GameObjGuid = guid;
+            EntityCamp = campType;
+        }
+
+        public void CreateHealthBar() {
+
         }
 
         public virtual void OnReborn(){

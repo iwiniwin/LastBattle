@@ -69,6 +69,36 @@ namespace GameDefine
         GoodsBegin = 30000,
         AIRobotBegin = 40000,
     }
+
+    public enum EHeroType {
+        All,
+        Attack,
+        Assist,
+        Spell,
+        Defend,
+    }
+
+    public enum EEntityType {
+        Monster = 1,
+        Soldier,
+        Building,
+        Player,
+        AltarSoldier,
+    }
+
+    public enum ENpcCateChild {
+        None = 0,
+        PerAtkBuilding,
+        PerBomb,
+        SmallMonster,
+        HugeMonster,
+        BuildAltar = 10,
+        BuildBase,
+        BuildShop,
+        BuildTower,
+        BuildSummon = 20,
+        Other,
+    }
 }
 
 

@@ -9,12 +9,31 @@ namespace Game
 {
     public class PlayerManager : EntityManager
     {
-        public static new PlayerManager Instance = (PlayerManager)EntityManager.Instance;
+        private static PlayerManager _instance;
+        public static new PlayerManager Instance {
+            get {
+                if(_instance == null) {
+                    _instance = new PlayerManager();
+                }
+                return _instance;
+            }
+        }
 
         private Dictionary<UInt64, Player> mAllPlayers = new Dictionary<ulong, Player>();
 
+        public SelfPlayer LocalPlayer {
+            get;
+            set;
+        }
+
         public Entity HandleCreateEntity(UInt64 guid, EEntityCampType campType) {
             Player player = null;
+            if(UserInfoModel.Instance.IsLocalPlayer(guid)) {
+                player = new SelfPlayer(guid, campType);
+            }else{
+                player = new Player(guid, campType);
+            }
+            player.GameUserId = guid;
             return player;
         }
 
@@ -28,6 +47,19 @@ namespace Game
                 return;
             }
             mAllPlayers.Add(guid, player);
+        }
+
+        public override void SetCommonProperty(Entity entity, int id)
+        {
+            base.SetCommonProperty(entity, id);
+            HeroConfigInfo info = ConfigReader.GetHeroConfigInfo(id);
+            entity.ModelName = info.HeroName;
+            
+            entity.ColliderRadius = info.HeroCollideRadious / 100;
+            Player player = (Player)entity;
+            if(player.GameUserNick == "" || player.GameUserNick == null) {
+                player.GameUserNick = "rnadomname";  // todo
+            }
         }
     }
 }

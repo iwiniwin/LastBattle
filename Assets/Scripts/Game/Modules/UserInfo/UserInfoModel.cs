@@ -12,7 +12,17 @@ namespace Game
 
         public UInt32 GameMapID {get; set;}
 
+        public UInt64 GameUserGuid {get; private set;}
+
         public bool IsReconnect {get; set;}
+
+        public bool IsLocalPlayer(UInt64 guid) {
+            return guid == GameUserGuid;
+        }
+
+        public void SetGameBaseInfo(GSToGC.UserBaseInfo msg) {
+            
+        }
     }
 }
 

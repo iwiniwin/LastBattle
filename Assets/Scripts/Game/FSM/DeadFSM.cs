@@ -39,8 +39,8 @@ namespace Game
 
         public void Exit(Entity entity){
             if(entity.FSM != null && entity.FSM.State == EFSMState.DEAD){
-                entity.objTransform.position = entity.FSMDirection;
-                entity.objTransform.rotation = Quaternion.LookRotation(entity.FSMDirection);
+                entity.RealObject.transform.position = entity.FSMDirection;
+                entity.RealObject.transform.rotation = Quaternion.LookRotation(entity.FSMDirection);
                 entity.OnReborn();
             }
         }

@@ -54,7 +54,7 @@ namespace Game
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
 
             // 预加载，减少进入游戏资源加载卡顿
-            // ConfigReader.Init();
+            ConfigReader.Init();
             // GameMethod.FileRead();
 
             // 预加载特效信息

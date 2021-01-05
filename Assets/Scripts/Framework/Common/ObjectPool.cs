@@ -10,6 +10,7 @@ namespace UDK
         POT_Effect,
     }
 
+    // 对象池内对象的信息
     public class PoolObjectInfo
     {
         public string mName;
@@ -69,7 +70,7 @@ namespace UDK
                 ResourceUnit unit = ResourceManager.Instance.LoadImmediate(res, EResourceType.PREFAB);
                 if (unit.Asset == null)
                 {
-                    DebugEx.Log("can not find the resource " + res);
+                    DebugEx.LogError("can not find the resource " + res);
                 }
                 return GameObject.Instantiate(unit.Asset) as GameObject;
             }
