@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UDK.FSM;
+using GameDefine;
 
 namespace Game
 {
@@ -32,6 +33,21 @@ namespace Game
         public Vector3 FSMDirection {
             private set;
             get;
+        }
+
+        public UInt32 ObjTypeID {
+            get;
+            set;
+        }
+
+        public EEntityCampType EntityCamp {
+            get;
+            set;
+        }
+
+        public int NpcGUIDType {
+            get;
+            set;
         }
 
         public virtual void OnReborn(){

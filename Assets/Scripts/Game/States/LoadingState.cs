@@ -32,6 +32,8 @@ namespace Game
 
         
         public void Enter(){
+            
+            EventSystem.AddListener(EGameEvent.LoadGameSceneFinish, OnLoadGameSceneFinish);
             if(NextStateType == EGameStateType.Play) {
                 EventSystem.Broadcast(EGameEvent.ShowLoadingView);
             }else {
@@ -40,15 +42,20 @@ namespace Game
         }
 
         public void Exit(){
+            EventSystem.RemoveListener(EGameEvent.LoadGameSceneFinish, OnLoadGameSceneFinish);
             EventSystem.Broadcast(EGameEvent.HideLoadingView);
         }
 
-        public void FixedUpdate(float fixedDeltaTime){
+        public void OnLoadGameSceneFinish() {
+            // 切换到下一状态
+            NextStateType = EGameStateType.Play;
+        }
 
+        public void FixedUpdate(float fixedDeltaTime){
         }
 
         public bool Update(float deltaTime){
-            return false;
+            return NextStateType != EGameStateType.Loading;
         }
     }
 }

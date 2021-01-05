@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-02 19:48:07
+ * @LastEditTime: 2021-01-04 23:42:14
  * @Description: 
  */
 using System.Collections;
@@ -28,6 +28,8 @@ namespace Game
         // 收到战斗座位信息
         OnReceiveBattleSeatPosInfo,
         OnReceiveBattleStateChange,
+        // 接收到显示GO
+        OnReceiveGameObjectAppear,
 
         // 加载游戏
         LoadingGame,
@@ -58,6 +60,9 @@ namespace Game
         // 加载视图
         ShowLoadingView,
         HideLoadingView,
+
+        // 通知加载游戏场景结束
+        LoadGameSceneFinish,
     }
 }
 

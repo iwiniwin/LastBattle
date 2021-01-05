@@ -44,6 +44,7 @@ namespace Game
             View.SetProgress(curProgress);
             if(mAsync.Complete) {
                 // 与读取数据
+                EventSystem.Broadcast(EGameEvent.LoadGameSceneFinish);
                 HideView();
             }
         }

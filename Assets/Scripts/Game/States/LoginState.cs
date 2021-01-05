@@ -65,7 +65,6 @@ namespace Game
 
         public void OnReceiveUserBaseInfo(GSToGC.UserBaseInfo msg) {
             if(msg.nickname.Length > 1) {
-                UDK.Output.Dump("llllllllllllllll", msg.nickname);
                 NextStateType = EGameStateType.Lobby;
             }else if(msg.guid > 0) {
                 // 玩家没有昵称，进入补充玩家信息界面

@@ -44,7 +44,13 @@ namespace Game
             NetworkManager.Instance.Init(Serialize);
             NetworkManager.Instance.OnReceiveMessage += MessageCenter.Instance.HandleMessage;
 
-            GameStateManager<EGameStateType>.Instance.Init(new LoginState(), new UserInfoState(), new LobbyState(), new LoadingState());
+            GameStateManager<EGameStateType>.Instance.Init(
+                new LoginState(), 
+                new UserInfoState(), 
+                new LobbyState(), 
+                new LoadingState(),
+                new PlayState()
+            );
             GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Login);
 
             // 预加载，减少进入游戏资源加载卡顿

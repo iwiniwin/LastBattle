@@ -47,6 +47,28 @@ namespace GameDefine
         Play,
         Over,
     }
+
+    public enum EEntityCampType {
+        Null = -2,
+        Bad,
+        Kind,
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+    }
+
+    public enum EObjectType {
+        None = 0,
+        Guild,
+        User,
+        HeroBegin = 10000,
+        NPCBegin = 20000,
+        GoodsBegin = 30000,
+        AIRobotBegin = 40000,
+    }
 }
 
 

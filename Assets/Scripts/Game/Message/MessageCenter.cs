@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-31 00:28:13
+ * @LastEditTime: 2021-01-04 23:41:58
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -45,6 +45,9 @@ namespace Game
                     break;
                 case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyHeroList:
                     OnNotifyHeroList(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyGameObjectAppear:
+                    OnNotifyGameObjectAppear(stream);
                     break;
             }
         }
@@ -99,6 +102,12 @@ namespace Game
             GSToGC.HeroList msg;
             if(!ParseProto(out msg, stream)) return;
             EventSystem.Broadcast(EGameEvent.OnReceiveHeroList, msg);
+        }
+
+        public void OnNotifyGameObjectAppear(Stream stream) {
+            GSToGC.GOAppear msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectAppear, msg);
         }
 
         /* 消息发送 */
@@ -164,6 +173,11 @@ namespace Game
                 battleid = battleId,
                 clientTime = time,  
             };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskSceneLoadComplete() {
+            GCToSS.LoadComplete msg = new GCToSS.LoadComplete();
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 
