@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-04 23:41:58
+ * @LastEditTime: 2021-01-07 01:11:08
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -178,6 +178,19 @@ namespace Game
 
         public void AskSceneLoadComplete() {
             GCToSS.LoadComplete msg = new GCToSS.LoadComplete();
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskMoveDir(Vector3 forward) {
+            GCToSS.Dir dir = new GCToSS.Dir() {
+                x = forward.x,
+                z = forward.z,
+                angle = (float)Math.Atan2(forward.z, forward.x)
+            };
+            GCToSS.MoveDir msg = new GCToSS.MoveDir()
+            {
+                dir = dir
+            };
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 

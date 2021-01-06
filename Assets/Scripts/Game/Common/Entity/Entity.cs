@@ -37,16 +37,6 @@ namespace Game
             get;
         }
 
-        public IFSM<Entity> FSM {
-            private set;
-            get;
-        } 
-
-        public Vector3 FSMDirection {
-            private set;
-            get;
-        }
-
         public UInt32 ObjTypeID {
             get;
             set;
@@ -97,6 +87,50 @@ namespace Game
 
         protected virtual void DoReborn(){
 
+        }
+
+        public IFSM<Entity> FSM {
+            private set;
+            get;
+        } 
+
+        public Vector3 EntityFSMPosition
+        {
+            set;
+            get;
+        }
+
+        public Vector3 EntityFSMDirection
+        {
+            private set;
+            get;
+        }
+
+        public float EntityFSMMoveSpeed
+        {
+            private set;
+            get;
+        }
+
+        public void EntityFSMChangedata(Vector3 mvPos, Vector3 mvDir, float mvSpeed) {
+            EntityFSMPosition = mvPos;
+            EntityFSMDirection = mvDir;
+            EntityFSMMoveSpeed = mvSpeed;
+        }
+
+        public void OnFSMStateChange(IFSM<Entity> fsm) {
+            if(this.FSM != null && this.FSM.ChangeState(this, fsm)) {
+                return;
+            }
+
+            if(this.FSM != null) {
+                this.FSM.Exit(this);
+            }
+
+            this.FSM = fsm;
+
+            if(this.FSM != null)
+                this.FSM.Enter(this, 0.0f);
         }
     }
 }
