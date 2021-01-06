@@ -49,9 +49,7 @@ namespace Game
         }
 
         public void OnLoadingGame(EGameStateType nextStateType) {
-            LoadingState state = GameStateManager<EGameStateType>.Instance.GetState(EGameStateType.Loading) as LoadingState;
-            state.NextStateType = nextStateType;
-            NextStateType = EGameStateType.Loading;
+            GameStateManager<EGameStateType>.Instance.ChangeStateTo(EGameStateType.Loading);
         }
     }
 }

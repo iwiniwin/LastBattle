@@ -36,6 +36,7 @@ namespace Game
             ModuleManager.Instance.LoadModule<UserInfoView, UserInfoCtrl>();
             ModuleManager.Instance.LoadModule<LobbyView, LobbyCtrl>();
             ModuleManager.Instance.LoadModule<LoadingView, LoadingCtrl>();
+            ModuleManager.Instance.LoadModule<GamePlayView, GamePlayCtrl>();
         }
 
         private void Start() {

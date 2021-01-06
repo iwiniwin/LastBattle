@@ -32,13 +32,8 @@ namespace Game
 
         
         public void Enter(){
-            
             EventSystem.AddListener(EGameEvent.LoadGameSceneFinish, OnLoadGameSceneFinish);
-            if(NextStateType == EGameStateType.Play) {
-                EventSystem.Broadcast(EGameEvent.ShowLoadingView);
-            }else {
-                // 返回登录场景
-            }
+            EventSystem.Broadcast(EGameEvent.ShowLoadingView);
         }
 
         public void Exit(){

@@ -70,12 +70,12 @@ namespace Game
         }   
 
         public void AddEntityComponent(Entity entity) {
-            if(entity.RealObject.GetComponent<Entity>() == null) {
-                // Entity syncEntity = entity.RealObject.AddComponent<Entity>() as Entity;
-                // syncEntity.Sync
-            }else{
-                Entity syncEntity = entity.RealObject.GetComponent<Entity>() as Entity;
-            }
+            // if(entity.RealObject.GetComponent<Entity>() == null) {
+            //     // Entity syncEntity = entity.RealObject.AddComponent<Entity>() as Entity;
+            //     // syncEntity.Sync
+            // }else{
+            //     Entity syncEntity = entity.RealObject.GetComponent<Entity>() as Entity;
+            // }
         }
     }
 }

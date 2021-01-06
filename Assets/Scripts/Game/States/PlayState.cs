@@ -36,9 +36,11 @@ namespace Game
             EventSystem.AddListener<GSToGC.GOAppear>(EGameEvent.OnReceiveGameObjectAppear, OnReceiveGameObjectAppear);
             
             MessageCenter.Instance.AskSceneLoadComplete();
+            EventSystem.Broadcast(EGameEvent.ShowGamePlayView);
         }
 
         public void Exit(){
+            EventSystem.Broadcast(EGameEvent.HideGamePlayView);
             EventSystem.RemoveListener<GSToGC.GOAppear>(EGameEvent.OnReceiveGameObjectAppear, OnReceiveGameObjectAppear);
         }
 
@@ -81,8 +83,18 @@ namespace Game
                     player.ObjTypeID = info.obj_type_id;
                     entity = player;
                     PlayerManager.Instance.CreateEntityModel(entity, objGuid, mvDir, mvPos);
+                    CreateCharacterController(entity);
                 }
             }
+        }
+
+        private void CreateCharacterController(Entity entity) {
+            CharacterController controller = entity.RealObject.GetComponent<CharacterController>();
+            if(controller == null) {
+                controller = entity.RealObject.AddComponent<CharacterController>();
+            }
+            controller.center = new Vector3(0f, 1f, 0f);
+            controller.radius = 0.01f;
         }
 
         private bool IfTypeHero(EObjectType eOT)

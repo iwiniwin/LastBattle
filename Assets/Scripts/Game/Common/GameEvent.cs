@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-04 23:42:14
+ * @LastEditTime: 2021-01-05 23:57:16
  * @Description: 
  */
 using System.Collections;
@@ -60,6 +60,8 @@ namespace Game
         // 加载视图
         ShowLoadingView,
         HideLoadingView,
+        ShowGamePlayView,
+        HideGamePlayView,
 
         // 通知加载游戏场景结束
         LoadGameSceneFinish,
