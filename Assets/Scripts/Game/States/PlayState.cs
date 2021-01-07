@@ -37,11 +37,15 @@ namespace Game
             
             MessageCenter.Instance.AskSceneLoadComplete();
             EventSystem.Broadcast(EGameEvent.ShowGamePlayView);
+
+            EventSystem.AddListener<GSToGC.RunningState>(EGameEvent.OnReceiveGameObjectRunState, OnReceiveGameObjectRunState);
         }
 
         public void Exit(){
             EventSystem.Broadcast(EGameEvent.HideGamePlayView);
             EventSystem.RemoveListener<GSToGC.GOAppear>(EGameEvent.OnReceiveGameObjectAppear, OnReceiveGameObjectAppear);
+
+            EventSystem.RemoveListener<GSToGC.RunningState>(EGameEvent.OnReceiveGameObjectRunState, OnReceiveGameObjectRunState);
         }
 
         public void FixedUpdate(float fixedDeltaTime){
@@ -120,6 +124,32 @@ namespace Game
                 }
             }
             return type;
+        }
+
+        public void OnReceiveGameObjectRunState(GSToGC.RunningState msg) {
+            
+            if(msg.dir == null || msg.pos == null) return;
+            UInt64 guid = msg.objguid;
+            Vector3 mvPos = ConvertPosToVector3(msg.pos);
+            Vector3 mvDir = ConvertDirToVector3(msg.dir);
+            float mvSpeed = msg.movespeed / 100.0f;
+            Entity entity = null;
+
+            //todo
+            entity = PlayerManager.Instance.LocalPlayer;
+
+            // if(EntityManager.Instance.GetAllEntities().TryGetValue(guid, out entity)) {
+
+                mvPos.y = entity.RealObject.transform.position.y;
+                entity.GOSyncInfo.BeginPos = mvPos;
+                entity.GOSyncInfo.SyncPos = mvPos;
+                entity.GOSyncInfo.Dir = mvDir;
+                entity.GOSyncInfo.Speed = mvSpeed;
+                entity.GOSyncInfo.BeginTime = Time.realtimeSinceStartup;
+                entity.GOSyncInfo.LastSyncSecond = Time.realtimeSinceStartup;
+                entity.EntityFSMChangedata(mvPos, mvDir, mvSpeed);
+                entity.OnFSMStateChange(EntityRunFSM.Instance);
+            // }
         }
 
         private Vector3 ConvertPosToVector3(GSToGC.Pos pos) {

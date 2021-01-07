@@ -73,20 +73,23 @@ namespace Game
         private float moveSendTime = 0f;
         private const float SendMoveInterval = 0.05f;
         public void SendStickMove() {
+            Transform target = GameLogic.Instance.transform;
             Vector3 direction = GetDirection();
             // Entity entity = PlayerManager.Instance.LocalPlayer.
             // mJoystickTransform.gameObject.transform.LookAt();
-
             EntityComponent entityComponent = PlayerManager.Instance.LocalPlayer.RealObject.GetComponent<EntityComponent>();
             if(entityComponent == null)
                 return;
+
+            target.position = entityComponent.transform.position;
+            target.LookAt(entityComponent.transform.position + direction);
 
             // 运动正方向
             Vector3 dir = new Vector3(0, 0, 0);
 
             // 斜45度
             Quaternion rot = Quaternion.Euler(0, 45f, 0);
-            dir = rot * new Vector3(0.0f, 0.0f, 1.0f);
+            dir = rot * target.forward;
 
             float EntityFSMMoveSpeed = 100f;
 
@@ -95,6 +98,7 @@ namespace Game
 
             if(dir != Vector3.zero && Time.time - moveSendTime >= SendMoveInterval) {
                 moveSendTime = Time.time;
+
                 MessageCenter.Instance.AskMoveDir(dir);
                 // PlayerAdMove(dir);
             }
@@ -114,7 +118,7 @@ namespace Game
         }
 
         public Vector3 GetDirection() {
-            Vector2 dir = mStickPointTransform.anchoredPosition - mStickPointTransform.anchoredPosition;
+            Vector2 dir = mStickTransform.anchoredPosition - mStickPointTransform.anchoredPosition;
             Vector3 direction = new Vector3(dir.x, 0f, dir.y);
             direction.Normalize();
             return direction;

@@ -28,7 +28,8 @@ namespace Game
 
         public Entity HandleCreateEntity(UInt64 guid, EEntityCampType campType) {
             Player player = null;
-            if(UserInfoModel.Instance.IsLocalPlayer(guid)) {
+            UDK.Output.Dump(UserInfoModel.Instance.IsLocalPlayer(guid), "88888");
+            if(true || UserInfoModel.Instance.IsLocalPlayer(guid)) {
                 player = new SelfPlayer(guid, campType);
             }else{
                 player = new Player(guid, campType);

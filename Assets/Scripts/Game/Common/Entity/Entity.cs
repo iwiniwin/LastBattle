@@ -21,6 +21,16 @@ namespace Game
 
         }
 
+        public virtual void OnExecuteMove() {
+
+        }
+
+        public virtual void OnUpdate() {
+            if(FSM != null) {
+                FSM.Execute(this);
+            }
+        }
+
         // 表示场景里的对象
         public UInt64 GameObjGuid {
             get;
@@ -75,6 +85,7 @@ namespace Game
         public Entity(UInt64 guid, EEntityCampType campType) {
             GameObjGuid = guid;
             EntityCamp = campType;
+            GOSyncInfo = new GameObjectSyncInfo();
         }
 
         public void CreateHealthBar() {
@@ -87,6 +98,11 @@ namespace Game
 
         protected virtual void DoReborn(){
 
+        }
+
+        public GameObjectSyncInfo GOSyncInfo {
+            get;
+            private set;
         }
 
         public IFSM<Entity> FSM {
@@ -132,6 +148,18 @@ namespace Game
             if(this.FSM != null)
                 this.FSM.Enter(this, 0.0f);
         }
+    }
+
+    public class GameObjectSyncInfo {
+        public float Speed;
+        public Vector3 BeginPos;
+        public Vector3 SyncPos;
+        public Vector3 Dir;
+        public Vector3 LocalSyncDir;
+        public float LastSyncSecond;
+        public float BeginTime;
+        public float DistMoved;
+        public float ForceMoveSpeed;
     }
 }
 

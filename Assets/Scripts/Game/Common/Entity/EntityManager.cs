@@ -77,6 +77,7 @@ namespace Game
             }else{
                 // Entity syncEntity = entity.RealObject.GetComponent<Entity>() as Entity;
             }
+            component.SyncEntity = entity;
         }
     }
 }

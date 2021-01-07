@@ -6,6 +6,7 @@ namespace Game
 {
     public class EntityComponent : MonoBehaviour
     {
+        public Entity SyncEntity;
         // Start is called before the first frame update
         void Start()
         {
@@ -15,7 +16,13 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
-            
+            if(SyncEntity != null) {
+                SyncEntity.OnUpdate();  
+            }
+        }
+
+        public void PlayerRunAnimation() {
+            GetComponent<Animation>().CrossFade("walk");
         }
     }
 }
