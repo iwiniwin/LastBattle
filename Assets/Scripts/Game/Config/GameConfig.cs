@@ -18,6 +18,7 @@ namespace Game
         public static string LoadProgressPrefabPath = "UI/LoadProgressUI";
 
         public static string GamePlayMainUIPath = "UI/GamePlayMainUI";
+        public static string SkillUIPath = "UI/SkillUI";
 
         // map
         public static string MapConfigXMlPath = "Config/MapLoadCfg";

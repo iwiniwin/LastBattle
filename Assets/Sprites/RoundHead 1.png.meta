@@ -1,0 +1,1400 @@
+fileFormatVersion: 2
+guid: 530ed3b0b2c4c9848b6ff9ed14a3cdb7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6219006346060713711
+    second: RoundHead 1_0
+  - first:
+      213: -2910159392931561034
+    second: RoundHead 1_1
+  - first:
+      213: -3595228424577664550
+    second: RoundHead 1_2
+  - first:
+      213: 8231132270342766173
+    second: RoundHead 1_3
+  - first:
+      213: -5590453560890322097
+    second: RoundHead 1_4
+  - first:
+      213: 1699883760986281577
+    second: RoundHead 1_5
+  - first:
+      213: -1110448037805729167
+    second: RoundHead 1_6
+  - first:
+      213: -8349541918162822976
+    second: RoundHead 1_7
+  - first:
+      213: -736175513216138767
+    second: RoundHead 1_8
+  - first:
+      213: 2968311108342196041
+    second: RoundHead 1_9
+  - first:
+      213: 1782874765670695022
+    second: RoundHead 1_10
+  - first:
+      213: 4417696801159763679
+    second: RoundHead 1_11
+  - first:
+      213: -1948240151823752261
+    second: RoundHead 1_12
+  - first:
+      213: -7801028736035217082
+    second: RoundHead 1_13
+  - first:
+      213: -722061914815192432
+    second: RoundHead 1_14
+  - first:
+      213: -8474028869661359847
+    second: RoundHead 1_15
+  - first:
+      213: -8289728112956119487
+    second: RoundHead 1_16
+  - first:
+      213: 1132654915045511952
+    second: RoundHead 1_17
+  - first:
+      213: -5972361007402749379
+    second: RoundHead 1_18
+  - first:
+      213: 8042128984921599084
+    second: RoundHead 1_19
+  - first:
+      213: 1522618697858126886
+    second: RoundHead 1_20
+  - first:
+      213: -3524492184367876428
+    second: RoundHead 1_21
+  - first:
+      213: -2657046528057918768
+    second: RoundHead 1_22
+  - first:
+      213: 7591607940462485642
+    second: RoundHead 1_23
+  - first:
+      213: 5628104229721972956
+    second: RoundHead 1_24
+  - first:
+      213: 4527493625946520517
+    second: RoundHead 1_25
+  - first:
+      213: -6049966807633058076
+    second: RoundHead 1_26
+  - first:
+      213: -3763015184927661196
+    second: RoundHead 1_27
+  - first:
+      213: 4114769014781444422
+    second: RoundHead 1_28
+  - first:
+      213: -8089741812374963520
+    second: RoundHead 1_29
+  - first:
+      213: 1247638306804703806
+    second: RoundHead 1_30
+  - first:
+      213: -7469304708993955205
+    second: RoundHead 1_31
+  - first:
+      213: -3145146549387297778
+    second: RoundHead 1_32
+  - first:
+      213: -334342139033197594
+    second: RoundHead 1_33
+  - first:
+      213: -8464318358887564681
+    second: RoundHead 1_34
+  - first:
+      213: 9015968203938392826
+    second: RoundHead 1_35
+  - first:
+      213: -8546765310965838487
+    second: RoundHead 1_36
+  - first:
+      213: -7353440529240862967
+    second: RoundHead 1_37
+  - first:
+      213: -7548367832154876887
+    second: RoundHead 1_38
+  - first:
+      213: -1197046785191963933
+    second: RoundHead 1_39
+  - first:
+      213: -4825444629020667361
+    second: RoundHead 1_40
+  - first:
+      213: -3849435170507035524
+    second: RoundHead 1_41
+  - first:
+      213: 8751440114258539710
+    second: RoundHead 1_42
+  - first:
+      213: -4091734890021649121
+    second: RoundHead 1_43
+  - first:
+      213: 8390533118125603919
+    second: RoundHead 1_44
+  - first:
+      213: -7487068187187009790
+    second: RoundHead 1_45
+  - first:
+      213: 6845637915176158000
+    second: RoundHead 1_46
+  - first:
+      213: -2612012469491032273
+    second: RoundHead 1_47
+  - first:
+      213: 2441348833249006694
+    second: RoundHead 1_48
+  - first:
+      213: -9114489641062574731
+    second: RoundHead 1_49
+  - first:
+      213: -2691303923057461997
+    second: RoundHead 1_50
+  - first:
+      213: 8547475675483499285
+    second: RoundHead 1_51
+  - first:
+      213: 5569450488591920890
+    second: RoundHead 1_52
+  - first:
+      213: 7954208722708719567
+    second: RoundHead 1_53
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RoundHead 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1015
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 111b62f8da6a1b9a0800000000000000
+      internalID: -6219006346060713711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1015
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b14c8863790d97d0800000000000000
+      internalID: -2910159392931561034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1010
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad939a2dbce2b1ec0800000000000000
+      internalID: -3595228424577664550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 999
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ef801803bda3270800000000000000
+      internalID: 8231132270342766173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_4
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 994
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4390d91b18ba62b0800000000000000
+      internalID: -5590453560890322097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_5
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 932
+        width: 83
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966da053643379710800000000000000
+      internalID: 1699883760986281577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 931
+        width: 86
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a5f0d9465e690f0800000000000000
+      internalID: -1110448037805729167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_7
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 931
+        width: 87
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8dbaafcd7702c80800000000000000
+      internalID: -8349541918162822976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_8
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 931
+        width: 81
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1496a654498c5f0800000000000000
+      internalID: -736175513216138767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_9
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 931
+        width: 88
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947259be93f813920800000000000000
+      internalID: 2968311108342196041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_10
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 931
+        width: 93
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e604fce372b0eb810800000000000000
+      internalID: 1782874765670695022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_11
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 931
+        width: 85
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6d18ea5dfce4d30800000000000000
+      internalID: 4417696801159763679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_12
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 931
+        width: 91
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3646577e576f4e0800000000000000
+      internalID: -1948240151823752261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 893
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641a10a32bd2db390800000000000000
+      internalID: -7801028736035217082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_14
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 946
+        width: 5
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0922a9d9388baf5f0800000000000000
+      internalID: -722061914815192432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 792
+        width: 88
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9110e6fe3a3366a80800000000000000
+      internalID: -8474028869661359847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_16
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 830
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1466eaeb338f4fc80800000000000000
+      internalID: -8289728112956119487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_17
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 830
+        width: 89
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0135368e4aff7bf00800000000000000
+      internalID: 1132654915045511952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_18
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 833
+        width: 74
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d327d538e49ed1da0800000000000000
+      internalID: -5972361007402749379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_19
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 830
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6cef18e3b16b9f60800000000000000
+      internalID: 8042128984921599084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_20
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 830
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624933673ad612510800000000000000
+      internalID: 1522618697858126886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_21
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 830
+        width: 93
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6bc19280d761fc0800000000000000
+      internalID: -3524492184367876428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_22
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 830
+        width: 91
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da3c67a246402bd0800000000000000
+      internalID: -2657046528057918768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_23
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 830
+        width: 89
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a802d45233fca5960800000000000000
+      internalID: 7591607940462485642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_24
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 830
+        width: 84
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0a37b5afa0b1e40800000000000000
+      internalID: 5628104229721972956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_25
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 691
+        width: 71
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb33611773e4de30800000000000000
+      internalID: 4527493625946520517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_26
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 730
+        width: 85
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6a0281e333a0ca0800000000000000
+      internalID: -6049966807633058076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_27
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 730
+        width: 74
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4736cf960a517cbc0800000000000000
+      internalID: -3763015184927661196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_28
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 729
+        width: 89
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64105d23e989a1930800000000000000
+      internalID: 4114769014781444422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_29
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 730
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0caf3c4dea67bbf80800000000000000
+      internalID: -8089741812374963520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_30
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 729
+        width: 88
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32a3450e60805110800000000000000
+      internalID: 1247638306804703806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_31
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 729
+        width: 88
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a4345f0f2b75890800000000000000
+      internalID: -7469304708993955205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_32
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 729
+        width: 84
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c793580e13a54d0800000000000000
+      internalID: -3145146549387297778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_33
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 729
+        width: 80
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e36b71989d2c5bf0800000000000000
+      internalID: -334342139033197594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_34
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 729
+        width: 87
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a70b86c43b88a80800000000000000
+      internalID: -8464318358887564681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_35
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 700
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afae6f510572f1d70800000000000000
+      internalID: 9015968203938392826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_36
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 628
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d004d7b3ac36980800000000000000
+      internalID: -8546765310965838487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_37
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 629
+        width: 87
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f43a18cc453f990800000000000000
+      internalID: -7353440529240862967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_38
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 630
+        width: 52
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9245c6a137fce3790800000000000000
+      internalID: -7548367832154876887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_39
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 628
+        width: 83
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e21c158a4c336fe0800000000000000
+      internalID: -1197046785191963933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_40
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 628
+        width: 91
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1218eb1da3980db0800000000000000
+      internalID: -4825444629020667361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_41
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 628
+        width: 90
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c680c8b1f049ac0800000000000000
+      internalID: -3849435170507035524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_42
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 628
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4fb73ba6c537970800000000000000
+      internalID: 8751440114258539710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_43
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 700
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f150035ebcc3737c0800000000000000
+      internalID: -4091734890021649121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_44
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 703
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cf60e7a69217470800000000000000
+      internalID: 8390533118125603919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_45
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 628
+        width: 86
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2072795e627981890800000000000000
+      internalID: -7487068187187009790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 590
+        width: 82
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03345030a67900f50800000000000000
+      internalID: 6845637915176158000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_47
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 646
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f981f7f7440cbd0800000000000000
+      internalID: -2612012469491032273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_48
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 630
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6641f9a34d961e120800000000000000
+      internalID: 2441348833249006694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_49
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 529
+        width: 58
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575dc7b46f3d28180800000000000000
+      internalID: -9114489641062574731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_50
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 527
+        width: 93
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3157b83575196aad0800000000000000
+      internalID: -2691303923057461997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_51
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 527
+        width: 90
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b6c7327dbbe9670800000000000000
+      internalID: 8547475675483499285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_52
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 527
+        width: 85
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afea5ae06b9aa4d40800000000000000
+      internalID: 5569450488591920890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoundHead 1_53
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 517
+        width: 93
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7ed5aa0b6036e60800000000000000
+      internalID: 7954208722708719567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 40a6abb53658f4e4694174b24c123c36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
