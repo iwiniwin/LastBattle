@@ -19,6 +19,7 @@ namespace Game
 
         public static string GamePlayMainUIPath = "UI/GamePlayMainUI";
         public static string SkillUIPath = "UI/SkillUI";
+        public static string MiniMapUIPath = "UI/MiniMapUI";
 
         // map
         public static string MapConfigXMlPath = "Config/MapLoadCfg";

@@ -38,6 +38,7 @@ namespace Game
             ModuleManager.Instance.LoadModule<LoadingView, LoadingCtrl>();
             ModuleManager.Instance.LoadModule<GamePlayView, GamePlayCtrl>();
             ModuleManager.Instance.LoadModule<SkillView, SkillCtrl>();
+            ModuleManager.Instance.LoadModule<MiniMapView, MiniMapCtrl>();
         }
 
         private void Start() {
