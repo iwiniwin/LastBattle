@@ -126,6 +126,7 @@ namespace Game
             return type;
         }
 
+        // 对象移动
         public void OnReceiveGameObjectRunState(GSToGC.RunningState msg) {
             
             if(msg.dir == null || msg.pos == null) return;

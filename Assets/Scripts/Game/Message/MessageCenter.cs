@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-07 23:32:45
+ * @LastEditTime: 2021-01-21 00:59:06
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -116,7 +116,6 @@ namespace Game
         public void OnNotifyGameObjectRunState(Stream stream) {
             GSToGC.RunningState msg;
             if(!ParseProto(out msg, stream)) return;
-            UDK.Output.Dump(msg, "jjjjjjjjjjjjj");
             EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectRunState, msg);
         }
 
