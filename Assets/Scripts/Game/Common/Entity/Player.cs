@@ -59,6 +59,37 @@ namespace Game
             OnCameraUpdatePosition();
         }
 
+        public override void OnExecuteFree() {
+            EntityComponent entityComponent = RealObject.GetComponent<EntityComponent>();
+            Vector3 synPos = new Vector3(GOSyncInfo.SyncPos.x, 60, GOSyncInfo.SyncPos.z);
+            Vector3 realPos = new Vector3(RealObject.transform.position.x, 60, RealObject.transform.position.z);
+            float distToServerPos = Vector3.Distance(synPos, realPos);
+            if(distToServerPos < 0.5f) {
+
+            }else if(distToServerPos > 5) {
+                RealObject.transform.position = GOSyncInfo.BeginPos;
+            }else {
+                Vector3 syncDir = synPos - realPos;
+                syncDir.Normalize();
+                entityComponent.GetComponent<CharacterController>().Move(syncDir * 2 * Time.deltaTime);
+            }
+            entityComponent.PlayerFreeAnimation();
+            OnCameraUpdatePosition();
+            TurnAngle();
+        }
+
+        /// <summary>
+        /// 转动朝向
+        /// </summary>
+        private void TurnAngle() {
+            float angle = Vector3.Angle(RealObject.transform.forward, EntityFSMDirection);
+            if(angle > 2) {
+                Quaternion dest = Quaternion.LookRotation(EntityFSMDirection);
+                Quaternion mid = Quaternion.Lerp(RealObject.transform.rotation, dest, 5 * Time.deltaTime);
+                RealObject.transform.rotation = mid;
+            }
+        }
+
         public void OnCameraUpdatePosition()
         {
             SmoothFollow followComponent = Camera.main.GetComponent<SmoothFollow>();

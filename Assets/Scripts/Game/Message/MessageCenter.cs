@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-21 00:59:06
+ * @LastEditTime: 2021-01-25 22:14:48
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -51,6 +51,9 @@ namespace Game
                     break;
                 case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyGameObjectRunState:
                     OnNotifyGameObjectRunState(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyGameObjectFreeState:
+                    OnNotifyGameObjectFreeState(stream);
                     break;
             }
         }
@@ -117,6 +120,12 @@ namespace Game
             GSToGC.RunningState msg;
             if(!ParseProto(out msg, stream)) return;
             EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectRunState, msg);
+        }
+
+        public void OnNotifyGameObjectFreeState(Stream stream) {
+            GSToGC.FreeState msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectFreeState, msg);
         }
 
         /* 消息发送 */
@@ -200,6 +209,11 @@ namespace Game
             {
                 dir = dir
             };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskStopMove() {
+            GCToSS.StopMove msg = new GCToSS.StopMove();
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 

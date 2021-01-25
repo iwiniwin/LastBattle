@@ -39,6 +39,7 @@ namespace Game
             EventSystem.Broadcast(EGameEvent.ShowGamePlayView);
 
             EventSystem.AddListener<GSToGC.RunningState>(EGameEvent.OnReceiveGameObjectRunState, OnReceiveGameObjectRunState);
+            EventSystem.AddListener<GSToGC.FreeState>(EGameEvent.OnReceiveGameObjectFreeState, OnReceiveGameObjectFreeState);
         }
 
         public void Exit(){
@@ -46,6 +47,7 @@ namespace Game
             EventSystem.RemoveListener<GSToGC.GOAppear>(EGameEvent.OnReceiveGameObjectAppear, OnReceiveGameObjectAppear);
 
             EventSystem.RemoveListener<GSToGC.RunningState>(EGameEvent.OnReceiveGameObjectRunState, OnReceiveGameObjectRunState);
+            EventSystem.RemoveListener<GSToGC.FreeState>(EGameEvent.OnReceiveGameObjectFreeState, OnReceiveGameObjectFreeState);
         }
 
         public void FixedUpdate(float fixedDeltaTime){
@@ -151,6 +153,26 @@ namespace Game
                 entity.EntityFSMChangedata(mvPos, mvDir, mvSpeed);
                 entity.OnFSMStateChange(EntityRunFSM.Instance);
             // }
+        }
+
+        public void OnReceiveGameObjectFreeState(GSToGC.FreeState msg) {
+            if(msg.dir == null || msg.pos == null) return;
+            UInt64 guid = msg.objguid;
+            Vector3 mvPos = ConvertPosToVector3(msg.pos);
+            Vector3 mvDir = ConvertDirToVector3(msg.dir);
+            Entity entity = null;
+            if(EntityManager.Instance.GetAllEntities().TryGetValue(guid, out entity)) {
+                Vector3 lastSyncPos = entity.GOSyncInfo.SyncPos;
+                mvPos.y = entity.RealObject.transform.position.y;
+                entity.GOSyncInfo.BeginPos = mvPos;
+                entity.GOSyncInfo.SyncPos = mvPos;
+                entity.GOSyncInfo.Dir = mvDir;
+                entity.GOSyncInfo.BeginTime = Time.realtimeSinceStartup;
+                entity.GOSyncInfo.LastSyncSecond = Time.realtimeSinceStartup;
+                entity.EntityFSMChangedata(mvPos, mvDir);
+                entity.OnFSMStateChange(EntityFreeFSM.Instance);
+            }
+
         }
 
         private Vector3 ConvertPosToVector3(GSToGC.Pos pos) {

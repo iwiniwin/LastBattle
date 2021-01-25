@@ -25,6 +25,10 @@ namespace Game
 
         }
 
+        public virtual void OnExecuteFree() {
+            
+        }
+
         public virtual void OnUpdate() {
             if(FSM != null) {
                 FSM.Execute(this);
@@ -128,10 +132,28 @@ namespace Game
             get;
         }
 
+        public virtual void OnEnterFree() {
+            EntityComponent entityComponent = RealObject.GetComponent<EntityComponent>();
+            if(entityComponent == null) return;
+            Vector2 serverPos = new Vector2(GOSyncInfo.BeginPos.x, GOSyncInfo.BeginPos.z);
+            Vector2 objPos = new Vector2(RealObject.transform.position.x, RealObject.transform.position.z);
+            float distToServerPos = Vector2.Distance(serverPos, objPos);
+            if(distToServerPos > 10) {
+                RealObject.transform.position = GOSyncInfo.BeginPos;
+                entityComponent.PlayerFreeAnimation();
+                RealObject.transform.rotation = Quaternion.LookRotation(EntityFSMDirection);
+            }
+        }
+
         public void EntityFSMChangedata(Vector3 mvPos, Vector3 mvDir, float mvSpeed) {
             EntityFSMPosition = mvPos;
             EntityFSMDirection = mvDir;
             EntityFSMMoveSpeed = mvSpeed;
+        }
+
+        public void EntityFSMChangedata(Vector3 mvPos, Vector3 mvDir) {
+            EntityFSMPosition = mvPos;
+            EntityFSMDirection = mvDir;
         }
 
         public void OnFSMStateChange(IFSM<Entity> fsm) {

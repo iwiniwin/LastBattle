@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-22 22:03:31
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-07 22:09:42
+ * @LastEditTime: 2021-01-25 22:14:55
  * @Description: 
  */
 using System.Collections;
@@ -31,6 +31,7 @@ namespace Game
         // 接收到显示GO
         OnReceiveGameObjectAppear,
         OnReceiveGameObjectRunState,
+        OnReceiveGameObjectFreeState,
 
         // 加载游戏
         LoadingGame,

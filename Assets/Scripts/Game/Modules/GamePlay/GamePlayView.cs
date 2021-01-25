@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using UDK.Event;
 using UnityEngine.UI;
 using System.Text;
+using UDK.FSM;
 
 namespace Game 
 {
@@ -139,7 +140,6 @@ namespace Game
         /* UI事件响应 */
 
         void OnStickDrag(GameObject gameObject, PointerEventData eventData) {
-            
             Vector2 touchPos = eventData.position;
             
             SetStickPos(touchPos);
@@ -149,6 +149,16 @@ namespace Game
 
         void onStickEndDrag(GameObject gameObject, PointerEventData eventDat) {
             mStickTransform.anchoredPosition = mStickPointTransform.anchoredPosition;
+
+            if(mStickState == StickState.Move) {
+                MessageCenter.Instance.AskStopMove();
+            }
+            SelfPlayer player = PlayerManager.Instance.LocalPlayer;
+            if(player != null && player.FSM != null ) {  // && player.FSM.State == EFSMState.ADMOVE
+                player.OnFSMStateChange(EntityFreeFSM.Instance);
+            }
+
+            mStickState = StickState.InActive;
         }
 
     }
