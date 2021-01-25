@@ -64,8 +64,8 @@ namespace Game
                 if(objGuid < 1) 
                     DebugEx.LogError("objguid : " + objGuid);
                 Int32 camp = info.camp;
-                Vector3 mvPos = ConvertPosToVector3(info.pos);
-                Vector3 mvDir = ConvertDirToVector3(info.dir);
+                Vector3 mvPos = VectorUtil.ConvertPosToVector3(info.pos);
+                Vector3 mvDir = VectorUtil.ConvertDirToVector3(info.dir);
                 mvDir.y = 0.0f;
                 EEntityCampType type = GetEntityCampType(camp);
                 GSToGC.ObjType objType = info.obj_type;
@@ -133,8 +133,8 @@ namespace Game
             
             if(msg.dir == null || msg.pos == null) return;
             UInt64 guid = msg.objguid;
-            Vector3 mvPos = ConvertPosToVector3(msg.pos);
-            Vector3 mvDir = ConvertDirToVector3(msg.dir);
+            Vector3 mvPos = VectorUtil.ConvertPosToVector3(msg.pos);
+            Vector3 mvDir = VectorUtil.ConvertDirToVector3(msg.dir);
             float mvSpeed = msg.movespeed / 100.0f;
             Entity entity = null;
 
@@ -158,8 +158,8 @@ namespace Game
         public void OnReceiveGameObjectFreeState(GSToGC.FreeState msg) {
             if(msg.dir == null || msg.pos == null) return;
             UInt64 guid = msg.objguid;
-            Vector3 mvPos = ConvertPosToVector3(msg.pos);
-            Vector3 mvDir = ConvertDirToVector3(msg.dir);
+            Vector3 mvPos = VectorUtil.ConvertPosToVector3(msg.pos);
+            Vector3 mvDir = VectorUtil.ConvertDirToVector3(msg.dir);
             Entity entity = null;
             if(EntityManager.Instance.GetAllEntities().TryGetValue(guid, out entity)) {
                 Vector3 lastSyncPos = entity.GOSyncInfo.SyncPos;
@@ -173,19 +173,6 @@ namespace Game
                 entity.OnFSMStateChange(EntityFreeFSM.Instance);
             }
 
-        }
-
-        private Vector3 ConvertPosToVector3(GSToGC.Pos pos) {
-            float mapHeight = 60.0f;
-            if(pos != null) 
-                return new Vector3((float)pos.x / 100.0f, mapHeight, (float)pos.z / 100.0f);
-            else
-                return Vector3.zero;
-        }
-
-        private Vector3 ConvertDirToVector3(GSToGC.Dir dir) {
-            float angle = (float)(dir.angle) / 10000;
-            return new Vector3((float)Math.Cos(angle), 0, (float)Math.Sin(angle));
         }
     }
 }

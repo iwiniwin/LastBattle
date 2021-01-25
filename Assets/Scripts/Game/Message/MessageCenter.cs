@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-25 22:14:48
+ * @LastEditTime: 2021-01-25 23:14:55
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -54,6 +54,9 @@ namespace Game
                     break;
                 case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyGameObjectFreeState:
                     OnNotifyGameObjectFreeState(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyGameObjectReleaseSkillState:
+                    OnNotifyReleaseSkill(stream);
                     break;
             }
         }
@@ -126,6 +129,12 @@ namespace Game
             GSToGC.FreeState msg;
             if(!ParseProto(out msg, stream)) return;
             EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectFreeState, msg);
+        }
+
+        public void OnNotifyReleaseSkill(Stream stream) {
+            GSToGC.ReleasingSkillState msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectReleaseSkill, msg);
         }
 
         /* 消息发送 */
@@ -214,6 +223,13 @@ namespace Game
 
         public void AskStopMove() {
             GCToSS.StopMove msg = new GCToSS.StopMove();
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskUseSkill(UInt32 skillId) {
+            GCToSS.UseSkill msg = new GCToSS.UseSkill(){
+                skillid = (int)skillId
+            };
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 

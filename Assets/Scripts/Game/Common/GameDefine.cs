@@ -99,6 +99,17 @@ namespace GameDefine
         BuildSummon = 20,
         Other,
     }
+
+    public enum ESkillType {
+        NULL = -1,
+        TYPE1,
+        TYPE2,
+        TYPE3,
+        TYPE4,
+        TYPE5,
+        TYPEABSORB1,
+        TYPEABSORB2,
+    }
 }
 
 

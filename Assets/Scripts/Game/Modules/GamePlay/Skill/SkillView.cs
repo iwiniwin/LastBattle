@@ -14,6 +14,13 @@ namespace Game
     {
         public new SkillCtrl Ctrl;
 
+        Button skillButton;
+
+        private enum SkillState {
+            Normal,
+            Fury
+        }
+
         public SkillView(){
             ResName = GameConfig.SkillUIPath;
             IsResident = false;
@@ -29,6 +36,9 @@ namespace Game
             RectTransform transform = Root.gameObject.GetComponent<RectTransform>();
             transform.offsetMin = new Vector2(0.0f, 0.0f);  // left  bottom
             transform.offsetMax = new Vector2(0.0f, 0.0f);  // right top
+
+            skillButton = Root.Find("Panel/Button_0").GetComponent<Button>();
+            EventListener.Get(skillButton.gameObject).onClick += OnClickSkillBtn;
         }
 
 
@@ -45,6 +55,32 @@ namespace Game
         public override void Release()
         {
             
+        }
+
+        private void SendSkill(int btn) {
+            ESkillType type = GetSkillType(btn);
+            if(type == ESkillType.NULL)
+                return;
+            PlayerManager.Instance.LocalPlayer.SendPreparePlaySkill(type);
+        }
+
+        ESkillType GetSkillType(int btn) {
+            ESkillType type = ESkillType.NULL;
+            switch(btn) {
+                case 0:
+                    type = ESkillType.TYPE1;
+                    break;
+            }
+            return type;
+        }
+
+        /* UI事件响应 */
+
+        void OnClickSkillBtn(GameObject gameObject, PointerEventData eventData) {
+            Player player = PlayerManager.Instance.LocalPlayer;
+            if(player.FSM == null || player.FSM.State == UDK.FSM.EFSMState.DEAD)
+                return;
+            SendSkill(0);
         }
     }
 }

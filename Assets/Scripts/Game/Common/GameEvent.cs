@@ -33,6 +33,8 @@ namespace Game
         OnReceiveGameObjectRunState,
         OnReceiveGameObjectFreeState,
 
+        OnReceiveGameObjectReleaseSkill,
+
         // 加载游戏
         LoadingGame,
 

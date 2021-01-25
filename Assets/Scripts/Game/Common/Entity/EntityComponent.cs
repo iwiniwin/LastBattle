@@ -30,6 +30,14 @@ namespace Game
         public void PlayerFreeAnimation() {
             GetComponent<Animation>().CrossFade("free");
         }
+
+        public void PlayeAttackAnimation() {
+
+        }
+
+        public void PlayerAnimation(string name) {
+            GetComponent<Animation>().CrossFade(name);
+        }
     }
 }
 

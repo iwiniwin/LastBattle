@@ -26,7 +26,7 @@ namespace Game
         }
 
         public virtual void OnExecuteFree() {
-            
+
         }
 
         public virtual void OnUpdate() {
@@ -132,6 +132,18 @@ namespace Game
             get;
         }
 
+        public int EntitySkillID
+        {
+            set;
+            get;
+        }
+
+        protected Entity SkillTarget
+        {
+            get;
+            set;
+        }
+
         public virtual void OnEnterFree() {
             EntityComponent entityComponent = RealObject.GetComponent<EntityComponent>();
             if(entityComponent == null) return;
@@ -145,6 +157,21 @@ namespace Game
             }
         }
 
+        public virtual void OnEntityReleaseSkill() {
+            SkillManagerConfig skillManagerConfig = ConfigReader.GetSkillManagerConfigInfo(EntitySkillID);
+            if(skillManagerConfig == null) return;
+            EntityComponent entityComponent = RealObject.GetComponent<EntityComponent>();
+            if(skillManagerConfig.isAbsorb == 1) {  // 吸附技能
+
+            }else {
+                if(skillManagerConfig.isNormalAttack == 1) {  // 是否是普通攻击
+                    entityComponent.PlayeAttackAnimation();
+                }else{
+                    entityComponent.PlayerAnimation(skillManagerConfig.rAnimation);
+                }
+            }
+        }
+
         public void EntityFSMChangedata(Vector3 mvPos, Vector3 mvDir, float mvSpeed) {
             EntityFSMPosition = mvPos;
             EntityFSMDirection = mvDir;
@@ -154,6 +181,15 @@ namespace Game
         public void EntityFSMChangedata(Vector3 mvPos, Vector3 mvDir) {
             EntityFSMPosition = mvPos;
             EntityFSMDirection = mvDir;
+        }
+
+        protected int isAbsorb;  // 1是吸附，0不是
+        public void EntityFSMChangeDataOnPrepareSkill(Vector3 mvPos, Vector3 mvDir, int skillID, Entity targetID, int isAbsorbSkill = 0) {
+            EntityFSMPosition = mvPos;
+            EntityFSMDirection = mvDir;
+            EntitySkillID = skillID;
+            SkillTarget = targetID;
+            isAbsorb = isAbsorbSkill;
         }
 
         public void OnFSMStateChange(IFSM<Entity> fsm) {
