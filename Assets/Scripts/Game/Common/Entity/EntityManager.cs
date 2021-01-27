@@ -79,6 +79,14 @@ namespace Game
             }
             component.SyncEntity = entity;
         }
+
+        public void AddEntity(UInt64 guid, Entity entity) {
+            if(mAllEntities.ContainsKey(guid)) {
+                DebugEx.LogError("has the same guid " + guid);
+                return;
+            }
+            mAllEntities.Add(guid, entity);
+        }
     }
 }
 

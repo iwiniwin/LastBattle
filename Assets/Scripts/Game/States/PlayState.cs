@@ -78,7 +78,6 @@ namespace Game
                 }
 
                 Entity entity = null;
-
                 if(IfTypeHero((EObjectType)info.obj_type_id)) {
                     Player player = null;
                     if(!PlayerManager.Instance.GetAllPlayers().TryGetValue(masterGuid, out player)) {
@@ -90,6 +89,14 @@ namespace Game
                     entity = player;
                     PlayerManager.Instance.CreateEntityModel(entity, objGuid, mvDir, mvPos);
                     CreateCharacterController(entity);
+                }
+                if(entity != null) {
+                    entity.GameObjGuid = objGuid;
+                    EntityManager.Instance.AddEntity(objGuid, entity);
+                    entity.GOSyncInfo.BeginPos = mvPos;
+                    entity.GOSyncInfo.SyncPos = mvPos;
+                    entity.EntityFSMChangedata(mvPos, mvDir);
+                    entity.OnFSMStateChange(EntityFreeFSM.Instance);
                 }
             }
         }
