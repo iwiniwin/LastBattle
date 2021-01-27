@@ -24,15 +24,24 @@ namespace Game
         }
 
         public void PlayerRunAnimation() {
-            GetComponent<Animation>().CrossFade("walk");
+            PlayerAnimation("walk");
         }
 
         public void PlayerFreeAnimation() {
-            GetComponent<Animation>().CrossFade("free");
+            PlayerAnimation("free");
         }
 
         public void PlayeAttackAnimation() {
-
+            var animation = GetComponent<Animation>();
+            string name = "attack";
+            if(SyncEntity != null && SyncEntity.EntityType == EEntityType.Player) {
+                int id = Random.Range(0, ConfigReader.HeroXmlInfoDic[SyncEntity.NpcGUIDType].n32RandomAttack.Count);
+                name = ConfigReader.HeroXmlInfoDic[SyncEntity.NpcGUIDType].n32RandomAttack[id];
+            }
+            if(animation.isPlaying) {
+                animation.Stop();
+            }
+            PlayerAnimation(name);
         }
 
         public void PlayerAnimation(string name) {

@@ -54,8 +54,6 @@ namespace Game
             Vector3 dir = targetPos - transform.position;
             dir.Normalize();
             transform.rotation = Quaternion.LookRotation(dir);
-
-            UDK.Output.Dump("fffffffffffff");
         }
     }
 }

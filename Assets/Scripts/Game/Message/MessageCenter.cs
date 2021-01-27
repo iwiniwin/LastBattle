@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-26 00:11:36
+ * @LastEditTime: 2021-01-28 00:06:14
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -240,6 +240,11 @@ namespace Game
             GCToSS.UseSkill msg = new GCToSS.UseSkill(){
                 skillid = (int)skillId
             };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskAutoFight() {
+            GCToSS.AutoAtk msg = new GCToSS.AutoAtk();
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 

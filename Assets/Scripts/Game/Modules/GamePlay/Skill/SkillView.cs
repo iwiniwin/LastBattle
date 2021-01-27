@@ -15,6 +15,7 @@ namespace Game
         public new SkillCtrl Ctrl;
 
         Button skillButton;
+        Button attackButton;
 
         private enum SkillState {
             Normal,
@@ -39,6 +40,9 @@ namespace Game
 
             skillButton = Root.Find("Panel/Button_0").GetComponent<Button>();
             EventListener.Get(skillButton.gameObject).onClick += OnClickSkillBtn;
+
+            attackButton = Root.Find("Panel/Button_6").GetComponent<Button>();
+            EventListener.Get(attackButton.gameObject).onClick += OnClickAttackBtn;
         }
 
 
@@ -81,6 +85,13 @@ namespace Game
             if(player.FSM == null || player.FSM.State == UDK.FSM.EFSMState.DEAD)
                 return;
             SendSkill(0);
+        }
+
+        void OnClickAttackBtn(GameObject gameObject, PointerEventData eventData) {
+            Player player = PlayerManager.Instance.LocalPlayer;
+            // todo
+            player.EntityFSMChangeDataOnPrepareSkill(player.EntityFSMPosition, player.EntityFSMDirection, 1150301, player.SkillTarget);
+            player.OnFSMStateChange(EntityReleaseSkillFSM.Instance);
         }
     }
 }

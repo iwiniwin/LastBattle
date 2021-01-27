@@ -138,7 +138,7 @@ namespace Game
             get;
         }
 
-        protected Entity SkillTarget
+        public Entity SkillTarget
         {
             get;
             set;
