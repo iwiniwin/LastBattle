@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-11-08 17:47:07
  * @LastEditors: iwiniwin
- * @LastEditTime: 2020-12-06 12:20:09
+ * @LastEditTime: 2021-01-27 22:37:20
  * @Description: 文件操作工具类
  */
 using System.Collections;
@@ -81,6 +81,16 @@ namespace UDK
             else
             {
                 return path.Substring(index + 1, path.Length - index - 1);
+            }
+        }
+
+        public static string GetResourceName(string resPath) {
+            int index = resPath.LastIndexOf("/");
+            if (index == -1)
+                return resPath;
+            else
+            {
+                return resPath.Substring(index + 1, resPath.Length - index - 1);
             }
         }
 

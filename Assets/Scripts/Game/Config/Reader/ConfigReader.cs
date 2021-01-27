@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2021-01-05 22:48:01
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-25 23:40:47
+ * @LastEditTime: 2021-01-27 22:59:11
  * @Description: 配置读取器
  */
 using System.Collections;
@@ -18,6 +18,7 @@ namespace Game
         public static void Init() {
             var heroXmlInfoDic = HeroXmlInfoDic;
             var skillManagerInfoDic = SkillManagerInfoDic;
+            var skillAreaInfoDic = SkillAreaInfoDic;
         }
 
         private static Dictionary<int, HeroConfigInfo> heroXmlInfoDic;
@@ -40,6 +41,16 @@ namespace Game
             }
         }
 
+        private static Dictionary<uint, SkillAreaConfig> skillAreaInfoDic;
+        public static Dictionary<uint, SkillAreaConfig> SkillAreaInfoDic{
+            get {
+                if(skillAreaInfoDic == null) {
+                    skillAreaInfoDic = SkillAreaConfigReader.Read("Config/SkillCfg_area"); 
+                }
+                return skillAreaInfoDic;
+            }
+        }
+
 
         public static HeroConfigInfo GetHeroConfigInfo(int id) {
             if(!heroXmlInfoDic.ContainsKey(id)){
@@ -53,6 +64,13 @@ namespace Game
                 return null;
             }
             return skillManagerInfoDic[id];
+        }
+
+        public static SkillAreaConfig GetSkillAreaConfigInfo(uint id) {
+            if(!skillAreaInfoDic.ContainsKey(id)){
+                return null;
+            }
+            return skillAreaInfoDic[id];
         }
 
     }

@@ -34,6 +34,7 @@ namespace Game
         OnReceiveGameObjectFreeState,
 
         OnReceiveGameObjectReleaseSkill,
+        OnReceiveSkillModelRange,
 
         // 加载游戏
         LoadingGame,

@@ -24,6 +24,7 @@ namespace Game
             EventSystem.AddListener(EGameEvent.ShowGamePlayView, ShowView);
             EventSystem.AddListener(EGameEvent.HideGamePlayView, HideView);
             EventSystem.AddListener<GSToGC.ReleasingSkillState>(EGameEvent.OnReceiveGameObjectReleaseSkill, OnReceiveGameObjectReleaseSkill);
+            EventSystem.AddListener<GSToGC.RangeEffect>(EGameEvent.OnReceiveSkillModelRange, OnReceiveSkillModelRange);
         }
 
         public override void Release()
@@ -31,6 +32,7 @@ namespace Game
             EventSystem.RemoveListener(EGameEvent.ShowGamePlayView, ShowView);
             EventSystem.RemoveListener(EGameEvent.HideGamePlayView, HideView);
             EventSystem.RemoveListener<GSToGC.ReleasingSkillState>(EGameEvent.OnReceiveGameObjectReleaseSkill, OnReceiveGameObjectReleaseSkill);
+            EventSystem.RemoveListener<GSToGC.RangeEffect>(EGameEvent.OnReceiveSkillModelRange, OnReceiveSkillModelRange);
         }
 
         public override void Update(float deltaTime)
@@ -53,6 +55,15 @@ namespace Game
                 entity.EntityFSMChangeDataOnPrepareSkill(pos, dir, msg.skillid, target);
                 entity.OnFSMStateChange(EntityReleaseSkillFSM.Instance);
             // }
+        }
+
+        public void OnReceiveSkillModelRange(GSToGC.RangeEffect msg) {
+            if(msg != null) {
+                UInt64 owner = msg.guid;
+                Vector3 pos = VectorUtil.ConvertPosToVector3(msg.pos);
+                Vector3 dir = VectorUtil.ConvertDirToVector3(msg.dir);
+                EffectManager.Instance.CreateAreaEffect(owner, msg.effectid, msg.uniqueid, dir, pos);
+            }
         }
     }
 }

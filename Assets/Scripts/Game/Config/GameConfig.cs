@@ -21,6 +21,9 @@ namespace Game
         public static string SkillUIPath = "UI/SkillUI";
         public static string MiniMapUIPath = "UI/MiniMapUI";
 
+        public static string SkillEffectPath = "Effect/Skill/Release/";
+        public static string SoundPath = "Sound/";
+
         // map
         public static string MapConfigXMlPath = "Config/MapLoadCfg";
 

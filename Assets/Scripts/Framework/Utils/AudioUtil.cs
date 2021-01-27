@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UDK.Resource;
 
 namespace UDK
 {
@@ -32,6 +33,13 @@ namespace UDK
                 }
             }
             return null;
+        }
+
+        public static AudioSource PlaySound(string path) {
+            if(path == "") return null;
+            ResourceUnit clipUnit = ResourceManager.Instance.LoadImmediate(path, EResourceType.ASSET);
+            AudioClip clip = clipUnit.Asset as AudioClip;
+            return PlaySound(clip);
         }
     }
 }

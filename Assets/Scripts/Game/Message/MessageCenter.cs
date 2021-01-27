@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-25 23:14:55
+ * @LastEditTime: 2021-01-26 00:11:36
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -57,6 +57,9 @@ namespace Game
                     break;
                 case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifyGameObjectReleaseSkillState:
                     OnNotifyReleaseSkill(stream);
+                    break;
+                case (Int32)GSToGC.MsgID.eMsgToGCFromGS_NotifySkillModelRange://范围技能
+                    OnNotifySkillModelRange(stream);
                     break;
             }
         }
@@ -136,6 +139,13 @@ namespace Game
             if(!ParseProto(out msg, stream)) return;
             EventSystem.Broadcast(EGameEvent.OnReceiveGameObjectReleaseSkill, msg);
         }
+
+        public void OnNotifySkillModelRange(Stream stream) {
+            GSToGC.RangeEffect msg;
+            if(!ParseProto(out msg, stream)) return;
+            EventSystem.Broadcast(EGameEvent.OnReceiveSkillModelRange, msg);
+        }
+
 
         /* 消息发送 */
 
