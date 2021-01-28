@@ -7,6 +7,7 @@ using UDK.Network;
 using System;
 using UDK.FSM;
 using GameDefine;
+using UDK;
 
 namespace Game
 {
@@ -84,7 +85,19 @@ namespace Game
         public void OnReceiveHeroList(GSToGC.HeroList msg) {
 
         }
-        
+
+        public void AskMatchBattle(int mapId, EBattleMatchType type) {
+            MessageCenter.Instance.AskMatchBattle(mapId, type);
+
+            // todo
+            MessageCenter.Instance.AskStartTeamMatch();
+
+            Clock.ScheduleOnce(()=>{
+                UDK.Output.Dump("vvvvvvvvvvvvvvv");
+                MessageCenter.Instance.AskSelectHero(10002);
+            }, 5);
+        }
+
     }
 }
 

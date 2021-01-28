@@ -23,6 +23,7 @@ namespace Game
         Transform mTrainInterface;
 
         Button mNoviceMapBtn;  // 新手引导地图选择按钮
+        Button mMatchMapBtn;  // 匹配营地选择按钮
 
         public BattleView(){
             ResName = GameConfig.LobbyBattleUIPath;
@@ -50,12 +51,14 @@ namespace Game
             mTrainInterface = Root.Find("Box/TrainingInterface");
 
             mNoviceMapBtn = Root.Find("Box/TrainingInterface/MapSelect/Novice").GetComponent<Button>();
+            mMatchMapBtn = Root.Find("Box/MatchInterface/MapSelect/Match").GetComponent<Button>();
 
             mMatchToggle.onValueChanged.AddListener(OnMatchBattleChanged);
             mCustomToggle.onValueChanged.AddListener(OnCustomToggleChanged);
             mTrainMarketToggle.onValueChanged.AddListener(OnTrainBattleChanged);
 
             EventListener.Get(mNoviceMapBtn.gameObject).onClick += OnClickNoviceMap;
+            EventListener.Get(mMatchMapBtn.gameObject).onClick += OnClickMatchMap;
         }
 
         public override void OnEnable()
@@ -95,6 +98,10 @@ namespace Game
 
         void OnClickNoviceMap(GameObject gameObject, PointerEventData eventData) {
             Ctrl.AskCreateNoviceGuideBattle(1000);
+        }
+
+        void OnClickMatchMap(GameObject gameObject, PointerEventData eventData) {
+            Ctrl.AskMatchBattle(1001, EBattleMatchType.Normal);
         }
     }
 }

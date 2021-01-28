@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2021-01-02 19:09:22
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-02 19:37:50
+ * @LastEditTime: 2021-01-28 23:36:59
  * @Description: 地图加载器
  */
 using System.Collections;
@@ -15,6 +15,15 @@ using System;
 
 namespace Game
 {
+    public enum EBattleMatchType {
+        None,
+        AI,
+        Normal,
+        Rank,
+        Train,
+        Dungeon
+    }
+    
     public class MapLoader : Singleton<MapLoader>
     {
         private XmlDocument mXmlDoc = null;

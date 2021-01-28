@@ -2,7 +2,7 @@
  * @Author: iwiniwin
  * @Date: 2020-12-06 16:41:13
  * @LastEditors: iwiniwin
- * @LastEditTime: 2021-01-28 00:06:14
+ * @LastEditTime: 2021-01-28 23:59:03
  * @Description: 消息中心，负责消息接收与发送
  */
 using System.Collections;
@@ -245,6 +245,26 @@ namespace Game
 
         public void AskAutoFight() {
             GCToSS.AutoAtk msg = new GCToSS.AutoAtk();
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskMatchBattle(int id, EBattleMatchType type) {
+            GCToCS.AskCreateMatchTeam msg = new GCToCS.AskCreateMatchTeam {
+                mapid = (uint)id,
+                matchtype = (uint)type
+            };
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskStartTeamMatch() {
+            GCToCS.AskStartMatch msg = new GCToCS.AskStartMatch();
+            NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
+        }
+
+        public void AskSelectHero(UInt32 heroId) {
+            GCToSS.SelectHero msg = new GCToSS.SelectHero(){
+                heroid = (int)heroId
+            };
             NetworkManager.Instance.SendMsg(msg, (int)msg.msgnum);
         }
 
